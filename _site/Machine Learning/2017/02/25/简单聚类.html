@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="我的博客" name="description">
+  
+  
+    <meta name="keywords" content="blog,Machine Learning,AI">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|简单聚类
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 25 Feb 2017</span>
+                        <h1>
+                            简单聚类
+                        </h1>
+                    </div>
+                    	<h2 id="目录">目录</h2>
+<p><strong>欢迎在文章下方评论，建议用电脑看</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#目录" id="markdown-toc-目录">目录</a></li>
+  <li><a href="#简单聚类" id="markdown-toc-简单聚类">简单聚类</a>    <ul>
+      <li><a href="#k-means算法" id="markdown-toc-k-means算法">k-means算法</a>        <ul>
+          <li><a href="#算法步骤" id="markdown-toc-算法步骤">算法步骤</a></li>
+          <li><a href="#k-means算法是否一定收敛" id="markdown-toc-k-means算法是否一定收敛">k-means算法是否一定收敛</a></li>
+          <li><a href="#k-means算法的凸性质" id="markdown-toc-k-means算法的凸性质">k-means算法的凸性质</a></li>
+          <li><a href="#k如何选择" id="markdown-toc-k如何选择">K如何选择</a></li>
+          <li><a href="#聚类中心如何初始化" id="markdown-toc-聚类中心如何初始化">聚类中心如何初始化</a></li>
+          <li><a href="#k-means的公式化解释" id="markdown-toc-k-means的公式化解释">K-means的公式化解释</a></li>
+          <li><a href="#k-means聚类方法总结" id="markdown-toc-k-means聚类方法总结">K-means聚类方法总结</a></li>
+          <li><a href="#k-means的一个小改进k中值聚类" id="markdown-toc-k-means的一个小改进k中值聚类">K-means的一个小改进（K中值聚类）</a></li>
+        </ul>
+      </li>
+      <li><a href="#混合高斯模型" id="markdown-toc-混合高斯模型">混合高斯模型</a>        <ul>
+          <li><a href="#gmm的em算法的推导" id="markdown-toc-gmm的em算法的推导">GMM的EM算法的推导</a></li>
+          <li><a href="#gmm的初始化" id="markdown-toc-gmm的初始化">GMM的初始化</a></li>
+          <li><a href="#高斯混合模型与k-means异同点" id="markdown-toc-高斯混合模型与k-means异同点">高斯混合模型与K-means异同点</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="简单聚类">简单聚类</h1>
+
+<h2 id="k-means算法">k-means算法</h2>
+
+<ul>
+  <li>来，今天讲下应该是最简单的一个聚类算法，K-means算法,很好上手，很好实现，</li>
+</ul>
+
+<h3 id="算法步骤">算法步骤</h3>
+<p>输入：样本S = X1, X2,…, Xm。
+步骤：</p>
+<ol>
+  <li>选择初始的K个类别中心μ1，μ2，…，μk，k &lt; m</li>
+  <li>对每个样本Xi，找到与其最近的那个聚类中心后将其标记为距离类别中心最近的类别，即：
+<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster1.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> PS：上式的读法是：样本xi的类别距离xi最近的聚类中心μj的那个类别。    3. 经过上面一步，有些聚类(聚类集合也称为簇)中的元素就更新了，于是就需要调整聚类中心，所以将每个类别中心更新为隶属该类别的所有样本的均值： &lt;img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster2.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;"/&gt;
+</code></pre></div></div>
+
+<ol>
+  <li>重复最后两步，直到类别中心的变化小于某阈值。
+终止条件：迭代次数/簇中心变化率/最小平方误差MSE(MinimumSquared Error)</li>
+</ol>
+
+<p>好了，算法步骤写完了，那我们下面继续讨论几个问题。</p>
+
+<h3 id="k-means算法是否一定收敛">k-means算法是否一定收敛</h3>
+<p>*　k -means算法一定收敛吗？在特定的场景下，答案是肯定的。
+*　可以证明k-means正是在J上的坐标下降过程（参考第八讲）。尤其是k-means算法的内循环实际上是在重复：保持μ不变最小化J关于c的函数，然后再保持c不变最小化J关于μ的函数。因此，J是单调递减的，它的函数值一定收敛</p>
+
+<h3 id="k-means算法的凸性质">k-means算法的凸性质</h3>
+<ul>
+  <li>失真函数J是一个非凸函数，所以对于J的坐标下降并不能保证其收敛于全局最小值，即kk-means会被局部最小值影响。尽管如此，kk-means算法通常都都能很好的完成聚类任务。
+    <blockquote>
+      <p>也就是说初始值对结果的影响较大
+在聚类的时候要多选几次随机初始化，然后选择最小</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="k如何选择">K如何选择</h3>
+
+<p>步骤知道了，那选择几个类别呢？
+ 这个还真没有好办法，只能使用先验知识选定、拍脑门选一个或者用交叉验证的方式去验证….
+ 当然有些地方说K=(n/2)1/2，这个知道就好。</p>
+
+<h3 id="聚类中心如何初始化">聚类中心如何初始化</h3>
+<p>话说K-means是初值敏感的,K-means算法会产生局部最优值的。即：如果聚类中心选择的不太好的话，可能到一个不太好的地方后就停了。那如何选择聚类中心呢？有这么个方法:</p>
+
+<ol>
+  <li>随便选一个聚类中心A，然后统计所有的样本点到A的距离，并让距离A远的样本点选中的概率大一些（如：距离A越远的样本点权值越大）。</li>
+  <li>在上面的基础上选出第二个点B作为聚类中心，然后计算所有样本点到这两个聚类中心的距离（如：所有样本点到最近的那个聚类中心的距离作为其权值），距离远的选中概率大。</li>
+  <li>重复上面的步骤，选出K个聚类中心。
+   PS：选中聚类中心时可以给个阈值，如果距离小于阈值就PASS，如果大与阈值就作为候选聚类中心，而这个阈值的选择方法可以是：建立个最小生成树，然后对边的权值取均值/最大值/最小值作为阈值。当然，实际运用中经常不这么麻烦，假设是二维的，于是上面的图可以放到一个x,y 坐标轴上，于是就求出最左边样本点到最右边样本点的长度X，和最上边样本点与最下边样本点的长度Y，然后用X/N和Y/N作为阈值的参考值。</li>
+</ol>
+
+<h3 id="k-means的公式化解释">K-means的公式化解释</h3>
+<p>记K个簇中心为μ1，μ2，…，μk，每个簇的样本数目为N1,N2, …, Nk
+ 使用平方误差作为目标函数：
+<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster3.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>注：上式中等号右边的意思是：求属于第j个簇的所有样本到第j个簇的聚类中心μj的距离的平方和，然后求所有簇的上述值的和。</p>
+
+<p>我们的目的是对该目标函数取最小，哪一个聚类中心，或者说哪一个簇能使该目标函数取最小，我们就说哪个是最好的。
+ 于是对μ求偏导：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster4.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>这是在说：</p>
+<ol>
+  <li>聚类中心即在该聚类中的所有样本的和求均值。</li>
+  <li>样本距离聚类中心是服从高斯分布的。</li>
+  <li>K-means最终的结果一定是像个圆形的。</li>
+</ol>
+
+<h3 id="k-means聚类方法总结">K-means聚类方法总结</h3>
+<p>优点：</p>
+<ol>
+  <li>是解决聚类问题的一种经典算法，简单、快速</li>
+  <li>对处理大数据集，该算法保持可伸缩性和高效率</li>
+  <li>当簇近似为高斯分布时，它的效果较好
+缺点：</li>
+  <li>在簇的平均值可被定义的情况下才能使用，可能不适用于某些应用</li>
+  <li>必须事先给出k(要生成的簇的数目)，而且对初值敏感，对于不同的初始值，可能会导致不同结果。</li>
+  <li>不适合于发现非凸形状的簇或者大小差别很大的簇</li>
+  <li>对躁声和孤立点数据敏感</li>
+</ol>
+
+<h3 id="k-means的一个小改进k中值聚类">K-means的一个小改进（K中值聚类）</h3>
+<p>比如数组1、2、3、4、100的均值为22，显然距离“大多数”数据1、2、3、4比较远。
+于是改成求数组的中位数3，在该实例中更为稳妥。
+这就是K-Mediods聚类（K中值聚类），它的目标函数一定意义上可以认为是把K-means的目标函数中的平方换成绝对值。
+这个算法在一定程度上可以对抗异常值。</p>
+
+<h2 id="混合高斯模型">混合高斯模型</h2>
+
+<p>从几何上讲，单高斯分布模型在二维空间应该近似于椭圆，在三维空间上近似于椭球。遗憾的是在很多分类问题中，属于同一类别的样本点并不满足“椭圆”分布的特性。这就引入了高斯混合模型。而且因为高斯函数具有良好的计算性能，所以GMM被广泛地应用。</p>
+
+<p>GMM简单的说就是从几个GSM(高斯分布)中生成出来的。即，如果GSM（高斯分布）的概率密度函数用</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster5.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />
+ ，θ = (μ,σ2)
+ 表示的话，那GMM就是：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster6.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>其中，ak是系数，ak &gt;=0，
+<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster7.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster8.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>称为第k个分模型，其中θk= (μk,σk2)。a1+a2+…+aK = 1。</p>
+
+<h3 id="gmm的em算法的推导">GMM的EM算法的推导</h3>
+<p>假设观测数据y1, y2,…, yN由GMM生成</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster9.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>其中，θ = (a1,a2, …, ak; θ1, θ2, …, θk)。
+我们的目标是用EM算法估计GMM的参数θ。</p>
+
+<p><strong>1,明确隐变量，写出完全数据的对数似然函数</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>可以设想观测数据yj，j = 1, 2,…, N，是这样产生的：首先依概率ak选择第k个高斯分布分模型φ(y</td>
+      <td>θk)；然后依第k个分模型的概率分布φ(y</td>
+      <td>θk)生成观测数据yj。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>这时观测数据yj是已知的，观测数据yj来自的第k个分模型是未知的(k =1, 2, .., K)，于是这个就是隐变量，我们用rjk表示，其定义如下：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster10.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>PS：隐变量rjk是0-1随机变量。
+有了观测数据yj及未观测数据rjk，那么完全数据是
+ (yj,rj1, rj2, …, rjk), j = 1, 2, …, N
+于是，可以写出完全数据的似然函数</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster11.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>式中</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster12.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />
+（a式）</p>
+
+<blockquote>
+  <p>tip：
+第一个等号：在满足θ的高斯分布中，第j样本点出现的概率是P(yj, rj1, rj2, …, rjK | θ)，于是代表“所有的样本点出现的概率”的P(y,r | θ)就推出了第一个等号。
+第二个等号：由9.27式可得，若第j个观测来自第k个分模型时，rjk=1，即，akφ(yj|θk)]^rjk = akφ(yj|θk)]，反之，akφ(yj|θk)]^rjk = 0。
+于是将K个akφ(yj|θk)]^rjk连乘，就表示了第j个样本集合属于第k个分模型，即P(yj, rj1, rj2, …, rjK | θ)的展开
+后面两个等号是基本的数学知识，就不再解释了。</p>
+</blockquote>
+
+<p>那么，完全数据的对数似然函数就是</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster13.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p><strong>2，EM算法的E步：确定Q函数</strong></p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster14.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<blockquote>
+  <p>tip：
+上面的第三个等号的推导，就是把（a式）中的nk带进去，然后把E放到里面。</p>
+</blockquote>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster15.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster16.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />
+是在当前模型参数下第j个观测数据来自第k个分模型的概率，称为分模型k对观测数据yi的响应度。</p>
+
+<p>最后将</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster17.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>代入9.28式，即得</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster18.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p><strong>3，确定EM算法的M步</strong></p>
+
+<p>这一步就简单了，Q函数已经知道，即9.29式，那对Q函数中的θ对应的各参数求偏导，并令其为0就可以了，其结果如下：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_cluster19.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p><strong>4，重复以上计算，知道对数似然函数不再有明显的变化为止。</strong></p>
+
+<h3 id="gmm的初始化">GMM的初始化</h3>
+
+<p>方案1：协方差矩阵设为单位矩阵，每个模型比例的先验概率设为相等；均值u设为随机数。</p>
+
+<p>方案 2：由k均值（k-means）聚类算法对样本进行聚类，利用各类的均值作为u，初始的协方差矩阵源自于原始数据的协方差矩阵，且每个簇的初始协方差矩阵相同，取各类样本占样本总数的比例。</p>
+
+<blockquote>
+  <p>我们发现，通常用方案二会取得更好的结果</p>
+</blockquote>
+
+<h3 id="高斯混合模型与k-means异同点">高斯混合模型与K-means异同点</h3>
+
+<p>相同点：
+（1）需要指定K值
+（2）需要指定初始值，例如K-means的中心点，GMM的各个参数
+（3）都是含有EM算法思想</p>
+
+<p>不同点：
+（1）优化目标函数不同，K-means:最短距离，GMM：最大化log似然估计
+ (2）E步的指标不同，K-means:点到中心的距离（硬指标），GMM：求解每个观测数据的每个component的概率（软指标）</p>
+
+<p>参考资料：</p>
+
+<p>《统计学习方法》-李航<br /></p>
+
+<p>《机器学习》-周志华<br /></p>
+
+<p>《机器学习实战》-Peter Harrington<br /></p>
+
+<p>斯坦福大学公开课-机器学习<br /></p>
+
+<p>网上的各位大牛的博文<br /></p>
+
+<p><!-- 多说评论框 start --></p>
+
+<div class="ds-thread" data-thread-key="201702255" data-title="cluster" data-url=""></div>
+
+<!-- 多说评论框 end -->
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yzhhome"};
+
+  (function() {
+
+    var ds = document.createElement('script');
+
+    ds.type = 'text/javascript';ds.async = true;
+
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+
+    ds.charset = 'UTF-8';
+
+    (document.getElementsByTagName('head')[0] 
+
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  })();
+
+  </script>
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/machine%20learning/2017/02/25/%E7%AE%80%E5%8D%95%E8%81%9A%E7%B1%BB.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2017-2-24-简单聚类.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

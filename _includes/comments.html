@@ -1,0 +1,85 @@
+<!-- {% if site.changyan %}
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: '{{ site.changyan.appid }}',
+        conf: '{{ site.changyan.conf }}'
+    });
+</script>
+{% endif %}
+
+{% if site.disqus %}
+<div id="disqus_thread"></div>
+<script>
+/** * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS. * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+	/*
+	var disqus_config = function () { this.page.url = PAGE_URL;
+	// Replace PAGE_URL with your page's canonical URL variable this.page.identifier = PAGE_IDENTIFIER;
+	// Replace PAGE_IDENTIFIER with your page's unique identifier variable };
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+			var d = document, s = d.createElement('script');
+			s.src = '//{{ site.disqus.name }}.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+		})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+{% endif %} -->
+
+<!-- {%if page.comments %}
+  {% assign sorted_comments = (page.comments | sort: 'date') %}
+{% endif %}
+{% for c in sorted_comments %}
+  <div class="media">
+    <div class="media-left">
+      <img src="{{ c.author.picture }}" alt="{{ c.author.displayName}}" height="73" width="73">
+    </div>
+    <div class="media-body">
+      <p class="text-muted">
+        <a href="{{ c.author.url }}">{{ c.author.displayName }}</a>
+        on {{ c.date | date_to_string }}
+      </p>
+      <p>{{ c.content | newline_to_br }}</p>
+    </div>
+  </div>
+{% else %}
+  There are no comments on this post.
+{% endfor %}
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '{{ page.path }}';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="{{ post.Thread_Key }}" data-title="{{ post.title }}" data-url="https://yzhihao.github.io/{{ post.commeturl }}"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->

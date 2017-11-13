@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="我的博客系统介绍" name="description">
+  
+  
+    <meta name="keywords" content="blog,Machine Learning,AI">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|Pandas基础
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">Python</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 19 Jan 2017</span>
+                        <h1>
+                            Pandas基础
+                        </h1>
+                    </div>
+                    	<h2 id="目录">目录</h2>
+<p><strong>欢迎在文章下方评论，建议用电脑看</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#目录" id="markdown-toc-目录">目录</a></li>
+  <li><a href="#pandas基础" id="markdown-toc-pandas基础">Pandas基础</a>    <ul>
+      <li><a href="#创建pandas结构" id="markdown-toc-创建pandas结构">创建Pandas结构</a></li>
+      <li><a href="#pandas-选择数据" id="markdown-toc-pandas-选择数据">Pandas 选择数据</a></li>
+      <li><a href="#pandas处理缺失值和填充值" id="markdown-toc-pandas处理缺失值和填充值">Pandas处理缺失值和填充值</a></li>
+      <li><a href="#pandas导入导出" id="markdown-toc-pandas导入导出">Pandas导入导出</a></li>
+      <li><a href="#pandas-plot-出图" id="markdown-toc-pandas-plot-出图">Pandas plot 出图</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="pandas基础">Pandas基础</h1>
+
+<p>如果用 python 的列表和字典来作比较, 那么可以说 Numpy 是列表形式的，没有数值标签，而 Pandas 就是字典形式。Pandas是基于Numpy构建的，让Numpy为中心的应用变得更加简单。</p>
+
+<p>要使用pandas，首先需要了解他主要两个数据结构：Series和DataFrame。</p>
+
+<h2 id="创建pandas结构">创建Pandas结构</h2>
+
+<p>Series的 创建：<code class="highlighter-rouge">s = pd.Series([1,3,6,np.nan,44,1])</code>建立的结果如下：</p>
+
+<blockquote>
+  <p>”””
+0     1.0
+1     3.0
+2     6.0
+3     NaN
+4    44.0
+5     1.0
+dtype: float64
+“””</p>
+</blockquote>
+
+<p>Series的字符串表现形式为：<strong>索引在左边，值在右边。由于我们没有为数据指定索引。于是会自动创建一个0到N-1（N为长度）的整数型索引。</strong></p>
+
+<p>DataFrame 的创建：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dates = pd.date_range('20160101',periods=6)
+df = pd.DataFrame(np.random.randn(6,4),index=dates,columns=['a','b','c','d'])
+
+print(df)
+"""
+				   a         b         c         d
+2016-01-01 -0.253065 -2.071051 -0.640515  0.613663
+2016-01-02 -1.147178  1.532470  0.989255 -0.499761
+2016-01-03  1.221656 -2.390171  1.862914  0.778070
+2016-01-04  1.473877 -0.046419  0.610046  0.204672
+2016-01-05 -1.584752 -0.700592  1.487264 -1.778293
+2016-01-06  0.633675 -1.414157 -0.277066 -0.442545
+"""
+</code></pre></div></div>
+
+<p>DataFrame是一个表格型的数据结构，它包含有一组有序的列，每列可以是不同的值类型（数值，字符串，布尔值等）。DataFrame既有行索引也有列索引， 它可以被看做由Series组成的大字典。</p>
+
+<p>我们可以根据每一个不同的索引来挑选数据, 比如挑选 b 的元素:</p>
+
+<p><code class="highlighter-rouge">df2.index</code>:表示的是列的序号，<code class="highlighter-rouge">df2.columns</code>表示的是行的序号。还有一些关于DataFrame的小细节，一些属性请看<a href="https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/3-1-pd-intro/">这篇文章</a></p>
+
+<h2 id="pandas-选择数据">Pandas 选择数据</h2>
+
+<p><code class="highlighter-rouge">df['A']</code>或者<code class="highlighter-rouge">df[0:3]</code>，这里就可以当作是map来使用就可以了，如果没有特别的设置键的话就是<code class="highlighter-rouge">0,1,2...</code>这样的。</p>
+
+<p><code class="highlighter-rouge">loc</code>：同样我们可以使用标签来选择数据 loc, 本例子主要通过标签名字选择<strong>某一行数据</strong>， 或者通过选择某行或者所有行（:代表所有行）然后选其中某一列或几列数据。，</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(df.loc['20130102'])
+"""
+A    4
+B    5
+C    6
+D    7
+Name: 2013-01-02 00:00:00, dtype: int64
+"""
+
+print(df.loc[:,['A','B']])
+"""
+			 A   B
+2013-01-01   0   1
+2013-01-02   4   5
+2013-01-03   8   9
+2013-01-04  12  13
+2013-01-05  16  17
+2013-01-06  20  21
+"""
+
+print(df.loc['20130102',['A','B']])
+"""
+A    4
+B    5
+Name: 2013-01-02 00:00:00, dtype: int64
+"""
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">iloc</code>：另外我们可以采用位置进行选择 iloc, 在这里我们可以通过位置选择在不同情况下所需要的数据例如选某一个，连续选或者跨行选等操作。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(df.iloc[3,1])
+# 13
+
+print(df.iloc[3:5,1:3])
+"""
+			 B   C
+2013-01-04  13  14
+2013-01-05  17  18
+"""
+
+print(df.iloc[[1,3,5],1:3])
+"""
+			 B   C
+2013-01-02   5   6
+2013-01-04  13  14
+2013-01-06  21  22
+
+"""
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">ix</code>：当然也可以使用混合在使用，比如<code class="highlighter-rouge">df.ix[:3,['A','C']]</code>表示的就是：其中选择’A’和’C’的两列，并选择前三行的数据。</p>
+
+<p>同时，可以实验判断来截取数据，<code class="highlighter-rouge">df[df.A&gt;8]</code>表示的就是大于8的数据。</p>
+
+<h2 id="pandas处理缺失值和填充值">Pandas处理缺失值和填充值</h2>
+
+<p>有时候我们导入或处理数据, 会产生一些空的或者是 NaN 数据,如何删除或者是填补这些 NaN 数据是一个问题：</p>
+
+<p>建立了一个6X4的矩阵数据并且把两个位置置为空.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dates = pd.date_range('20130101', periods=6)
+df = pd.DataFrame(np.arange(24).reshape((6,4)),index=dates, columns=['A','B','C','D'])
+df.iloc[0,1] = np.nan
+df.iloc[1,2] = np.nan
+"""
+			 A     B     C   D
+2013-01-01   0   NaN   2.0   3
+2013-01-02   4   5.0   NaN   7
+2013-01-03   8   9.0  10.0  11
+2013-01-04  12  13.0  14.0  15
+2013-01-05  16  17.0  18.0  19
+2013-01-06  20  21.0  22.0  23	np.any(df.isnull()) == True  
+# True
+"""
+</code></pre></div></div>
+
+<p>如果想直接去掉有 NaN 的行或列, 可以使用 dropna</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df.dropna(
+	axis=0,     # 0: 对行进行操作; 1: 对列进行操作
+	how='any'   # 'any': 只要存在 NaN 就 drop 掉; 'all': 必须全部是 NaN 才 drop 
+	) 
+"""
+			 A     B     C   D
+2013-01-03   8   9.0  10.0  11
+2013-01-04  12  13.0  14.0  15
+2013-01-05  16  17.0  18.0  19
+2013-01-06  20  21.0  22.0  23
+"""
+</code></pre></div></div>
+
+<p>如果是将 NaN 的值用其他值代替, 比如代替成 0:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df.fillna(value=0)
+"""
+			 A     B     C   D
+2013-01-01   0   0.0   2.0   3
+2013-01-02   4   5.0   0.0   7
+2013-01-03   8   9.0  10.0  11
+2013-01-04  12  13.0  14.0  15
+2013-01-05  16  17.0  18.0  19
+2013-01-06  20  21.0  22.0  23
+"""
+</code></pre></div></div>
+
+<p>判断是否有缺失数据 <code class="highlighter-rouge">NaN</code>, 为 <code class="highlighter-rouge">True</code> 表示缺失数据:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df.isnull()
+"""
+				A      B      C      D
+2013-01-01  False   True  False  False
+2013-01-02  False  False   True  False
+2013-01-03  False  False  False  False
+2013-01-04  False  False  False  False
+2013-01-05  False  False  False  False
+2013-01-06  False  False  False  False
+"""
+</code></pre></div></div>
+
+<p>检测在数据中是否存在 <code class="highlighter-rouge">NaN</code>, 如果存在就返回 <code class="highlighter-rouge">True</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>np.any(df.isnull()) == True 
+# True
+</code></pre></div></div>
+
+<h2 id="pandas导入导出">Pandas导入导出</h2>
+
+<p>pandas可以读取与存取的资料格式有很多种，像csv、excel、json、html与pickle等…</p>
+
+<p>读取csv：<code class="highlighter-rouge">data = pd.read_csv('students.csv')</code></p>
+
+<p>将资料存取成pickle：<code class="highlighter-rouge">data.to_pickle('student.pickle')</code></p>
+
+<h2 id="pandas-plot-出图">Pandas plot 出图</h2>
+
+<p><code class="highlighter-rouge">.plot()</code>就是直接画出折线图的一种图，当然，Pandas提供了很多重画图的api，不意义说明。</p>
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Python</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/python/2017/01/19/Pandas%E5%9F%BA%E7%A1%80.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2017-1-17-Pandas基础.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

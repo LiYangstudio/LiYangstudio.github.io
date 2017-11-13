@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="mybatis1" name="description">
+  
+  
+    <meta name="keywords" content="blog,java">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|深入浅出mybatis（一）整体架构
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">java</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 13 Nov 2016</span>
+                        <h1>
+                            深入浅出mybatis（一）整体架构
+                        </h1>
+                    </div>
+                    	<h1 id="深入浅出mybatis一整体架构">深入浅出mybatis（一）整体架构</h1>
+
+<h2 id="目录">目录</h2>
+<p><strong>欢迎在文章下方评论</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#深入浅出mybatis一整体架构" id="markdown-toc-深入浅出mybatis一整体架构">深入浅出mybatis（一）整体架构</a>    <ul>
+      <li><a href="#目录" id="markdown-toc-目录">目录</a></li>
+      <li><a href="#dao层" id="markdown-toc-dao层">dao层</a></li>
+      <li><a href="#mybatis的简介" id="markdown-toc-mybatis的简介">mybatis的简介</a></li>
+      <li><a href="#mybatis的大致原理对jdbc的优化和封装" id="markdown-toc-mybatis的大致原理对jdbc的优化和封装">mybatis的大致原理–对JDBC的优化和封装：</a></li>
+      <li><a href="#mybatis主要组件" id="markdown-toc-mybatis主要组件">Mybatis主要组件</a></li>
+      <li><a href="#mybatis执行过程" id="markdown-toc-mybatis执行过程">mybatis执行过程</a></li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>还记得你当初学的第一个框架吗？很有可能就是mybatis吧。好了，那今天开始，我们来聊聊  mybatis的这个框架吧！<strong>注意：这并不能作为入门教程，只能是复习讨论一起。因为我聊的肯定不会那么系统，毕竟现在比较渣（逃）！</strong></p>
+</blockquote>
+
+<p>既然聊mybatis，作为有追求的程序员，那绝对不能止于表面是吧。所以肯定是要聊思想和聊其原理的。下面就一起学习吧。</p>
+
+<h2 id="dao层">dao层</h2>
+<blockquote>
+  <p>mybatis是orm框架，所以在讲mybatis之前，我想先说明到层的作用。</p>
+</blockquote>
+
+<ol>
+  <li>对象能与数据库交互；</li>
+  <li>能执行sql语句。</li>
+</ol>
+
+<h2 id="mybatis的简介">mybatis的简介</h2>
+<p>The MyBatis SQL mapper framework makes it easier to use a relational database with object-oriented applications. MyBatis couples objects with stored procedures or SQL statements using a XML descriptor or annotations. Simplicity is the biggest advantage of the MyBatis data mapper over object relational mapping tools.</p>
+
+<blockquote>
+  <p>上面是官网的一段话，我觉得it程序员学习还是要多去官网的吧，所以英语还是要学好来的额。</p>
+</blockquote>
+
+<p>好了，上面大概说mybatis就是一个简单的ORM框架，他让面向对象的应用和关系型数据库之间的操作变的更加简单，他用xml，或注解或储存过程来对应数据库的操作。而简单，就是mybatis的最大优势。</p>
+
+<blockquote>
+  <p>我们知道，mybatis其实就是对jdbc进行了封装，然后添加了一些自己特有的功能而已。下面，先从整体上看下mybatis的架构设计是怎么样的：</p>
+</blockquote>
+
+<h2 id="mybatis的大致原理对jdbc的优化和封装">mybatis的大致原理–对JDBC的优化和封装：</h2>
+<ol>
+  <li>使用数据库连接池对连接进行管理</li>
+  <li>SQL语句统一存放到配置文件</li>
+  <li>SQL语句变量和传入参数的映射以及动态SQL</li>
+  <li>动态SQL语句的处理</li>
+  <li>对数据库操作结果的映射和结果缓存</li>
+  <li>SQL语句的重复</li>
+</ol>
+
+<div>
+<img src="https://yzhihao.github.io/static/img/blog/java/mybatis1.png" alt="header1" style="height:auto!important;width:100%;max-width:1020px;" />
+</div>
+
+<ul>
+  <li>Mybatis的三层功能架构
+    <ol>
+      <li>API接口层：提供给外部使用的接口API，开发人员通过这些本地API来操纵数据库。接口层一接收到调用请求就会调用数据处理层来完成具体的数据处理。</li>
+      <li>数据处理层：负责具体的SQL查找、SQL解析、SQL执行和执行结果映射处理等。它主要的目的是根据调用的请求完成一次数据库操作。</li>
+      <li>基础支撑层：负责最基础的功能支撑，包括连接管理、事务管理、配置加载和缓存处理，这些都是共用的东西，将他们抽取出来作为最基础的组件。为上层的数据处理层提供最基础的支撑。</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="mybatis主要组件">Mybatis主要组件</h2>
+
+<ul>
+  <li>Configuration MyBatis所有的配置信息都维持在Configuration对象之中</li>
+  <li>SqlSession 作为MyBatis工作的主要顶层API，表示和数据库交互的会话，完成必要数据库增删改查功能</li>
+  <li>Executor MyBatis执行器，是MyBatis 调度的核心，负责SQL语句的生成和查询缓存的维护</li>
+  <li>StatementHandler 封装了JDBC Statement操作，负责对JDBCstatement的操作，如设置参数、将Statement结果集转换成List集合。</li>
+  <li>ParameterHandler 负责对用户传递的参数转换成JDBC Statement 所需要的参数</li>
+  <li>ResultSetHandler *负责将JDBC返回的ResultSet结果集对象转换成List类型的集合；</li>
+  <li>TypeHandler 负责java数据类型和jdbc数据类型之间的映射和转换</li>
+  <li>MappedStatement MappedStatement维护了一条<code class="highlighter-rouge">&lt;select|update|delete|insert&gt;</code>节点的封装</li>
+  <li>SqlSource 负责根据用户传递的parameterObject，动态地生成SQL语句，将信息封装到BoundSql对象中，并返回</li>
+  <li>BoundSql 表示动态生成的SQL语句以及相应的参数信息</li>
+</ul>
+
+<h2 id="mybatis执行过程">mybatis执行过程</h2>
+<ol>
+  <li>加载配置：配置来源于两个地方，一处是配置文件，一处是Java代码的注解，将SQL的配置信息加载成为一个个MappedStatement对象（包括了传入参数映射配置、执行的SQL语句、结果映射配置），存储在内存中。</li>
+  <li>SQL解析：当API接口层接收到调用请求时，会接收到传入SQL的ID和传入对象（可以是Map、JavaBean或者基本数据类型），Mybatis会根据SQL的ID找到对应的MappedStatement，然后根据传入参数对象对MappedStatement进行解析，解析后可以得到最终要执行的SQL语句和参数。</li>
+  <li>SQL执行：将最终得到的SQL和参数拿到数据库进行执行，得到操作数据库的结果。</li>
+  <li>结果映射：将操作数据库的结果按照映射的配置进行转换，可以转换成HashMap、JavaBean或者基本数据类型，并将最终结果返回。</li>
+</ol>
+
+<blockquote>
+  <p>一张图片</p>
+</blockquote>
+
+<div>
+<img src="https://yzhihao.github.io/static/img/blog/java/mybatis2.png" alt="header1" style="height:auto!important;width:100%;max-width:1020px;" />
+</div>
+
+<p><!-- 多说评论框 start --></p>
+<div class="ds-thread" data-thread-key="201611133" data-title="mybatis1" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+<!-- 多说公共JS代码 end -->
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">java</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">web</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/java/2016/11/13/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAmybatis%E4%B8%80.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2016-11-13-深入浅出mybatis一.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

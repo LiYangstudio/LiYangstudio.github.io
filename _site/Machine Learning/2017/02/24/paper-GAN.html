@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="我的博客" name="description">
+  
+  
+    <meta name="keywords" content="blog,Machine Learning,AI">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|论文笔记-GAN
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 24 Feb 2017</span>
+                        <h1>
+                            论文笔记-GAN
+                        </h1>
+                    </div>
+                    	<h1 id="gan">GAN</h1>
+
+<p>这里的论文主要</p>
+
+<h2 id="为什么要有gan">为什么要有GAN</h2>
+
+<p><strong>论文原文：</strong></p>
+
+<p>Deep generative models have had less of an impact, due to the difficulty of approximating many intractable probabilistic computations that arise in maximum likelihood estimation and related strategies, and due to difficulty of leveraging the benefits of piecewise linear units in the generative context. We propose a new generative model estimation procedure that sidesteps these difficulties.</p>
+
+<blockquote>
+  <p>讲述了<strong>（1）用出现在最大似然估计和相关策略很难很好的完成许多棘手的概率近似计算，（2）同时也很难扩充分段的网络结构的优势去生成那些相应内容</strong></p>
+</blockquote>
+
+<h2 id="gan的算法流程和整体概念图">GAN的算法流程和整体概念图</h2>
+
+<p><strong>论文原文：</strong></p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/P-GAN1.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/P-GAN2.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<h2 id="gan散度">GAN散度</h2>
+
+<p><strong>论文原文：</strong></p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/P-GAN3.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/P-GAN4.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>注意上面的式子,也就变成了下面这个
+<img src="http://zhihu.com/equation?tex=2JS%28P_r+%7C%7C+P_g%29+-+2%5Clog+2" alt="" />
+GAN定义的判别器loss，我们可以得到最优判别器的形式；而在最优判别器的下，我们可以把原始GAN定义的生成器loss等价变换为最小化真实分布P_r与生成分布P_g之间的JS散度。我们越训练判别器，它就越接近最优，最小化生成器的loss也就会越近似于最小化P_r和P_g之间的JS散度。
+但其实在散度的表示存在很多问题,详细见:<a href="https://yzhihao.github.io/machine%20learning/2017/04/20/Wasserstein-GAN.html">Wasserstein-GAN</a></p>
+
+<h2 id="gan收敛">GAN收敛</h2>
+<p><strong>论文原文：</strong></p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/P-GAN5.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<blockquote>
+  <p>在这里注意的是可以理解为<strong>在优化最佳判别器的时候同时在给生成器最佳的梯度</strong>，简单理解就是在判别器在判别的时候，它在同时告诉生成器，应该要怎么生成一张图片或其他来让判别器认为生成的图片更加的真实。</p>
+</blockquote>
+
+<h2 id="原始gan优缺点">原始GAN优缺点</h2>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/gan_advanddisadv.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>缺点：必须同时把握好训练强度，避免生成样本过度接近真实样本从而减少其多样性。也就是<strong>too many values of z to the same value of x to have enough diversity to model p data</strong></p>
+
+<p>优点：（1）不需要马尔可夫链，反馈有反向梯度的形式，（2）对抗最大的好处是判别器的梯度之间传向生成器（3）生成对抗网络甚至可以拟合degenerate的分布。</p>
+
+<blockquote>
+
+</blockquote>
+
+<h1 id="dcgans">DCGANs</h1>
+
+<p>GANs provide an attractive alternative to maximum likelihood techniques. One can additionally argue that their learning process and the lack of a heuristic cost function (such as pixel-wise independent mean-square error) are attractive to representation learning. GANs have been known to be unstable to train, often resulting in generators that produce nonsensical outputs. There has been very limited published research in trying to understand and visualize what GANs learn, and the intermediate representations of multi-layer GANs.</p>
+
+<h2 id="dcgan结构特点">DCGAN结构特点</h2>
+
+<p>首先来看下它的结构：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/dcgan_stru.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>We propose and evaluate a set of constraints on the architectural topology of Convolutional
+GANs that make them stable to train in most settings. We name this class of architectures
+Deep Convolutional GANs (DCGAN)
+• We use the trained discriminators for image classification tasks, showing competitive performance with other unsupervised algorithms.
+• We visualize the filters learnt by GANs and empirically show that specific filters have
+learned to draw specific objects.</p>
+
+<p>• We show that the generators have interesting vector arithmetic properties allowing for easy
+manipulation of many semantic qualities of generated samples.</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/dc_gan1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<h2 id="在dcgan中三个改进cnn方式">在DCGAN中三个改进cnn方式</h2>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/dc-gan-impro.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>也就是取消pooling，取消全链接，加上BN。</p>
+
+<p><!-- 多说评论框 start --></p>
+
+<div class="ds-thread" data-thread-key="2017031001" data-title="gan" data-url=""></div>
+
+<!-- 多说评论框 end -->
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yzhhome"};
+
+  (function() {
+
+    var ds = document.createElement('script');
+
+    ds.type = 'text/javascript';ds.async = true;
+
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+
+    ds.charset = 'UTF-8';
+
+    (document.getElementsByTagName('head')[0] 
+
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  })();
+
+  </script>
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/machine%20learning/2017/02/24/paper-GAN.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2017-3-10-paper-GAN.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

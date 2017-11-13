@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="我的博客" name="description">
+  
+  
+    <meta name="keywords" content="blog,Machine Learning,AI">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|图像标注
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 8 May 2017</span>
+                        <h1>
+                            图像标注
+                        </h1>
+                    </div>
+                    	<h2 id="目录">目录</h2>
+<p><strong>欢迎在文章下方评论，建议用电脑看</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#目录" id="markdown-toc-目录">目录</a></li>
+  <li><a href="#图像标注" id="markdown-toc-图像标注">图像标注</a></li>
+  <li><a href="#当前水平和意义" id="markdown-toc-当前水平和意义">当前水平和意义</a></li>
+  <li><a href="#图像标注数据集" id="markdown-toc-图像标注数据集">图像标注数据集</a></li>
+  <li><a href="#图像标注评价标准" id="markdown-toc-图像标注评价标准">图像标注评价标准</a>    <ul>
+      <li><a href="#perplexity" id="markdown-toc-perplexity">Perplexity</a></li>
+      <li><a href="#bleu" id="markdown-toc-bleu">BLEU</a></li>
+      <li><a href="#rouge" id="markdown-toc-rouge">ROUGE</a></li>
+      <li><a href="#meteor" id="markdown-toc-meteor">METEOR</a></li>
+      <li><a href="#cider" id="markdown-toc-cider">CIDEr</a></li>
+    </ul>
+  </li>
+  <li><a href="#图像标注模型发展" id="markdown-toc-图像标注模型发展">图像标注模型发展</a>    <ul>
+      <li><a href="#m-rnn模型" id="markdown-toc-m-rnn模型">m-RNN模型</a></li>
+      <li><a href="#nic模型" id="markdown-toc-nic模型">NIC模型</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="图像标注">图像标注</h2>
+
+<p>看图说话。就像老师要求小朋友们在看图说话作业中完成的任务一样，我们也希望算法能够根据图像给出能够描述图像内容的自然语言语句</p>
+
+<h2 id="当前水平和意义">当前水平和意义</h2>
+
+<p>当前水平：<strong>貌似接近人类，其实差距尚大。</strong>,只是由于评判标准的问题，在一些论文中说差不多接近人类或者说差不多超过人类，但所用的评价标准似乎不那么的，自动评价标准的目前都是尽量让自己的计算结果能够和人类判断结果相关。评价标准是一个问题，这个值得思考！</p>
+
+<p>意义和价值：图像标注问题如果能够得到很好的解决，那么价值是显而易见的，可以应用到<strong>图像检索，儿童教育和视力受损人士的生活辅助等方面。</strong>而从学术的角度来看，当前图像标注问题的研究，促使人工智能领域的两大领域，计算机视觉和自然语言处理很好地结合，这种跨子领域的结合能够催生出更让人惊艳的方法吗？</p>
+
+<h2 id="图像标注数据集">图像标注数据集</h2>
+
+<p>首先是：Microsoft COCO Caption数据集，在<a href="https://arxiv.org/abs/1504.00325">Microsoft COCO Captions: Data Collection and Evaluation Server</a>中，作者们详细介绍了他们基于MS COCO数据集构建MS COCO Caption数据集的工作。现在大部分论文也是按照这个数据集来做实验的。</p>
+
+<p>然后Flickr8K和30K：数据量上的劣势，确实使Flickr数据集正逐渐失宠，14年论文中几乎都使用，现在一些高水平论文仅在补充文档中展示甚至不采用</p>
+
+<p>PASCAL 1K：是大名鼎鼎的PASCAL VOC challenge图像数据集的一个子集，每张图像人工标注了5个描述语句。一般说来，这个数据集只是用来测试的。</p>
+
+<h2 id="图像标注评价标准">图像标注评价标准</h2>
+
+<h3 id="perplexity">Perplexity</h3>
+
+<p>perplexity定义为：</p>
+
+<p>images_Perplexity</p>
+
+<p>在图片标注领域来说，好的例子请看<a href="https://zhuanlan.zhihu.com/p/22408033">这篇博文</a></p>
+
+<p>将每个单词的可能性都降低一些，就会发现perplexity值会升高。这就说明：<strong>当模型对于下一个生成单词的确信程度降低时，perplexity值反而升高。我们当然是期望一个模型对于它预测的单词能比较有把握啊，所以perplexity值是越低越好。</strong>也就是说，这个分数越低，那困惑度就越低，模型也就越好。</p>
+
+<h3 id="bleu">BLEU</h3>
+
+<p>BLEU是Bilingual Evaluation Understudy的缩写。这个计算标准在图像标注结果评价中使用是很广泛的，但是它的设计初衷并不是针对图像标注问题，而是针对机器翻译问题，它是用于分析待评价的翻译语句和参考翻译语句之间n元组的相关性的。直白地来说，它的核心思想就是：<strong>机器翻译语句与人类的专业翻译语句越接近就越好。一句话：BLEU得分越高越好。</strong></p>
+
+<h3 id="rouge">ROUGE</h3>
+
+<p>ROUGE是一个设计用来评价文本摘要算法的自动评价标准集，其中有3个评价标准，分别是ROUGE-N，ROUGE-L和ROUGE-S。<strong>一句话：ROUGE得分越高越好。</strong></p>
+
+<h3 id="meteor">METEOR</h3>
+
+<p><strong>METEOR是用来评价机器翻译输出的标准。</strong>该方法基于一元组的精度和召回的调和平均（Harmonic mean），召回的权重比精度要高一点。这个标准还有一些其他标准没有的特性，设计它是为了解决BLEU存在的一些问题。它与人类判断相关性高，而且和BLEU不同，它不仅在整个集合，而且在句子和分段级别，也能和人类判断的相关性高。在全集级别，它的相关性是0.964，BLEU是0.817。在句子级别，它的相关性最高到了0.403。</p>
+
+<p><strong>一句话：METEOR得分越高越好。</strong></p>
+
+<h3 id="cider">CIDEr</h3>
+
+<p><strong>CIDEr是专门设计出来用于图像标注问题的，</strong>它是通过对每个n元组进行Term Frequency Inverse Document Frequency (TF-IDF) 权重计算，来衡量图像标注的一致性的</p>
+
+<p>一句话：CIDEr得分越高越好。</p>
+
+<h2 id="图像标注模型发展">图像标注模型发展</h2>
+
+<p>其实时间也并不长，将CNN和RNN结合的模型用于解决图像标注问题的研究最早也就从2014开始提出，在2015年开始对模型各部分组成上进行更多尝试与优化，到2016年CVPR上成为一个热门的专题。</p>
+
+<p>在这个发展中，将<strong>RNN和CNN结合的核心思路没变</strong>，变化的是使用了更好更复杂的CNN模型，效果更好的LSTM，图像特征输入到RNN中的方式，以及更复合的特征输入等。正由于其发展时间跨度较短，通过阅读该领域的一些重要文章，可以相对轻松地理出大牛们攻城拔寨的思路脉络，这对我们自己从事研究的思路也会有所启发</p>
+
+<h3 id="m-rnn模型">m-RNN模型</h3>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/images_caption1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<h3 id="nic模型">NIC模型</h3>
+
+<p>模型的结构如下：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/images_caption.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>图像特征部分是换汤不换药：我们可以看见，图像经过卷积神经网络，最终还是变成了特征数据（就是特征向量）出来了。唯一的不同就是这次试用的CNN不一样了，取得第几层的激活数据不一样了，归根结底，出来的还是特征向量；</p>
+
+<p>但是！图像特征只在刚开始的时候输入了LSTM，后续没有输入，这点和m-RNN模型是不同的！</p>
+
+<p>单词输入部分还是老思路：和m-RNN模型一样，每个单词采取了独热（one-hot）编码，用来表示单词的是一个维度是词汇表数量的向量。向量和矩阵W_e相乘后，作为输入进入到LSTM中。</p>
+
+<p>使用LSTM来替换了RNN。LSTM是什么东西呢，简单地来说，可以把它看成是效果更好RNN吧。为什么效果更好呢？因为它的公式更复杂哈哈😝（并不是）。</p>
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/machine%20learning/2017/05/08/%E5%9B%BE%E5%83%8F%E6%A0%87%E6%B3%A8.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2017-5-8-图像标注.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

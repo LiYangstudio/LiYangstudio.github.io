@@ -1,0 +1,11 @@
+- name: 'python spider'
+  i18n: 'python'
+  url: '/yzhihao/python_spier'
+  img: 'static/img/landing/python.jpg'
+  desc: 'This is a python crawler  I  developed in the second year of my university.This crawler is crawling the information of the user and the problem from ZhiHu. There is also a  demo that it can invoke the page JS.'
+
+- name: 'library'
+  i18n: 'library'
+  url: '/yzhihao/com.topview.library'
+  img: 'static/img/landing/saplatform.png'
+  desc: "In older to  enter into TopView studio,I develop this project."

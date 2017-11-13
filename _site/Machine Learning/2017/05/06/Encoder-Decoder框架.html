@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="我的博客" name="description">
+  
+  
+    <meta name="keywords" content="blog,Machine Learning,AI">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|Encoder-Decoder框架
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 6 May 2017</span>
+                        <h1>
+                            Encoder-Decoder框架
+                        </h1>
+                    </div>
+                    	<h2 id="目录">目录</h2>
+<p><strong>欢迎在文章下方评论，建议用电脑看</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#目录" id="markdown-toc-目录">目录</a></li>
+  <li><a href="#encoder-decoder框架" id="markdown-toc-encoder-decoder框架">Encoder-Decoder框架</a>    <ul>
+      <li><a href="#seq2sqeq-优化" id="markdown-toc-seq2sqeq-优化">seq2sqeq 优化</a></li>
+      <li><a href="#取词策略" id="markdown-toc-取词策略">取词策略</a>        <ul>
+          <li><a href="#max策略和sample策略" id="markdown-toc-max策略和sample策略">max策略和sample策略</a></li>
+          <li><a href="#max策略和sample策略的一些优缺点" id="markdown-toc-max策略和sample策略的一些优缺点">max策略和sample策略的一些优缺点</a></li>
+        </ul>
+      </li>
+      <li><a href="#beam-search策略" id="markdown-toc-beam-search策略">beam-search策略</a></li>
+      <li><a href="#attention-思想" id="markdown-toc-attention-思想">Attention 思想</a>        <ul>
+          <li><a href="#attention研究进展" id="markdown-toc-attention研究进展">Attention研究进展</a></li>
+          <li><a href="#recurrent-models-of-visual-attention" id="markdown-toc-recurrent-models-of-visual-attention">Recurrent Models of Visual Attention</a></li>
+        </ul>
+      </li>
+      <li><a href="#attention-based-rnn-in-nlp" id="markdown-toc-attention-based-rnn-in-nlp">Attention-based RNN in NLP</a>        <ul>
+          <li><a href="#effective-approaches-to-attention-based-neural-machine-translation" id="markdown-toc-effective-approaches-to-attention-based-neural-machine-translation">Effective Approaches to Attention-based Neural Machine Translation</a></li>
+          <li><a href="#attention-based-cnn-in-nlp" id="markdown-toc-attention-based-cnn-in-nlp">Attention-based CNN in NLP</a></li>
+          <li><a href="#总结" id="markdown-toc-总结">总结</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="encoder-decoder框架">Encoder-Decoder框架</h1>
+
+<p>encoder-decoder模型的想法很简单：<strong>对于RNN语言模型，在我们计算输出序列E的概率时，先另一个RNN处理源序列F，来计算语言模型的初始状态。encoder-decoder的含义是：通过第一个神经网络来“编码”F的信息到一个隐层状态，在使用第二个神经网络来预测E“解码”该隐层到输出序列。</strong></p>
+
+<p>模型结构如图</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>encoder层的处理单元是RNN(f)，decoder层是RNN(e)，对decoder层的输出采用softmax来获得时刻t输出该隐层的概率，上图的公式为：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>mt是输入词序列ft的embedding table；ht是隐层输出，pt是得到的概率。<strong>可以看出encoder和decoder的区别在于：encoder的隐层初始值是零，而decoder层的初始值是encoder层的最终输出向量，这意味着decoder层获得了源序列的所有语义信息。</strong></p>
+
+<p>在每次decoder出一个et时，我们将其embedding和输出hidden state连结输入到下一个RNN单元，直到解码到句尾标记。（hidden state经过softmax后得到的概率向量的维度为词典维，类似于one-hot representation，每一维代表词典中的一个词，概率最高即为预测得到的词）</p>
+
+<p>模型的训练目标则是期望这个由Encoder得到的向量能够cover整个句子的语义，从研究人员做的大量实验来看我们发现这样的结构确实可以使得Encoder得到的向量cover<strong>整个句子信息。</strong>同时Decoder-RNN又能很好的生成一句话。<strong>模型cost function为Decoder产生的句子的交叉熵。</strong></p>
+
+<h2 id="seq2sqeq-优化">seq2sqeq 优化</h2>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder8n.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>在训练的时候，<strong>我们需要的是直接用MLE去优化-log值，得到极大似然估计。</strong></p>
+
+<h2 id="取词策略">取词策略</h2>
+
+<p>在rnn语言模型（rnnlm）中，测试（生成）过程就是利用已经训练好的RNNLM来生成一段文本。具体过程为，首先输入一个初始词用于触发（这个词可以简单的控制生成的内容，比如想生成与“人工智能”相关的内容，那么初始输入就是“人工智能”。倘若想让机器完全自动生成，那么第一个输入就是“start”），然后模型给出一个输出Y1，（这个Yi是词表上所有词的概率分布根据这个概率分布），由这个概率分布，我们通过某种策略（max或者sample策略，后面会详细介绍）选取得到一个词X1，然后再次将X1输入到RNN中，得到Y2，再得到X2，如此往复，至到得到“end”（或者达到最大循环次数）结束生成。</p>
+
+<h3 id="max策略和sample策略">max策略和sample策略</h3>
+
+<p>max策略和sample策略。注：这里的sample策略不是很理解的话，可以看下这篇论文<a href="https://papers.nips.cc/paper/5956-scheduled-sampling-for-sequence-prediction-with-recurrent-neural-networks.pdf">Scheduled Sampling for Sequence Prediction with Recurrent Neural Networks</a>其实这两种策略就是如何根据一个概率分布来选择一个词，比如模型在第i个step输出了一个词表上的概率分布Yi，然后我们需要根据这个分布从词表中选择一个词。max策略，顾名思义，就是选择概率值最大的那个词，而sample策略就是根据每个词的概率进行采样。很显然这两种策略的最大区别就是max策略是固定的，也就是第一个词定了之后生成的文本一定是一模一样的，而sample策略则不然，具有一定的随机性，所以即使第一个词固定后每次生成的文本也是不一样的。</p>
+
+<h3 id="max策略和sample策略的一些优缺点">max策略和sample策略的一些优缺点</h3>
+
+<p>max策略的优势就是能够最大化保证句子的通顺，因为选取概率最大的那个词一定是最“通顺”的（概率最大的），但带来的问题就是会出现重复，这个也比较好理解，从生成的整个句子的角度来考虑，<strong>max策略会倾向生成概率比较大的句子，而从训练的角度来讲概率大的句子一定是那些出现次数比较多的，因而导致了生成的句子比较固定。</strong>对于这一问题的解决方法，就是采用另外一种生成策略——sample策略，这也是karpathy的char-rnn代码中默认的生成策略。<strong>sample策略引入一定的随机性，会很有效的避免重复现象的出现，但会牺牲一定的连贯性（通顺度），所以有的人做法是利用sample策略生成一堆候选，然后再训练一个反向RNNLM，利用方向RNNLM和正向RNNLM（用于生成句子的模型）给出的概率值对候选句子进行ranking。</strong></p>
+
+<h2 id="beam-search策略">beam-search策略</h2>
+
+<p>max和sample策略是每一步使用的策略，而beam-search是全局解码算法，其实我们的目的是要得到概率最大的句子，很显然在每一步都取概率最大的词并不能保证最后生成的句子概率是最大的，<strong>这个其实是一个图上的最优路径问题，应该是一个动态规划问题而不是一个贪心问题，</strong>但是每一步解码时都会有词表大小这么多个节点，想要得到全局最优解搜索空间太大，所以采用beam-search来减少搜索空间，从而得到一个接近最优解的解，为了解决sample策略不连贯的问题，将sample策略和beam-search进行了结合，在每一步解码时用sample得到一些候选，然后选择整体概率高的top-N个结果，就是将我们熟知的beam-search中选最大的N个作为候选的方法改成了按照概率采用N个作为候选。</p>
+
+<h2 id="attention-思想">Attention 思想</h2>
+
+<p>传统的Encoder-Decoder缺点是，无论之前的context有多长，包含多少信息量，最终都要被压缩成一个几百维的vector。这意味着context越大，最终的state vector会丢失越多的信息。</p>
+
+<p>事实上，因为context在输入时已知，一个模型完全可以在decode的过程中利用context的全部信息,或者部分信息而不仅仅是最后一个state。</p>
+
+<p><strong>而Attention的思想，即在得到Encoder向量后，在进行Decoder的时候模型不仅会用到向量还会用到每个词对应的RNN隐层向量。</strong>这里多插入一句，Attention其实是一种思想，它可以有多种实现方式。</p>
+
+<blockquote>
+  <p>attention思想知识一种思想，有多种实现方式，有很多类别，比如soft和hard的区分（这两者的区分主要在于sotf得到attention的上下文C<sub>i</sub>是通过加权和得到的，其中的比重最大可以看成是对齐的！而hard的attention的上下文C是固定的一个或者几个的encoder隐状态构成的，用分类表示是否选取莫个隐状态）。</p>
+</blockquote>
+
+<h3 id="attention研究进展">Attention研究进展</h3>
+
+<p>Attention机制最早是在视觉图像领域提出来的，应该是在九几年思想就提出来了，但是真正火起来应该算是google mind团队的这篇论文<a href="https://arxiv.org/abs/1406.6247">Recurrent Models of Visual Attention</a>，他们在RNN模型上使用了attention机制来进行图像分类。随后，Bahdanau等人在论文<a href="https://arxiv.org/abs/1409.0473">《Neural Machine Translation by Jointly Learning to Align and Translate》</a> 中，使用类似attention的机制在机器翻译任务上将翻译和对齐同时进行，他们的工作算是是第一个提出attention机制应用到NLP领域中。接着类似的基于attention机制的RNN模型扩展开始应用到各种NLP任务中。最近，如何在CNN中使用attention机制也成为了大家的研究热点。下图表示了attention研究进展的大概趋势。</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<h3 id="recurrent-models-of-visual-attention">Recurrent Models of Visual Attention</h3>
+
+<p>在介绍NLP中的Attention之前，我想大致说一下图像中使用attention的思想。就具代表性的这篇论文<a href="https://arxiv.org/abs/1406.6247">Recurrent Models of Visual Attention</a>，他们研究的动机其实也是受到人类注意力机制的启发。人们在进行观察图像的时候，其实并不是一次就把整幅图像的每个位置像素都看过，大多是根据需求将注意力集中到图像的特定部分。而且人类会根据之前观察的图像学习到未来要观察图像注意力应该集中的位置。下图是这篇论文的核心模型示意图。</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>该模型是在传统的RNN上加入了attention机制（即红圈圈出来的部分），通过attention去学习一幅图像要处理的部分，每次当前状态，都会根据前一个状态学习得到的要关注的位置l和当前输入的图像，去处理注意力部分像素，而不是图像的全部像素。这样的好处就是更少的像素需要处理，减少了任务的复杂度。可以看到图像中应用attention和人类的注意力机制是很类似的，接下来我们看看在NLP中使用的attention。</p>
+
+<h2 id="attention-based-rnn-in-nlp">Attention-based RNN in NLP</h2>
+
+<p><a href="https://arxiv.org/abs/1409.0473">《Neural Machine Translation by Jointly Learning to Align and Translate》</a></p>
+
+<p>这篇论文算是在NLP中第一个使用attention机制的工作。他们把attention机制用到了神经网络机器翻译（NMT）上，NMT其实就是一个典型的sequence to sequence模型，也就是一个encoder to decoder模型，传统的NMT使用两个RNN，一个RNN对源语言进行编码，将源语言编码到一个固定维度的中间向量，然后在使用一个RNN进行解码翻译到目标语言，传统的模型如下图：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>这篇论文提出了基于attention机制的NMT，模型大致如下图：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder5.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>图中我并没有把解码器中的所有连线画玩，只画了前两个词，后面的词其实都一样。可以看到基于attention的NMT在传统的基础上，它把源语言端的每个词学到的表达（传统的只有最后一个词后学到的表达）和当前要预测翻译的词联系了起来，这样的联系就是通过他们设计的attention进行的，在模型训练好后，根据attention矩阵，我们就可以得到源语言和目标语言的对齐矩阵了。具体论文的attention设计部分如下：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder6.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>可以看到他们是使用一个感知机公式来将目标语言和源语言的每个词联系了起来，然后通过soft函数将其归一化得到一个概率分布，就是attention矩阵。</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder7.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>从结果来看相比传统的NMT（RNNsearch是attention NMT，RNNenc是传统NMT）效果提升了不少，最大的特点还在于它可以可视化对齐，并且在长句的处理上更有优势。</p>
+
+<p><code class="highlighter-rouge">在这里的可视化对齐值得是，比如在NMT中，就是两种语言中的单词翻译对应，当然可能顺序是不一样的</code></p>
+
+<h3 id="effective-approaches-to-attention-based-neural-machine-translation">Effective Approaches to Attention-based Neural Machine Translation</h3>
+
+<p>这篇论文是继上一篇论文后，一篇很具代表性的论文，他们的工作告诉了大家attention在RNN中可以如何进行扩展，这篇论文对后续各种基于attention的模型在NLP应用起到了很大的促进作用。在论文中他们提出了两种attention机制，一种是全局（global）机制，一种是局部（local）机制。</p>
+
+<p>首先我们来看看global机制的attention，其实这和上一篇论文提出的attention的思路是一样的，它都是对源语言对所有词进行处理，不同的是在计算attention矩阵值的时候，他提出了几种简单的扩展版本。</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder8.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>在他们最后的实验中general的计算方法效果是最好的。</p>
+
+<p>我们再来看一下他们提出的local版本。主要思路是为了减少attention计算时的耗费，作者在计算attention时并不是去考虑源语言端的所有词，而是根据一个预测函数，先预测当前解码时要对齐的源语言端的位置Pt，然后通过上下文窗口，仅考虑窗口内的词。</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder9.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>里面给出了两种预测方法，local-m和local-p，再计算最后的attention矩阵时，在原来的基础上去乘了一个pt位置相关的高斯分布。作者的实验结果是局部的比全局的attention效果好。</p>
+
+<p>这篇论文最大的贡献我觉得是首先告诉了我们可以如何扩展attention的计算方式，还有就是局部的attention方法。</p>
+
+<h3 id="attention-based-cnn-in-nlp">Attention-based CNN in NLP</h3>
+
+<p>随后基于Attention的RNN模型开始在NLP中广泛应用，不仅仅是序列到序列模型，各种分类问题都可以使用这样的模型。那么在深度学习中与RNN同样流行的卷积神经网络CNN是否也可以使用attention机制呢？《ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs》 [13]这篇论文就提出了3中在CNN中使用attention的方法，是attention在CNN中较早的探索性工作。</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder10.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>传统的CNN在构建句对模型时如上图，通过每个单通道处理一个句子，然后学习句子表达，最后一起输入到分类器中。这样的模型在输入分类器前句对间是没有相互联系的，作者们就想通过设计attention机制将不同cnn通道的句对联系起来。</p>
+
+<p>第一种方法ABCNN0-1是在卷积前进行attention，通过attention矩阵计算出相应句对的attention feature map，然后连同原来的feature map一起输入到卷积层。具体的计算方法如下。</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder11.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>第二种方法ABCNN-2是在池化时进行attention，通过attention对卷积后的表达重新加权，然后再进行池化，原理如下图。</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder12.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>第三种就是把前两种方法一起用到CNN中，如下图</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder13.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>这篇论文提供了我们在CNN中使用attention的思路。现在也有不少使用基于attention的CNN工作，并取得了不错的效果。</p>
+
+<h3 id="总结">总结</h3>
+
+<p>最后进行一下总结。Attention在NLP中其实我觉得可以看成是一种自动加权，它可以把两个你想要联系起来的不同模块，通过加权的形式进行联系。目前主流的计算公式有以下几种：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder14.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>通过设计一个函数将目标模块mt和源模块ms联系起来，然后通过一个soft函数将其归一化得到概率分布。</p>
+
+<p>目前Attention在NLP中已经有广泛的应用。它有一个很大的优点就是可以可视化attention矩阵来告诉大家神经网络在进行任务时关注了哪些部分。</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/encoder_decoder15.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>不过在NLP中的attention机制和人类的attention机制还是有所区别，它基本还是需要计算所有要处理的对象，并额外用一个矩阵去存储其权重，其实增加了开销。而不是像人类一样可以忽略不想关注的部分，只去处理关注的部分。</p>
+
+<p>参考博文：</p>
+
+<p><a href="http://geek.csdn.net/news/detail/50558">深度学习和自然语言处理中的attention和memory机制</a></p>
+
+<p><a href="http://www.cnblogs.com/robert-	dlut/p/5952032.html">注意力机制（Attention Mechanism）在自然语言处理中的应用</a></p>
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/machine%20learning/2017/05/06/Encoder-Decoder%E6%A1%86%E6%9E%B6.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2017-5-6-Encoder-Decoder框架.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+
+	
+		<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta content="yzh's blog,use Jekyll and github pages." name="description">
+  <meta name="keywords" content="yzh,Jalpc,blog,Jekyll,github,gh-pages">
+  <meta name="author" content="Evan">
+  <title>YZH.home</title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <!-- <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <!-- 2016.10.14这是头部插件的css和js -->
+ <link rel="stylesheet" id="style-css" href="static/theme1.css" type="text/css" media="all">
+  <script type="text/javascript" src="static/jquery-1.11.0.js"></script>
+  <!-- Third-party scripts -->
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/i18next/i18next.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <script language="javascript">
+  function HideWeekMonth(){
+    var mainCol = window.document.getElementById('yzh_title');
+    var hMainCol =  mainCol .offsetHeight;
+    alter(hMainCol);
+    if(hMainCol>40){
+      $("#yzh_title").hide();
+    }
+  }
+  </script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  <!-- Custom and plugin javascript -->
+  <!-- <script src="https://yzhihao.github.io/static/js/inspinia.js"></script> -->
+
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+
+        <div class="navbar-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="#page-top" id="i18_title"><img alt="Brand" height="30px" src="static/img/landing/home.png"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right" id="i18_navbar">
+                
+                    <li>
+                      <a class="page-scroll" href="#about-me">
+                        <span data-i18n="nav.about_me">About</span>
+                      </a>
+                    </li>
+                
+                    <li>
+                      <a class="page-scroll" href="#career">
+                        <span data-i18n="nav.career">Career</span>
+                      </a>
+                    </li>
+                
+                    <li>
+                      <a class="page-scroll" href="#skills">
+                        <span data-i18n="nav.skills">Skills</span>
+                      </a>
+                    </li>
+                
+                    <li>
+                      <a class="page-scroll" href="#projects">
+                        <span data-i18n="nav.projects">Projects</span>
+                      </a>
+                    </li>
+                
+                    <li>
+                      <a class="page-scroll" href="#blog">
+                        <span data-i18n="nav.blog">Blog</span>
+                      </a>
+                    </li>
+                
+                    <li>
+                      <a class="page-scroll" href="#links">
+                        <span data-i18n="nav.link">Links</span>
+                      </a>
+                    </li>
+                
+
+                
+                  <li>
+                    <a id="set_lang_en" class="btn btn-sm set_en" data-locale="en">
+                      <img src="https://yzhihao.github.io/static/img/flags/United-Kingdom.png" height="16px" width="16px">
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a id="set_lang_zh" class="btn btn-sm set_zh" data-locale="zh">
+                      <img src="https://yzhihao.github.io/static/img/flags/China.png" height="16px" width="16px">
+                    </a>
+                  </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                     <img src="static/img/landing/laptop.png" alt="laptop"/> -
+                </div>
+            </div>
+            < Set background for slide in css 
+            <div class="header-back one"></div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            Set background for slide in css 
+            <div class="header-back two"></div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div> -->
+<div style="text-align:center;width:100%;margin-top:65px">
+<div id="wowslider-container1">
+<div class="ws_images">
+<ul>
+    <li><img src="static\img\landing\slier1.jpg" title="几百黄昏声称海,此刻红阳可人心" alt="" /></li>
+    <li><img src="static\img\landing\slier2.jpg" title="Dreaming my dream." alt="" /></li>
+    <li><img src="static\img\landing\slier3.jpg" title="等那个时刻，最美好发生的时刻" alt="" /></li>
+    <li><img src="static\img\landing\slier4.jpg" title="拥抱薰衣草在风中的味道" alt="." /></a></li>
+    <li><img src="static\img\landing\slier5.jpg" title="流光似水年华，青春笑靥如花，散落天涯" alt="" /></li>
+    <li><img src="static\img\landing\slier6.jpg" title="心有猛虎，细嗅蔷薇" alt="" /></li>
+    <li><img src="static\img\landing\slier7.jpg" title="懂得越多，越是孤独" alt="" /></li>
+    </ul>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="static/theme1.js"></script>
+
+  
+  <section id="about-me" class="features  " style="margin-top: 0px;">
+    <div class="container" id="i18_about_me">
+    <div class="row m-b-lg">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1><span data-i18n="about_me.about_me">About Me</span></h1>
+            <!-- <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p> -->
+        </div>
+    </div>
+    <div class="row">
+        <!-- python -->
+        <div class="col-xs-2 wow fadeInLeft">
+            <div class="team-member">
+                <div class="vote-icon">
+                    <i class="icon-python"></i>
+                </div>
+            </div>
+        </div>
+        <!-- linux -->
+        <div class="col-xs-2 wow fadeInLeft">
+            <div class="team-member">
+                <div class="vote-icon">
+                    <i class="icon-git"></i>
+                </div>
+            </div>
+        </div>
+        <!-- avatar -->
+        <div class="col-xs-4">
+            <div class="team-member wow zoomIn">
+                
+                <a href="https://yzhihao.github.io/static/mylove/index.html">
+                <img src="https://yzhihao.github.io/static/img/landing/yzh.jpg" height="110" width="110" class="img-responsive img-circle" alt="">
+                </a>
+                
+                <h4><span class="navy">Ye</span> Zhihao/Evan</h4>
+                <ul class="list-inline social-icon">
+                    <li><a href="https://github.com/yzhihao" target="blank"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li><a href="http://localhost:4000/static/contact/contact.html" target="blank"><i class="fa fa-wechat"></i></a>
+                    <li><a href="mailto:1079345916@qq.com"><i class="fa fa-envelope-o"></i></a>
+                    </li>
+                    </li>
+                    <li><a href="http://localhost:4000/static/contact/contact -qq.html" target="blank"><i class="fa fa-qq"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- html -->
+        <div class="col-xs-2 wow fadeInRight">
+            <div class="team-member">
+                <div class="vote-icon">
+                    <i class="icon-java"></i>
+                </div>
+            </div>
+        </div>
+        <!-- docker -->
+        <div class="col-xs-2 wow fadeInRight">
+            <div class="team-member">
+                <div class="vote-icon">
+                    <i class="icon-spring"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg wow zoomIn">
+            <p><span data-i18n="about_me.des">i am a student come from GDUT</span></p>
+        </div>
+    </div>
+</div>
+
+  </section>
+
+  
+  <section id="career" class="features  gray-section  timeline" style="margin-top: 0px;">
+    <div class="container" id="i18_career">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1><span data-i18n="career.my_career">My Life</span></h1>
+        </div>
+    </div>
+    <div class="row features-block">
+        <div class="col-lg-12">
+            <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+            
+            
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon navy-bg wow rotateIn">
+                        <i class="fa fa-child"></i>
+                    </div>
+                    <div class="vertical-timeline-content wow  rotateInUpRight ">
+                        <h2><span data-i18n="career.nextcode">experience</span></h2>
+                        <p><span data-i18n="career.nextcode_des">Now I am in TopView Studio and I am a back-end Learner. </span></p>
+                        <span class="vertical-date"><span data-i18n="career.nextcode_date"> 2016- </span>
+                        <br/> <small><span data-i18n="career.nextcode_job">back-end Learner</span></small> </span>
+                    </div>
+                </div>
+            
+            
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon navy-bg wow rotateIn">
+                        <i class="fa fa-gamepad"></i>
+                    </div>
+                    <div class="vertical-timeline-content wow  rotateInUpLeft ">
+                        <h2><span data-i18n="career.netease">Game</span></h2>
+                        <p><span data-i18n="career.netease_des">In the boring time, or when the mood is not good, I will play football game whose name is ShiKuang. </span></p>
+                        <span class="vertical-date"><span data-i18n="career.nextcode_date"> hobby </span>
+                        <br/> <small><span data-i18n="career.netease_job">my Game</span></small> </span>
+                    </div>
+                </div>
+            
+            
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon navy-bg wow rotateIn">
+                        <i class="fa fa-cloud"></i>
+                    </div>
+                    <div class="vertical-timeline-content wow  rotateInUpRight ">
+                        <h2><span data-i18n="career.ucloud">Future</span></h2>
+                        <p><span data-i18n="career.ucloud_des">In the future, I hope to become a  network  engineer and can travel around the world.I hope that I can meet more friend. </span></p>
+                        <span class="vertical-date"><span data-i18n="career.ucloud_date"> In The Future </span>
+                        <br/> <small><span data-i18n="career.ucloud_job">me</span></small> </span>
+                    </div>
+                </div>
+            
+            
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon navy-bg wow rotateIn">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <div class="vertical-timeline-content wow  rotateInUpLeft ">
+                        <h2><span data-i18n="career.college">College</span></h2>
+                        <p><span data-i18n="career.college_des">I am now a computer specialized student and will graduate in 2019.Study well and make progress every day. </span></p>
+                        <span class="vertical-date"><span data-i18n="career.college_date"> 2016-2019 </span>
+                        <br/> <small><span data-i18n="career.college_job">Student</span></small> </span>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+  </section>
+
+  
+  <section id="skills" class="features  team" style="margin-top: 0px;">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center" id="i18_skills">
+            <div class="navy-line"></div>
+            <h1><span data-i18n="skills.my_skills">My Skills</span></h1>
+        </div>
+    </div>
+    <div class="row features-block">
+        
+            
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-2 wow  fadeInLeft ">
+                <p>java</p>
+            </div>
+            <div class="col-lg-7 wow   fadeInRight ">
+                <div class="progress progress-bar-default">
+                    <div style="width: 55%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="55" role="progressbar" class="progress-bar">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+            
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-2 wow  fadeInRight ">
+                <p>java framework</p>
+            </div>
+            <div class="col-lg-7 wow   fadeInLeft ">
+                <div class="progress progress-bar-default">
+                    <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+            
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-2 wow  fadeInLeft ">
+                <p>git</p>
+            </div>
+            <div class="col-lg-7 wow   fadeInRight ">
+                <div class="progress progress-bar-default">
+                    <div style="width: 60%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+            
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-2 wow  fadeInRight ">
+                <p>Machine Learning</p>
+            </div>
+            <div class="col-lg-7 wow   fadeInLeft ">
+                <div class="progress progress-bar-default">
+                    <div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" class="progress-bar">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+            
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-2 wow  fadeInLeft ">
+                <p>python</p>
+            </div>
+            <div class="col-lg-7 wow   fadeInRight ">
+                <div class="progress progress-bar-default">
+                    <div style="width: 60%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+            
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-2 wow  fadeInRight ">
+                <p>Front end</p>
+            </div>
+            <div class="col-lg-7 wow   fadeInLeft ">
+                <div class="progress progress-bar-default">
+                    <div style="width: 45%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="45" role="progressbar" class="progress-bar">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+    </div>
+</div>
+
+  </section>
+
+  
+  <section id="projects" class="features  gray-section  project" style="margin-top: 0px;">
+    <div class="container" id="i18_projects">
+    <div class="row m-b-lg">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1><span data-i18n="projects.my_projects">My Projects</span></h1>
+        </div>
+    </div>
+    <div class="row">
+        
+            
+            
+            <div class="col-sm-6 wow  fadeInLeft ">
+            
+              <div class="team-member">
+                  <img src="https://yzhihao.github.io/static/img/landing/python.jpg" class="img-responsive img-rounded img-small" alt="">
+                  <h4><a href="https://github.com/yzhihao/python_spier" target="blank"><span class="navy">python spider</a></span></h4>
+                  <p><span data-i18n="projects.python">This is a python crawler  I  developed in the second year of my university.This crawler is crawling the information of the user and the problem from ZhiHu. There is also a  demo that it can invoke the page JS.</span></p>
+                  <ul class="list-inline">
+                      <li>
+                          <a class="github-button" href="https://github.com/yzhihao/python_spier" data-icon="octicon-star" data-count-href="/yzhihao/python_spier/stargazers" data-count-api="/repos/yzhihao/python_spier#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star hydepress/jekyll-install on GitHub">Star</a>
+                      </li>
+                      <li>
+                          <a class="github-button" href="https://github.com/yzhihao/python_spier" data-icon="octicon-fork" data-count-href="/yzhihao/python_spier/network/members" data-count-api="/repos/yzhihao/python_spier#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Star hydepress/jekyll-install on GitHub">Fork</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      
+            
+            
+                
+            <div class="col-sm-6 wow  fadeInRight ">
+                
+            
+              <div class="team-member">
+                  <img src="https://yzhihao.github.io/static/img/landing/saplatform.png" class="img-responsive img-rounded img-small" alt="">
+                  <h4><a href="https://github.com/yzhihao/com.topview.library" target="blank"><span class="navy">library</a></span></h4>
+                  <p><span data-i18n="projects.library">In older to  enter into TopView studio,I develop this project.</span></p>
+                  <ul class="list-inline">
+                      <li>
+                          <a class="github-button" href="https://github.com/yzhihao/com.topview.library" data-icon="octicon-star" data-count-href="/yzhihao/com.topview.library/stargazers" data-count-api="/repos/yzhihao/com.topview.library#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star hydepress/jekyll-install on GitHub">Star</a>
+                      </li>
+                      <li>
+                          <a class="github-button" href="https://github.com/yzhihao/com.topview.library" data-icon="octicon-fork" data-count-href="/yzhihao/com.topview.library/network/members" data-count-api="/repos/yzhihao/com.topview.library#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Star hydepress/jekyll-install on GitHub">Fork</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      
+    </div>
+</div>
+<br>
+
+  </section>
+
+  
+  <section id="blog" class="features  testimonials navy-section" style="margin-top: 0px;">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center wow zoomIn" id="i18_blog">
+            <div style="height: 80px;"></div>
+            <a class="btn btn-lg btn-default btn-rounded btn-outline wow bounceIn" href="/blog/"><span data-i18n="blog.my_blog">My Blog</span></a>
+            <div style="height: 80px;"></div>
+        </div>
+    </div>
+</div>
+
+  </section>
+
+  
+  <section id="links" class="features  gray-section  contact" style="margin-top: 0px;">
+    <div class="container" id="i18_link">
+    <div class="row m-b-lg">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1><span data-i18n="link.link">Link</span></h1>
+        </div>
+    </div>
+    <div class="row">
+    
+        
+        
+        <div class="col-sm-4 wow  fadeInLeft ">
+        
+        <div class="team-member">
+            <h4><span class="navy">stackoverflow</span> </h4>
+            <p>solve the it problem</p>
+            <ul class="list-inline social-icon">
+                <li><a href="http://stackoverflow.com/" target="blank"><i class="fa fa-link"></i></a>
+                </li>
+                <li><a href="mailto:1079345916@qq.com"><i class="fa fa-envelope-o"></i></a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    
+        
+        
+            
+        <div class="col-sm-4 wow  col-sm-offset-4 fadeInRight ">
+            
+        
+        <div class="team-member">
+            <h4><span class="navy">github</span> </h4>
+            <p>my github.</p>
+            <ul class="list-inline social-icon">
+                <li><a href="https://github.com/yzhihao" target="blank"><i class="fa fa-link"></i></a>
+                </li>
+                <li><a href="mailto:1079345916@qq.com"><i class="fa fa-envelope-o"></i></a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+            <p id="jalpc_site_pv"><strong>&copy; 2017 YZH.home</strong></p>
+        </div>
+    </div>
+</div>
+
+  </section>
+
+
+
+
+	
+		<script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+<script src="https://yzhihao.github.io/static/js/localization.js"></script>
+<script async src="https://yzhihao.github.io/static/js/count.min.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+	
+
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="我的博客系统介绍" name="description">
+  
+  
+    <meta name="keywords" content="blog,Machine Learning,AI">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|数据处理，特征工程
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 18 Jan 2017</span>
+                        <h1>
+                            数据处理，特征工程
+                        </h1>
+                    </div>
+                    	<h2 id="目录">目录</h2>
+<p><strong>欢迎在文章下方评论，建议用电脑看</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#目录" id="markdown-toc-目录">目录</a></li>
+  <li><a href="#特征工程模型评价与选择一" id="markdown-toc-特征工程模型评价与选择一">特征工程，模型评价与选择（一）</a>    <ul>
+      <li><a href="#获取数据" id="markdown-toc-获取数据">获取数据</a></li>
+      <li><a href="#数据清洗data-cleaning" id="markdown-toc-数据清洗data-cleaning">数据清洗（Data Cleaning）</a></li>
+      <li><a href="#特征工程feature-engineering" id="markdown-toc-特征工程feature-engineering">特征工程（Feature Engineering）</a>        <ul>
+          <li><a href="#特征提取与特征选择" id="markdown-toc-特征提取与特征选择">特征提取与特征选择</a></li>
+          <li><a href="#简单实践" id="markdown-toc-简单实践">简单实践</a></li>
+          <li><a href="#卡方检验" id="markdown-toc-卡方检验">卡方检验</a></li>
+          <li><a href="#信息量" id="markdown-toc-信息量">信息量</a></li>
+          <li><a href="#信息增益" id="markdown-toc-信息增益">信息增益</a></li>
+          <li><a href="#互信息" id="markdown-toc-互信息">互信息</a></li>
+        </ul>
+      </li>
+      <li><a href="#编码方式" id="markdown-toc-编码方式">编码方式</a></li>
+      <li><a href="#numerical-features数值化特征" id="markdown-toc-numerical-features数值化特征">Numerical Features（数值化特征）</a></li>
+      <li><a href="#装箱" id="markdown-toc-装箱">装箱</a>        <ul>
+          <li><a href="#离散特征" id="markdown-toc-离散特征">离散特征：</a></li>
+          <li><a href="#1-排序特征" id="markdown-toc-1-排序特征">1. 排序特征：</a></li>
+        </ul>
+      </li>
+      <li><a href="#特征工程" id="markdown-toc-特征工程">特征工程</a></li>
+      <li><a href="#编码方式-1" id="markdown-toc-编码方式-1">编码方式</a></li>
+      <li><a href="#numerical-features数值化特征-1" id="markdown-toc-numerical-features数值化特征-1">Numerical Features（数值化特征）</a></li>
+      <li><a href="#装箱-1" id="markdown-toc-装箱-1">装箱</a>        <ul>
+          <li><a href="#离散特征-1" id="markdown-toc-离散特征-1">离散特征：</a></li>
+          <li><a href="#1-排序特征-1" id="markdown-toc-1-排序特征-1">1. 排序特征：</a></li>
+          <li><a href="#计数特征" id="markdown-toc-计数特征">计数特征</a></li>
+          <li><a href="#类别特征编码" id="markdown-toc-类别特征编码">类别特征编码</a></li>
+          <li><a href="#交叉特征" id="markdown-toc-交叉特征">交叉特征:</a></li>
+        </ul>
+      </li>
+      <li><a href="#缺失值填充难点" id="markdown-toc-缺失值填充难点">缺失值填充–难点</a>        <ul>
+          <li><a href="#计数特征-1" id="markdown-toc-计数特征-1">计数特征</a></li>
+          <li><a href="#类别特征编码-1" id="markdown-toc-类别特征编码-1">类别特征编码</a></li>
+          <li><a href="#交叉特征-1" id="markdown-toc-交叉特征-1">交叉特征:</a></li>
+        </ul>
+      </li>
+      <li><a href="#缺失值填充难点-1" id="markdown-toc-缺失值填充难点-1">缺失值填充–难点</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="特征工程模型评价与选择一">特征工程，模型评价与选择（一）</h1>
+
+<h2 id="获取数据">获取数据</h2>
+
+<ul>
+  <li>这部分途径有很多很多，在这篇博文不讲，下次有机伪会我会讲下我学习网络爬虫来获取数据的学习经历！</li>
+</ul>
+
+<h2 id="数据清洗data-cleaning">数据清洗（Data Cleaning）</h2>
+<ul>
+  <li>当有了数据，我们可以统计一下各个变量的缺失值情况</li>
+  <li>然后对缺失部分进行处理，如果是连续变量，可以采用预测模型，例如 Age，可以找到类似的数据群体，然后取最多的，或者最多群体的平均值。</li>
+</ul>
+
+<h2 id="特征工程feature-engineering">特征工程（Feature Engineering）</h2>
+<ul>
+  <li>特征工程就是选择一些表示典型特征的数据，来替代原始数据作为模型的输入，进而得到比较好的输出效果。</li>
+  <li>连续数据做一下归一化，即把大范围变化的数据范围缩小至 0～1 或者 －1～1 之间。然后把不相关的变量 （丢）drop 掉。</li>
+</ul>
+
+<blockquote>
+  <p>因为一个老是说概念可能会不那么清晰，在这篇文章中有例子详解<a href="http://blog.jobbole.com/74951/">推荐系统例子</a></p>
+</blockquote>
+
+<blockquote>
+  <p>还有这篇博文<a href="http://www.jianshu.com/p/35135ab0a627">特征工程怎么做</a>也值得借鉴</p>
+</blockquote>
+
+<p>下面直接上图，在大体上对特征工程有个大概了解！</p>
+
+<div>
+<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />
+</div>
+
+<h3 id="特征提取与特征选择">特征提取与特征选择</h3>
+
+<ul>
+  <li><strong>特征提取：</strong>特征选择也叫特征子集选择 ( FSS , Feature Subset Selection ) 。是指从已有的M个特征(Feature)中选择N个特征使得系统的特定指标最优化，是从原始特征中选择出一些最有效特征以降低数据集维度的过程,是提高学习算法性能的一个重要手段,也是模式识别中关键的数据预处理步骤。对于一个学习算法来说,好的学习样本是训练模型的关键。.</li>
+  <li><strong>特征选择：</strong>特征提取是计算机视觉和图像处理中的一个概念。它指的是使用计算机提取图像信息，决定每个图像的点是否属于一个图像特征。特征提取的结果是把图像上的点分为不同的子集，这些子集往往属于孤立的点、连续的曲线或者连续的区域。</li>
+</ul>
+
+<blockquote>
+  <p>提取就是通过降维技术来抽出主要信息//是计算机视觉的概念，通过映射实现，可以理解为高维的映射到低维，不删除具体特征，而是舍去那些通过映射后不能代表原来主要信息的数据
+选择就要舍去一些特征，拿到整体主要特征//要删除一些特征</p>
+</blockquote>
+
+<p>二者是直接关联的关系.<br /></p>
+
+<p>　　一般认为, 特征选择是指在拿到一堆原始数据的伪时候，选取有用的feature，以备进行机器学习使用。
+　　比如你拿到的是文本信息，那么里面的单词就是原始数据了， 那么你要考虑的是，数字保留不保留？大小写要不要区分？一些常用词比如of, on, by之类的要不要扔掉？等等。对于图像处理和视频处理也有一套相应的规范和实践。通过下面即将要讲的方法，就可以知道怎么来选择特征和舍去特征。<br />
+　　而特征提取（extract），比如咋做图像识别的时候，由于一个像素表示一个特征的话，现在的照片随随便便就1024*1024像素的，这时候我们就要通过特征提取的方法来抽出最能代表这张照片的主要信息。特征提取（extract）的方法有很多，主要有PCA,PCA的SVD,ICA,还有因子分析（Fachor Analysis）这些讲起来会比较复杂，所以下次要独立一篇再讲一遍（其实也是我现在还没有很好的掌握这些方法-逃。。。）</p>
+
+<h3 id="简单实践">简单实践</h3>
+<p>　　讲到特征选择，最近有看下天池的一个比赛:<a href="https://tianchi.shuju.aliyun.com/getStart/introduction.htm?spm=5176.100066.333.1.1Ar5Ir&amp;raceId=231576">Repeat Buyers Prediction</a>，也是现在大三大佬们的大数据作业，任务就是根据用户3个月在天猫的行为日志，建立用户的品牌偏好，并预测他们在将来一个月内对品牌下商品的购买行为。在作业中老师给的特征只是用户之前的行为，所以最终效果真的有点差，百分之五点多的准确率，百分之五点多的召回率，百分之五点多的f1得分，嗯，我纯靠猜都可能比它强吧。。。<br />
+　　所以我去下载了下官网的数据，做了下数据的简单可视化，在用户的年龄段（age range）和性别（gender）方面是很大影响的，具体图如下<a href=""></a>
+然后还有就是商品的类别和品牌也应该是有有影响的（这个想想就能理解了吧），但由于给我的数据量太大了，本来想做可视化折线图的，运行他就，效果也不明显也就放弃了。<br />
+　　具体经过特征添加后的最终结果，我想应该会在<strong>回归</strong>那篇讲讲（之后写）</p>
+
+<h3 id="卡方检验">卡方检验</h3>
+<ul>
+  <li>卡方值和卡方检验其实在我们高中的时候就学过了，想想是吧！但是那个时候觉得它并没有什么卵用，也就早“还给老师”。其实也很简单，<strong>卡方值检验就是检验A,B事物之间的相关程度</strong></li>
+  <li>先直接推荐一篇博文，结合例子，很好理解：<a href="http://www.blogjava.net/zhenandaci/archive/2008/08/31/225966.html">卡方检验</a></li>
+</ul>
+
+<blockquote>
+  <p>在我的项目中，有用到卡方检验来提取特征词，然后来减少无关特征，达到特征选择的目的，实践证明，确实好用！</p>
+</blockquote>
+
+<h3 id="信息量">信息量</h3>
+<ul>
+  <li>首先先说下信息量的问题，一条信息的信息量跟这个信息能解答的问题的不确定性有关。能解答的问题越不确定，这条信息的信息量越大，也就是说这条信息的熵越大。–咦，说好的信息量，怎么又来了个信息熵的呢？好吧，说说信息熵</li>
+  <li>信息熵也叫香农熵（信息论之父——克劳德·香农，在 1948 年提出“ 信息熵解决了信息的度量问题），就是用来衡量信息量的大小。熵这个字出自与热力学，表示系统混乱的程度，在信息论中我们用信息熵来表示信息的大小。简单理解信息的不确定性越大，信息熵就越大，信息的不确定性越小，信息熵也就越小。</li>
+</ul>
+
+<p>　　嗯，有点抽象，那就来结合例子来理解：–以下例子来自《数学之美》（是本好书）。</p>
+
+<p>　　假设我错过了某年的世界杯比赛，现在要去问一个知道比赛结果的朋友“哪支球队最终获得世界杯冠军”？他要求我猜，猜完会告诉我是对还是错，但我每猜一次就要给他一块钱。那么我需要付给他多少钱才能知道谁是冠军？我可以把球队编号，从1到32，然后问“冠军的球队在1-16号中吗？”。假如他告诉我对了，我就问“冠军的球队在1-8号中吗？”。如果他告诉我不对，我就自然就知道冠军队在9-16号中。这样我只需要猜5次就可以知道哪支球队是冠军了。所以，“谁是世界杯冠军”这个问题的答案的信息量只值5块钱。<br />
+  香农用“比特”（bit）来作为信息量的单位。像上边“谁是世界杯冠军”这个问题的答案的信息量是5比特。如果是64支球队，“谁是世界杯冠军”这个问题的答案的信息量就是6比特，因为我还要多猜一次。<br />
+　　对足球了解的朋友看到这有疑问了，他觉得他不需要5次来猜。因为他知道巴西，西班牙，德国等这些强队夺冠的可能性比日本，韩国等球队大的多。所以他可以先把强队分成一组，剩下的其它队伍一组。然后问冠军是否在夺冠热门组里边。重复这样的过程，根据夺冠的概率对剩下的候选球队分组，直至找到冠军队。这样也许三次或四此就猜出结果了。因此，当每支球队夺冠的可能性（概率）不一样时，“谁是世界杯冠军”这个问题的答案的信息量比5比特少。<br /></p>
+
+<p>　　香农指出，“谁是世界杯冠军”这个问题的答案的信息量是：<br />
+<code class="highlighter-rouge">H = -(p1*log(p1) + p2 * log(p2) + ... + p32 * log(32))</code>, 其中log是以2为底数的对数，以下本文中的log都是以2为底的对数，下边不再特别说明。这就是衡量信息量多少的公式，它的单位是比特。之所以称为熵是因为它的定义形式和热力学的熵有很大的相似性。对于一个随机变量X的信息熵的定义公式为：</p>
+
+<p><code class="highlighter-rouge">H(X)＝-∑P(xi)logP(xi)</code>，其中xi是随机变量X的可能取值。</p>
+
+<blockquote>
+  <p>应该比较好懂了吧，我就是这样看懂的</p>
+</blockquote>
+
+<p>信息熵计算：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>信息熵图：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering3.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>可以看到，在p=0.5（意味着在二元中概率事件发生概率相等的情况下）的时候熵值是最大的，也就是说这个时候是是确定性最低的，最混乱的。（延伸到在足球的例子中的意思就是每个队的获胜概率都相等的时候，那个时候信息量（熵）最大，你就越难猜那个队会赢）</p>
+
+<h3 id="信息增益">信息增益</h3>
+<ul>
+  <li>说完信息熵，之后我们来说说信息增益，但说信息增益之前，我们说下条件熵</li>
+  <li>条件熵表示在已知第二个随机变量 X 下第一个随机变量 Y 信息熵的大小。条件上用 <code class="highlighter-rouge">H(Y|X)</code> 表示</li>
+</ul>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering4.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>咦，看到上面式子就想起条件概率，其实，<strong>条件熵可以类比条件概率，他表示：在随机变量 X 的基础上我们引入随机变量 Y，假设 Y 和 X 有一定的关系。那么 Y 的信息熵会相对减小。</strong></p>
+
+<blockquote>
+  <p>条件熵还是很好理解的吧！不理解吗？还是结合足球的例子，比如你知道其中一个队是铁定不会赢的了，那你要现在要猜那个队会赢，那个难度就下降了是吧，因为信息熵下降了！</p>
+</blockquote>
+
+<p>知道条件熵之后，信息增益就很简单了，他就是：<code class="highlighter-rouge">g(X,Y) = H(X) – H(X|Y)</code>，表示的就是条件熵和原来熵的差值</p>
+
+<blockquote>
+  <p>嗯，概念就讲到这里，之后我会写决策树的博文，到时还会复习一下信息熵。介绍一下信息增益比的概念</p>
+</blockquote>
+
+<p><strong>关于信息论对ML的一些概念，可以看下<a href="https://segmentfault.com/a/1190000000641079">这篇博文</a></strong></p>
+
+<h3 id="互信息">互信息</h3>
+<ul>
+  <li>测量训练数据中xi与y的相关度。该算法可能会使得我们选择的都是与标签y强相关的特征值。在实践中，我们通常选择能够表示xi与y间的互信息（mutual information）</li>
+  <li>互信息(Mutual Information)是度量两个事件集合之间的相关性(mutual dependence)。意义就是：由于事件A发生与事件B发生相关联而提供的信息量。</li>
+  <li>数学公式：</li>
+</ul>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering5.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>应该不难理解，但这里有一个问题：<br />
+　　<strong>问：</strong>《数学之美》 上面 互信息 的公式是：I(X;Y)=H(X)-H(X|Y)；又看到 《统计学习方法》 上有一个 信息增益 的公式：G(D,A)=H(D)-H(D|A)。这不是一样吗？难道互信息就是信息增益？<br />
+　　<strong>答：</strong>IG（信息增益）有两种定义。。一般IG是指KL散度（相对熵）
+但在Desicion Tree（决策树）的IG一般是指KL散度的期望，然后正好就是互信息了，其实我想就简单理解并记住计算互信息的公式，然后在机器学习中信息增益是一种特殊的情况，就是她是KL散度的期望。
+先看p对q的相对熵为
+<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering6.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>然后是KL散度的期望=互信息<br /></p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering7.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p><strong>总结：</strong>其实信息论要讲起来是一门挺深的课。而我是想用最简单的方式理解最多的知识，可能讲的比较粗略，有兴趣的小伙伴可以看看信息论的书！
+最后，用一张图结束:</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering8.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<h2 id="编码方式">编码方式</h2>
+
+<p><strong>one-hot编码：</strong>大多使用一些线性的算法，它的稀疏格式是记忆友好的(便于存储)，注意去掉第一列避免共线性
+<strong>哈希编码：</strong>它是对固定长度的数组进行 Onehot 编码，它避免极度稀疏的数据，但可能会产生冲突
+<strong>标签编码：</strong>它给每个类一个独一无二的数字化 ID,它对于对于<strong>非线性的基于树模型</strong>的算法很有用，它不增加维度
+<strong>Count 编码:Replace categorical variables with their count in the train set</strong>,它对线性或非线性的算法都适用，对对异常值敏感，<strong>Replace unseen variables with <code class="highlighter-rouge">1</code></strong>
+<strong>LabelCount 编码:Rank categorical variables by count in train set</strong>,对线性或非线性算法都适用,它对异常值不敏感</p>
+
+<blockquote>
+  <p>在这里讲述的是常见的几种编码方式，其实还有其他的各种不同的编码，具体请看</p>
+</blockquote>
+
+<h2 id="numerical-features数值化特征">Numerical Features（数值化特征）</h2>
+
+<p>Can be more readily fed into algorithms，Can constitute floats, counts, numbers and Easier to impute missing data.</p>
+
+<h2 id="装箱">装箱</h2>
+<p>把数字化变量放入箱中,并用 bin-ID 编码,用分位数装箱是很实用的,甚至可以用模型找出可选的箱
+可以优雅的找到训练集范围外的变量</p>
+
+<h3 id="离散特征">离散特征：</h3>
+
+<p>特征离散化有两种划分方式:一种是等值划分(按照值域均分),另一种是等量划分
+(按照样本数均分)。我们对 numeric 类型的特征采用了等量划分的离散化方式:先将每
+一维特征按照数值大小排序,然后均匀地划分为 10 个区间,即离散化为 1~10。</p>
+
+<h3 id="1-排序特征">1. 排序特征：</h3>
+
+<h2 id="特征工程">特征工程</h2>
+<p>坊间戏言“特征没做好,参数调到老”,机器学习大牛 Andrew Ng 也说过“‘Applied
+machine learning’is basically feature engineering”,可见特征工程的重要性,我们要在在这部分投入了大量的时间和精力。下面先讲讲怎么来对特征进行处理</p>
+
+<h2 id="编码方式-1">编码方式</h2>
+
+<p><strong>one-hot编码：</strong>大多使用一些线性的算法，它的稀疏格式是记忆友好的(便于存储)，注意去掉第一列避免共线性
+<strong>哈希编码：</strong>它是对固定长度的数组进行 Onehot 编码，它避免极度稀疏的数据，但可能会产生冲突
+<strong>标签编码：</strong>它给每个类一个独一无二的数字化 ID,它对于对于<strong>非线性的基于树模型</strong>的算法很有用，它不增加维度
+<strong>Count 编码:Replace categorical variables with their count in the train set</strong>,它对线性或非线性的算法都适用，对对异常值敏感，<strong>Replace unseen variables with <code class="highlighter-rouge">1</code></strong>
+<strong>LabelCount 编码:Rank categorical variables by count in train set</strong>,对线性或非线性算法都适用,它对异常值不敏感</p>
+
+<blockquote>
+  <p>在这里讲述的是常见的几种编码方式，其实还有其他的各种不同的编码，具体请看</p>
+</blockquote>
+
+<h2 id="numerical-features数值化特征-1">Numerical Features（数值化特征）</h2>
+
+<p>Can be more readily fed into algorithms，Can constitute floats, counts, numbers and Easier to impute missing data.</p>
+
+<h2 id="装箱-1">装箱</h2>
+<p>把数字化变量放入箱中,并用 bin-ID 编码,用分位数装箱是很实用的,甚至可以用模型找出可选的箱
+可以优雅的找到训练集范围外的变量</p>
+
+<h3 id="离散特征-1">离散特征：</h3>
+
+<p>特征离散化有两种划分方式:一种是等值划分(按照值域均分),另一种是等量划分
+(按照样本数均分)。我们对 numeric 类型的特征采用了等量划分的离散化方式:先将每
+一维特征按照数值大小排序,然后均匀地划分为 10 个区间,即离散化为 1~10。</p>
+
+<h3 id="1-排序特征-1">1. 排序特征：</h3>
+
+<p>排序特征对异常数据都有较强的鲁棒性,使得模型更加稳定,降低过拟合的风险。</p>
+
+<h3 id="计数特征">计数特征</h3>
+
+<p>前面已经对特征进行了离散化,以 uid 为 1 的样本为这次就讲到这里吧，之后我会继续写好下面的博文，希望在写博文的同时，可以加深理解，一起加油！！！例,离散化后它的特征是
+5,3,1,3,3,3,2,4,3,2,5,3,2,3,2…2,2,2,2,2,2,2,可以进一步统计离散特征中 1~10 出现的次数
+n i (i=1,2,…,10),即可得到一个 10 维计数特征。基于这 10 维特征训练了 xgboost 分类器,线
+上得分是 0.58 左右,说明这 10 维特征具有不错的判别性。</p>
+
+<h3 id="类别特征编码">类别特征编码</h3>
+
+<p>赛题数据含有 93 维类别特征,很多算法(如逻辑回归,SVM)只能处理数值型特征,
+这种情况下需要对类别特征进行编码,我们采用了 One-Hot 编码,得到了 01 特征,解决
+了分类器不能处理类别特征的问题。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>当不清楚这个编码的时候，你就很有可能会犯错误，例如颜色属性可能会用{1,2,3}表示{红，绿，蓝}。这里存在两个问题：首先，对于一个数学模型，这意味着某种意义上红色和绿色比和蓝色更“相似”（因为</td>
+      <td>1-3</td>
+      <td>&gt;</td>
+      <td>1-2</td>
+      <td>）。除非你的类别拥有排序的属性（比如铁路线上的站），这样可能会误导你的模型。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="交叉特征">交叉特征:</h3>
+
+<p>交叉特征算是特征工程中非常重要的方法之一了，交叉特征是一种很独特的方式，它将两个或更多的类别属性组合成一个。当组合的特征要比单个特征更好时，这是一项非常有用的技术。数学上来说，是对类别特征的所有可能值进行交叉相乘。</p>
+
+<p>假如拥有一个特征A，A有两个可能值{A1,A2}。拥有一个特征B，存在{B1,B2}等可能值。然后，A&amp;B之间的交叉特征如下：{(A1,B1),(A1,B2),(A2,B1),(A2,B2)}，并且你可以给这些组合特征取任何名字。但是需要明白每个组合特征其实代表着A和B各自信息协同作用。</p>
+
+<p>一个更好地诠释好的交叉特征的实例是类似于(经度,纬度)。一个相同的经度对应了地图上很多的地方，纬度也是一样。但是一旦你将经度和纬度组合到一起，它们就代表了地理上特定的一块区域，区域中每一部分是拥有着类似的特性。</p>
+
+<h2 id="缺失值填充难点">缺失值填充–难点</h2>
+
+<p>排序特征对异常数据都有较强的鲁棒性,使得模型更加稳定,降低过拟合的风险。</p>
+
+<h3 id="计数特征-1">计数特征</h3>
+
+<p>前面已经对特征进行了离散化,以 uid 为 1 的样本为例,离散化后它的特征是
+5,3,1,3,3,3,2,4,3,2,5,3,2,3,2…2,2,2,2,2,2,2,可以进一步统计离散特征中 1~10 出现的次数
+n i (i=1,2,…,10),即可得到一个 10 维计数特征。基于这 10 维特征训练了 xgboost 分类器,线
+上得分是 0.58 左右,说明这 10 维特征具有不错的判别性。</p>
+
+<h3 id="类别特征编码-1">类别特征编码</h3>
+
+<p>赛题数据含有 93 维类别特征,很多算法(如逻辑回归,SVM)只能处理数值型特征,
+这种情况下需要对类别特征进行编码,我们采用了 One-Hot 编码,得到了 01 特征,解决
+了分类器不能处理类别特征的问题。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>当不清楚这个编码的时候，你就很有可能会犯错误，例如颜色属性可能会用{1,2,3}表示{红，绿，蓝}。这里存在两个问题：首先，对于一个数学模型，这意味着某种意义上红色和绿色比和蓝色更“相似”（因为</td>
+      <td>1-3</td>
+      <td>&gt;</td>
+      <td>1-2</td>
+      <td>）。除非你的类别拥有排序的属性（比如铁路线上的站），这样可能会误导你的模型。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="交叉特征-1">交叉特征:</h3>
+
+<p>交叉特征算是特征工程中非常重要的方法之一了，交叉特征是一种很独特的方式，它将两个或更多的类别属性组合成一个。当组合的特征要比单个特征更好时，这是一项非常有用的技术。数学上来说，是对类别特征的所有可能值进行交叉相乘。</p>
+
+<p>假如拥有一个特征A，A有两个可能值{A1,A2}。拥有一个特征B，存在{B1,B2}等可能值。然后，A&amp;B之间的交叉特征如下：{(A1,B1),(A1,B2),(A2,B1),(A2,B2)}，并且你可以给这些组合特征取任何名字。但是需要明白每个组合特征其实代表着A和B各自信息协同作用。</p>
+
+<p>一个更好地诠释好的交叉特征的实例是类似于(经度,纬度)。一个相同的经度对应了地图上很多的地方，纬度也是一样。但是一旦你将经度和纬度组合到一起，它们就代表了地理上特定的一块区域，区域中每一部分是拥有着类似的特性。</p>
+
+<h2 id="缺失值填充难点-1">缺失值填充–难点</h2>
+<p>。损失函数是   f (X)和Y的非负实值函数，记作L(Y, f (X)) .
+在李航博士《统计学习方法》中有很详细的介绍，我就偷偷懒，就直接贴下那篇图片好啦，然后简单说明下（哈哈，逃。。）</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering13.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>损失函数的期望是
+<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering14.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>期望风险Rexp(f)是模型关于联合分布的期望损失，经验风险Remp(f)是模型关于训练样本集的平均损失（也就是概率中是实验数据越大，越能代表一般规律）。根据大数定律，当样本容量N趋于无穷时，经验风险趋于期望风险。所以一个很自然的想法是用经验风险估计期望风险。但是，由于现实中训练样本数目有限，甚至很小，所以用经验风险估计期望风险常常并不理想，要对经验风险进行一定的矫正.</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/feature_engineering15.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<blockquote>
+  <p>当样本容量足够大时，经验风险最小化能保证有很好的学习效果。例：极大似然估计(maximum likelihood estimation)。但是，当样本容量很小时，经验风险最小化学习的效果就未必很好，会产“过拟合(over-fitting)”现象.这就引出下面的正则化。</p>
+</blockquote>
+
+<p>参考资料：</p>
+
+<p>《统计学习方法》-李航<br />
+《机器学习》-周志华<br />
+《机器学习实战》-Peter Harrington<br />
+斯坦福大学公开课-机器学习<br />
+网上的各位大牛的博文<br /></p>
+
+<p><!-- 多说评论框 start --></p>
+<div class="ds-thread" data-thread-key="201701181" data-title="feature engineering" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+<!-- 多说公共JS代码 end -->
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/machine%20learning/2017/01/18/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7-%E4%B8%80.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2017-1-17-特征工程，模型评价（一）.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

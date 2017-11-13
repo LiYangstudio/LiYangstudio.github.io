@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="我的博客" name="description">
+  
+  
+    <meta name="keywords" content="blog,Machine Learning,AI">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|End-to-End Task-Completion Neural Dialogue Systems
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 2 Jun 2017</span>
+                        <h1>
+                            End-to-End Task-Completion Neural Dialogue Systems
+                        </h1>
+                    </div>
+                    	<h2 id="目录">目录</h2>
+<p><strong>建议用电脑看</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#目录" id="markdown-toc-目录">目录</a></li>
+  <li><a href="#end-to-end-task-completion-neural-dialogue-systems" id="markdown-toc-end-to-end-task-completion-neural-dialogue-systems">End-to-End Task-Completion Neural Dialogue Systems</a>    <ul>
+      <li><a href="#主要贡献" id="markdown-toc-主要贡献">主要贡献</a></li>
+      <li><a href="#论文背景" id="markdown-toc-论文背景">论文背景</a></li>
+      <li><a href="#网络结构原理" id="markdown-toc-网络结构原理">网络结构原理</a></li>
+      <li><a href="#算法流程和讲解" id="markdown-toc-算法流程和讲解">算法流程和讲解</a></li>
+      <li><a href="#实验过程和结果" id="markdown-toc-实验过程和结果">实验过程和结果（）</a></li>
+      <li><a href="#related-work加上discussion" id="markdown-toc-related-work加上discussion">RELATED WORK加上discussion</a></li>
+      <li><a href="#文章解读和评价" id="markdown-toc-文章解读和评价">文章解读和评价</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="end-to-end-task-completion-neural-dialogue-systems">End-to-End Task-Completion Neural Dialogue Systems</h1>
+
+<h2 id="主要贡献">主要贡献</h2>
+
+<p>本文使用监督学习和强化学习的技术以端到端的方式训练完成任务型的对话系统，主要的贡献有以下三点：</p>
+
+<p>1.鲁棒性：本文提出一种神经对话系统，具有更强的鲁棒性，能够根据强化学习在<strong>未知的情况下</strong>自动选择用户的动作；</p>
+
+<p>2.灵活性：允许用户在对话过程中发起对话，使用户可以更加灵活的与系统进行交互，；（也就是可以自己定义动作？，不太理解。。。）</p>
+
+<p>3.可重现性：本文演示了如何使用任务特定数据集并模拟用户以端到端方式评估RL对话代理，从而确保了系统的可重现性。有自己开源的代码，并且凸显出在各种任务上的都可以迁移。</p>
+
+<h2 id="论文背景">论文背景</h2>
+
+<h2 id="网络结构原理">网络结构原理</h2>
+
+<p>系统框架：</p>
+
+<p>该系统主要由用户议程模型、自然语言生成模块、语义理解模块、对话管理模块几部分组成，系统框图如下：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/end_end_Task_Completion.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>1.用户议程模型</p>
+
+<p>在对话过程中，用户模拟器包含一个紧凑的类似与堆栈的表示，这就是用户的议程，在这过程中用户的状态s_{u} 作为议程A和目标G的决定因素，其中目标G是由限制集合C和请求集合R成。在时间为t的每一步时间段内，用户模拟器根据用户当前的状态s_{u,t} 和上一节点多用户代理的动作a_{m,t-1} 来预测下一用户的动作a_{u,t} 从而更新该时刻用户的状态s’_{u,t} 。</p>
+
+<p>2.自然语言生成（NLG）</p>
+
+<p>自然语言生成：即根据用户的对话行动，生成自然语言文本。为了控制给定有限的标记数据的用户模拟的质量，本文采用包括基于模板的NLG和基于模型的NLG的混合方法，其中基于模型的NLG使用序列到序列模型在标记的数据集上训练。它采用对话行为作为输入，并通过LSTM解码器产生具有插槽占位符的句子草图。然后执行后处理扫描，以将槽位占位符替换为它们的实际值。在LSTM解码器中，我们应用波束搜索，其在生成下一个令牌时迭代地考虑前k个最佳子句。</p>
+
+<p>在这个混合的模型中，如果用户对话的动作可以在预先设置的语句模板中找到的话，系统就是用基于模版的NLG，否则的话，系统就采用基于模型的NLG。这种混合的方法通过提供简单的模板从而提高了NLG的性能，而这正是机器学习不能够很好支持的地方。</p>
+
+<p>3.语意理解模块（LU）</p>
+
+<p>语言理解（LU）：LU的一个主要任务是自动将用户的查询域与该域中特定的意图一起分类，并在一组时隙中填充以形成语义帧。流行的IOB（in-out-begin）格式用于表示槽标签。LU组件由单个LSTM实现，该单个LSTM同时执行意图预测和槽缝填充。使用反向传播训练LSTM模型的权重以最大化训练集标签的条件似然概率。预测标签集是IOB格式槽标签和意图标签的级联集合；因此，可以使用监督方式在标记的数据集中使用所有可用的对话动作和对话对来训练该模型。IOB格式标签示例如下：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/end_end_Task_Completion01.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>4.对话管理模块（DM）</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>符号LU输出以对话行为形式（或语义帧）传递到DM。经典DM包括两个阶段，对话状态追踪和策略的学习。给定LU符号输出，形成查询以与数据库交互以检索可用结果。状态跟踪器将根据数据库的可用结果和最新的用户对话操作进行更新。然后跟踪器准备策略学习的状态表示，其中包括最近的用户动作，最新代理动作，数据库结果，转向信息以及历史对话轮次等。在从状态跟踪器输入的状态上，策略学习是生成下一个可用的系统动作\pi (s</td>
+      <td>a)。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="算法流程和讲解">算法流程和讲解</h2>
+
+<p>端到端的强化学习：</p>
+
+<p>本文采用强化学习的方式，以端到端的训练方式，来学习得到系统的策略。策略决策方式采用DQN算法（Deep Q Learning），将用户的状态s_{t} 作为状态跟踪器的输入，输出Q(s_{t} ,a;\theta )。其中应用了DQN的两个重要的方法：目标网络的使用和经验池的回放（经验池的回放策略可以在对话的设置中进行改变）。</p>
+
+<p>在训练过程中，使用了\epsilon -greedy算法来进行探索和具有动态改变缓冲区大小的经验重放缓冲区。在每个模拟对话中，系统模拟N个对话并将这些状态转化为四元组(s_{t} ,a_{t} ,r_{t} ,s_{t+1} )添加到经验缓冲区中以用于训练。在一次模拟时隙中，当前的DQN网络将被更新许多次（根据batch的大小和当前经验缓冲区的大小）。在最后一次模拟时隙中，目标网络将被替换成当前的DQN网络。</p>
+
+<p>经验回放策略对于强化学习是十分重要的，因此该系统采用了一种热启动的方式来进行经验回放。一般来说，我们认为DQN的初始性能不足以产生良好的经验重放元组，一次我们不会将其放到经验池中，知道RL代理道道一定的成功率之后在放到经验池中（例如：可以先用规则的代理产生经验重放元组）。在每次的模拟中，该系统估计当前DQN代理的成功率（通过多次模拟用户），如果当前DQN代理由于目标网络，则经验回放缓冲池将被激活。</p>
+
+<h2 id="实验过程和结果">实验过程和结果（）</h2>
+
+<p>实验和讨论：</p>
+
+<p>该系统是一个任务型对话系统，任务是帮助用户预定电影票。在对话过程中，对话系统收集用户的欲望信息，并最终预定电影票。然后环境基于（1）电影是否被预订以及（2）电影是否满足用户约束，在对话结束二元结果（成功或失败）。原始对话数据由Amazon Mechanical Turk得到，总共标记了280个对话，平均对话圈数约为11。</p>
+
+<p>在DM训练中进行了两组实验，即采用两种输入格式来训练RL代理：（1）语义帧：基于用户动作的语义帧训练或测试策略时，使用噪声信道用于模拟用户和代理之间的LU错误和噪声通信的噪声。（2）自然语言：当训练或测试自然语言层面的政策时，LU和NLG可能引入噪声。实验的结果如下图所示：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/end_end_Task_Completion1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>从结果来看，RL代理明显优于基于规则的代理，显示了神经对话系统的潜力，可以完成显示世界的任务，并通过与用户的交互自主的进行改进。此外对比两图可以看出端到端的系统达到稳定需要更长的时间来适应LU和NLG的噪声，这表明维持系统的鲁棒性的困难。而该系统与上述困难一致的增长趋势也更好的表明了该系统在现实生活应用情境下的鲁棒性。</p>
+
+<p>系统得到的对话结果如下（基于规则的代理和RL代理）：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/end_end_Task_Completion2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<h2 id="related-work加上discussion">RELATED WORK加上discussion</h2>
+
+<p>之前的end to end，比如基于Memory network的那个模型，因为他们是sl来训练的，这样就需要大量的数据，不然就很容易过拟合。</p>
+
+<p>本文提出了一种端到端学习框架，用于任务完成对话系统。 我们的实验表明，强化学习系统的性能优于基于规则的代理，并具有更好的鲁棒性，以允许在真实世界任务完成方案中与用户进行自然交互。</p>
+
+<h2 id="文章解读和评价">文章解读和评价</h2>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/machine%20learning/2017/06/02/End-to-End-Task-Completion-Neural-Dialogue-Systems.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2017-6-2-End-to-End Task-Completion Neural Dialogue Systems.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

@@ -1,0 +1,3800 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|Machine Learning
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li class="active">
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+        <div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="navy-line"></div>
+        <h1>Machine Learning</h1>
+    </div>
+</div> 	
+
+<div class="wrapper wrapper-content  animated fadeInRight blog">
+    <div class="row">
+		<ul id="pag-itemContainer" style="list-style:none;">
+    
+		
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/06/05/VAE-Variational-autoencoder.html" class="btn-link">
+                        <h2>
+                            VAE--Variational autoencoder
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 5 Jun 2017</span>
+                    </div>
+                    <p>
+                    	目录
+建议用电脑看
+
+
+  目录
+  VAE–Variational autoencoder    
+      得到VAE核心等式（二）
+      得到VAE核心等式（理解二）
+      ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/06/05/VAE-Variational-autoencoder.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/06/02/End-to-End-Task-Completion-Neural-Dialogue-Systems.html" class="btn-link">
+                        <h2>
+                            End-to-End Task-Completion Neural Dialogue Systems
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 2 Jun 2017</span>
+                    </div>
+                    <p>
+                    	目录
+建议用电脑看
+
+
+  目录
+  End-to-End Task-Completion Neural Dialogue Systems    
+      主要贡献
+      论文背景
+ ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/06/02/End-to-End-Task-Completion-Neural-Dialogue-Systems.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/27/Learning-End-to-End-Goal-Oriented-Dialog.html" class="btn-link">
+                        <h2>
+                            Learning End-to-End Goal-Oriented Dialog
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 27 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+建议用电脑看
+
+
+  目录
+  Learning End-to-End Goal-Oriented Dialog    
+      主要贡献
+      论文背景
+      网络结构原...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/27/Learning-End-to-End-Goal-Oriented-Dialog.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/27/Deep-Reinforcement-Learning-for-Dialogue-Generation.html" class="btn-link">
+                        <h2>
+                            Deep Reinforcement Learning for Dialogue Generation
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 27 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Deep Reinforcement Learning for Dialogue Generation    
+      主要贡献
+ ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/27/Deep-Reinforcement-Learning-for-Dialogue-Generation.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/27/End-to-end-dialog-control-optimized.html" class="btn-link">
+                        <h2>
+                            End-to-end LSTM-based dialog control
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 27 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+建议用电脑看
+
+
+  目录
+  End-to-end LSTM-based dialog control optimized with supervised and reinforceme...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/27/End-to-end-dialog-control-optimized.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/26/Chatbot.html" class="btn-link">
+                        <h2>
+                            Chatbot
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 26 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+建议用电脑看
+
+
+  目录
+  Chatbot    
+      语料和词汇资源
+      词性标注
+      问答机器人        
+          提问处理模块
+    ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/26/Chatbot.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/25/Hybrid-Code-Networks.html" class="btn-link">
+                        <h2>
+                            Hybrid Code Networks
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 25 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+建议用电脑看
+
+
+  目录
+  Hybrid Code Networks: practical and efficient end-to-end dialog control with s...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/25/Hybrid-Code-Networks.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/20/%E9%80%86%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0(%E4%BA%8C)-%E5%9F%BA%E4%BA%8E%E6%9C%80%E5%A4%A7%E7%86%B5%E7%9A%84%E6%96%B9%E6%B3%95.html" class="btn-link">
+                        <h2>
+                            逆强化学习(二)--基于最大熵的方法
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 20 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  逆强化学习(二)–基于最大熵的方法
+
+
+逆强化学习(二)–基于最大熵的方法
+
+
+
+
+
+
+
+
+
+参考文献：
+
+[1] Ziebart, B...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/20/%E9%80%86%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0(%E4%BA%8C)-%E5%9F%BA%E4%BA%8E%E6%9C%80%E5%A4%A7%E7%86%B5%E7%9A%84%E6%96%B9%E6%B3%95.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/19/%E9%80%86%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0.html" class="btn-link">
+                        <h2>
+                            逆强化学习(一)--最大边际法
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 19 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  逆强化学习(一)–最大边际法    
+      什么是逆向强化学习？
+      逆向强化学习的分类
+      如何学习回报函数？
+...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/19/%E9%80%86%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/16/Pathwise-DerivaMves-(DPG,DDPG).html" class="btn-link">
+                        <h2>
+                            Pathwise DerivaMves (DPG,DDPG)
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 16 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Pathwise DerivaMves (DPG,DDPG)
+
+
+Pathwise DerivaMves (DPG,DDPG)
+
+
+
+
+...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/16/Pathwise-DerivaMves-(DPG,DDPG).html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/15/Policy-Optimization.html" class="btn-link">
+                        <h2>
+                            Policy Optimization
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 15 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Policy Optimization    
+      强化学习分类
+      策略搜索
+      策略搜索的分类
+      ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/15/Policy-Optimization.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/13/Adversarial-Learning-for-Neural-Dialogue-Generation.html" class="btn-link">
+                        <h2>
+                            Adversarial Learning for Neural Dialogue Generation
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 13 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Adversarial Learning for Neural Dialogue Generation    
+      主要贡献
+ ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/13/Adversarial-Learning-for-Neural-Dialogue-Generation.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/12/MaliGAN.html" class="btn-link">
+                        <h2>
+                            MaliGAN
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 12 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  MaliGAN    
+      主要贡献
+      论文背景
+      网络结构原理
+      算法流程和讲解
+      实...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/12/MaliGAN.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/10/%E8%87%AA%E5%8A%A8%E6%96%87%E6%91%98.html" class="btn-link">
+                        <h2>
+                            自动文摘
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 10 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  自动文摘    
+      自动文摘分类
+      Extractive Summarization
+      Abstracti...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/10/%E8%87%AA%E5%8A%A8%E6%96%87%E6%91%98.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/09/Skip-Thought-Vectors.html" class="btn-link">
+                        <h2>
+                            Skip-Thought Vectors
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 9 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Skip-Thought Vectors    
+      模型结构
+      表示未登录词-词汇表扩展。
+      future...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/09/Skip-Thought-Vectors.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/08/%E5%9B%BE%E5%83%8F%E6%A0%87%E6%B3%A8.html" class="btn-link">
+                        <h2>
+                            图像标注
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 8 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  图像标注
+  当前水平和意义
+  图像标注数据集
+  图像标注评价标准    
+      Perplexity
+      BLEU
+...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/08/%E5%9B%BE%E5%83%8F%E6%A0%87%E6%B3%A8.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/08/Connection-of-RL-AND-GAN.html" class="btn-link">
+                        <h2>
+                            Connection of RL AND GAN
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 8 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Connection of RL AND GAN    
+      Connecting generative adversarial...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/08/Connection-of-RL-AND-GAN.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/06/Encoder-Decoder%E6%A1%86%E6%9E%B6.html" class="btn-link">
+                        <h2>
+                            Encoder-Decoder框架
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 6 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Encoder-Decoder框架    
+      seq2sqeq 优化
+      取词策略        
+         ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/06/Encoder-Decoder%E6%A1%86%E6%9E%B6.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/05/%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E6%A6%82%E8%BF%B0.html" class="btn-link">
+                        <h2>
+                            图像生成模型概述-GAN
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 5 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  图像生成模型概述-GAN    
+      Maximum likelihood estimation
+      A taxonom...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/05/%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E6%A6%82%E8%BF%B0.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/05/02/SeqGAN,MaliGAN.html" class="btn-link">
+                        <h2>
+                            SeqGAN
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 2 May 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  SeqGAN
+  主要问题
+  importance sampling
+  SeqGAN: Sequence Generative Ad...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/05/02/SeqGAN,MaliGAN.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/28/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2-MCTS.html" class="btn-link">
+                        <h2>
+                            蒙特卡洛树搜索 MCTS
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 28 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  蒙特卡洛树搜索 MCTS
+  基本算法    
+      节点选择        
+          Bandits 和 UCB
+ ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/28/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2-MCTS.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/27/Actor-Critic.html" class="btn-link">
+                        <h2>
+                            Actor Critic
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 27 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Actor Critic    
+      为什么要有 Actor 和 Critic
+      Actor Critic综述
+   ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/27/Actor-Critic.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/26/Policy-Gradient.html" class="btn-link">
+                        <h2>
+                            Policy Gradient
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 26 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Policy Gradient    
+      什么是Policy Gradient
+      更新网络
+      从一般Pol...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/26/Policy-Gradient.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/26/DQN.html" class="btn-link">
+                        <h2>
+                            DQN
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 26 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  DQN    
+      Nature DQN
+      DQN有什么问题？还可以如何改进？
+      Double DQN，Pr...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/26/DQN.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/25/Exploration-and-Exploitation.html" class="btn-link">
+                        <h2>
+                            Exploration and Exploitation
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 25 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Exploration and Exploitation    
+      ϵ(t) greedy
+      Upper Confi...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/25/Exploration-and-Exploitation.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/22/Integrating-Learning-and-Planning.html" class="btn-link">
+                        <h2>
+                            Integrating Learning and Planning
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 22 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Integrating Learning and Planning    
+      Model-Based Reinforcemen...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/22/Integrating-Learning-and-Planning.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/21/Policy-Gradient.html" class="btn-link">
+                        <h2>
+                            Policy Gradient
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 21 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Policy Gradient    
+      Monte-Carlo Policy Gradient
+      Actor-Cr...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/21/Policy-Gradient.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/20/Wasserstein-GAN.html" class="btn-link">
+                        <h2>
+                            Wasserstein GAN
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 20 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Wasserstein GAN
+  原始GAN存在的主要问题：    
+      解决不收敛（non-convergence）的问题。...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/20/Wasserstein-GAN.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/15/model-free-Control.html" class="btn-link">
+                        <h2>
+                            model free-Control
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 15 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  model free-Control    
+      On-Policy Monte-Carlo
+      Sarsa Algor...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/15/model-free-Control.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/15/Value-Function-Approximation.html" class="btn-link">
+                        <h2>
+                            Value Function Approximation
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 15 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Value Function Approximation    
+      Incremental Methods
+      DQN...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/15/Value-Function-Approximation.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/15/Monte-Carlo-Reinforcement-Learning.html" class="btn-link">
+                        <h2>
+                            model free-Prediction
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 15 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  unknown MDP
+  episode
+  探索的必要性：
+  怎么理解Prediction
+  Monte-Carlo Reinf...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/15/Monte-Carlo-Reinforcement-Learning.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/15/cs231n-%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8-%E5%A4%9A%E5%88%86%E7%B1%BBsvm%E5%92%8CSoftmax.html" class="btn-link">
+                        <h2>
+                            cs231n-线性分类器（多分类svm和Softmax）
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 15 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  cs231n-线性分类器（多分类svm和Softmax）    
+      理解线性分类器
+      偏差和权重的合并技巧
+    ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/15/cs231n-%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8-%E5%A4%9A%E5%88%86%E7%B1%BBsvm%E5%92%8CSoftmax.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/02/reinforcement-learning.html" class="btn-link">
+                        <h2>
+                            reinforcement learning
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 2 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  reinforcement learning
+  强化学习是什么
+  What makes reinforcement learning...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/02/reinforcement-learning.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/04/02/Markov-decision-processes.html" class="btn-link">
+                        <h2>
+                            Markov decision processes
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 2 Apr 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  基础概念    
+      state transition distribution(状态转换分布)
+    
+  
+  Marko...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/04/02/Markov-decision-processes.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/31/paper-about-Very-Deep-Convolutional-Networks.html" class="btn-link">
+                        <h2>
+                            Paper about Very Deep Convolutional Networks for Text Classification
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 31 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Paper about Very Deep Convolutional Networks for Text Classification...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/31/paper-about-Very-Deep-Convolutional-Networks.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/29/Sequence-to-Sequence-Learning.html" class="btn-link">
+                        <h2>
+                            paper about Sequence to Sequence Learning with Neural Networks
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 29 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  paper about Sequence to Sequence Learning with Neural Networks    
+ ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/29/Sequence-to-Sequence-Learning.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/29/Batch-Normalization-and-dropout.html" class="btn-link">
+                        <h2>
+                            paper about batch normalization and dropout
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 29 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  paper about batch normalization and dropout
+  Batch Normalization   ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/29/Batch-Normalization-and-dropout.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/26/Representation-Learning.html" class="btn-link">
+                        <h2>
+                            《Deep Learning》-representation learning
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 26 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  representation learning
+  representation learning    
+      why huma...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/26/Representation-Learning.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/25/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA.html" class="btn-link">
+                        <h2>
+                            支持向量机（SVM）
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 25 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  支持向量机（SVM）    
+      基本概念
+      和Logistic回归的区别
+      间隔
+      函数间隔
+ ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/25/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/24/Deep-Learning-cnn-and-rnn.html" class="btn-link">
+                        <h2>
+                            《Deep Learning》-cnn and rnn
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 24 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  《Deep Learning》-cnn and rnn    
+      Motivation of CNN        
+    ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/24/Deep-Learning-cnn-and-rnn.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/24/Deep-Learning-Deep-Feedforward-Networks.html" class="btn-link">
+                        <h2>
+                            《Deep Learning》-Deep Feedforward Networks
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 24 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  《Deep Learning》-Deep Feedforward Networks    
+      Feedforward neur...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/24/Deep-Learning-Deep-Feedforward-Networks.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/23/Deep-Learning-Machine-Learning-Basics.html" class="btn-link">
+                        <h2>
+                            《Deep Learning》-Machine Learning Basics
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 23 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  《Deep Learning》-Machine Learning Basics    
+      kinds of machine L...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/23/Deep-Learning-Machine-Learning-Basics.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/18/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html" class="btn-link">
+                        <h2>
+                            convolution neural network
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 18 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  convolution neural network
+  四类解决方案解决图片的不变性（from PRML）    
+      Bac...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/18/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/18/cnn-in-nlp.html" class="btn-link">
+                        <h2>
+                            cs224d-cnn in nlp
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 18 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  cs224d-cnn in nlp
+  from rnn to cnn
+  cnn—single layer
+  pooling
+  s...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/18/cnn-in-nlp.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/17/Recursive-Neural-Networks.html" class="btn-link">
+                        <h2>
+                            cs224d-Recursive Neural Networks
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 17 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  cs224d-Recursive Neural Networks    
+      简要
+      A simple single ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/17/Recursive-Neural-Networks.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/17/cs224d_RNN,GRU,LSTM.html" class="btn-link">
+                        <h2>
+                            cs224d-rnn,gru,lstm
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 17 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  cs224d-rnn,gru,lstm    
+      RNN
+      RNN训练
+      Lstm
+      GRU
+ ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/17/cs224d_RNN,GRU,LSTM.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/16/cs224d_neuro-network.html" class="btn-link">
+                        <h2>
+                            cs224d-neuro network
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 16 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  cs224d-neuro network    
+      训练神经网络
+      rnn
+      交叉熵
+    
+  
+
+
+...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/16/cs224d_neuro-network.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/15/cs224d.html" class="btn-link">
+                        <h2>
+                            cs224d-word Vectors
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 15 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  cs224d-word Vectors    
+      word2vec and Glove
+      word2vec     ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/15/cs224d.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/14/%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C.html" class="btn-link">
+                        <h2>
+                            Gengerative Adversarial Networks
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 14 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  生成对抗网络    
+      概述
+      训练
+      如何训练GAN
+      GAN模型优化：
+      DCGA...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/14/%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/12/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-BP%E5%92%8C%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E5%8C%96.html" class="btn-link">
+                        <h2>
+                            神经网络-BP，更新参数策略
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 12 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  神经网络-BP，更新参数策略    
+      反向传播
+      链式法则
+      梯度的回传流中的模式        
+  ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/12/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-BP%E5%92%8C%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E5%8C%96.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/12/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html" class="btn-link">
+                        <h2>
+                            循环神经网络
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 12 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  循环神经网络（recurrent neural network）
+  引出循环神经网络
+  RNN讲解    
+      为什么可以参...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/12/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/12/Word2Vec.html" class="btn-link">
+                        <h2>
+                            理解word2woc
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 12 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  理解word2woc    
+      Embeddings
+      什么是word embedding        
+    ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/12/Word2Vec.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/12/%E7%94%9F%E6%88%90-%E5%88%A4%E5%88%AB%E6%A8%A1%E5%9E%8B-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB.html" class="btn-link">
+                        <h2>
+                            生成模型，判别模型，贝叶斯算法
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 12 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  生成模型，判别模型，贝叶斯算法
+  贝叶斯    
+      朴素贝叶斯假设
+      拉普拉斯平滑（Laplace smoothi...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/12/%E7%94%9F%E6%88%90-%E5%88%A4%E5%88%AB%E6%A8%A1%E5%9E%8B-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/03/11/paper-Optimization.html" class="btn-link">
+                        <h2>
+                            paper-Optimization
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 11 Mar 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  Optimization    
+      Momentum and Nesterov’s Accelerated Gradient
+...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/03/11/paper-Optimization.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/25/%E7%AE%80%E5%8D%95%E8%81%9A%E7%B1%BB.html" class="btn-link">
+                        <h2>
+                            简单聚类
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 25 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  简单聚类    
+      k-means算法        
+          算法步骤
+          k-means算法是...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/25/%E7%AE%80%E5%8D%95%E8%81%9A%E7%B1%BB.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/24/paper-GAN.html" class="btn-link">
+                        <h2>
+                            论文笔记-GAN
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 24 Feb 2017</span>
+                    </div>
+                    <p>
+                    	GAN
+
+这里的论文主要
+
+为什么要有GAN
+
+论文原文：
+
+Deep generative models have had less of an impact, due to the diff...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/24/paper-GAN.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/24/paper-ImageNet.html" class="btn-link">
+                        <h2>
+                            ImageNet Evolution(论文笔记)
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 24 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  ImageNet Evolution(论文笔记)
+  AlexNet    
+      数据准备
+      选择ReLU Nonli...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/24/paper-ImageNet.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/24/%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90-FP-growth%E7%AE%97%E6%B3%95.html" class="btn-link">
+                        <h2>
+                            关联分析(二)_FP-growth算法
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 24 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  关联分析(二)–FP-growth算法
+  构建FP树
+  从一颗FP树中挖掘频繁项集    
+      抽取条件模式基
+    
+ ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/24/%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90-FP-growth%E7%AE%97%E6%B3%95.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/23/%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90apriori.html" class="btn-link">
+                        <h2>
+                            关联分析（一）_Apriori
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 23 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  关联分析（一）–Apriori    
+      关联分析的基本概念
+    
+  
+  Apriori
+  总结和改进
+
+
+关联分析...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/23/%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90apriori.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/22/ListNet%E5%8E%9F%E7%90%86.html" class="btn-link">
+                        <h2>
+                            ListNet
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 22 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  ListNet
+
+
+ListNet
+
+因为在项目中涉及到异常学生检测中这个需求，然后在正好在datacastle中有个比赛正好是这个学生...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/22/ListNet%E5%8E%9F%E7%90%86.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/21/EM%E7%AE%97%E6%B3%95.html" class="btn-link">
+                        <h2>
+                            EM算法
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 21 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  EM算法    
+      Jensen不等式（Jensen’s inequality）
+    
+  
+  极大似然估计
+  EM算...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/21/EM%E7%AE%97%E6%B3%95.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/18/%E5%86%B3%E7%AD%96%E6%A0%91.html" class="btn-link">
+                        <h2>
+                            决策树
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 18 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  决策树    
+      构建决策树        
+          信息增益
+        
+      
+      ID3...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/18/%E5%86%B3%E7%AD%96%E6%A0%91.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/16/%E5%9B%9E%E5%BD%92-%E7%AE%80%E5%8D%95%E5%88%86%E7%B1%BB.html" class="btn-link">
+                        <h2>
+                            线性回归
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 16 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  线性回归    
+      简介
+      一般线性回归
+      寻找最优模型        
+          最小二乘：
+...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/16/%E5%9B%9E%E5%BD%92-%E7%AE%80%E5%8D%95%E5%88%86%E7%B1%BB.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%89%E5%85%B3%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E6%A6%82%E7%8E%87.html" class="btn-link">
+                        <h2>
+                            机器学习有关的数学基础知识-概率
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 14 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  机器学习有关的数学基础知识-概率    
+      条件概率
+      贝叶斯概率
+      离散型/连续型随机变量
+      ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%89%E5%85%B3%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E6%A6%82%E7%8E%87.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%89%E5%85%B3%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E7%BA%BF%E4%BB%A3.html" class="btn-link">
+                        <h2>
+                            机器学习有关的数学基础知识-线代
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 13 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  机器学习有关的数学基础知识-线代    
+      方差，标准差，协方差        
+          为什么需要协方差？
+  ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%89%E5%85%B3%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E7%BA%BF%E4%BB%A3.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/11/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0_Boosting.html" class="btn-link">
+                        <h2>
+                            集成学习(一)_Boosting
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 11 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  集成学习(一)–Boosting    
+      集成学习分类
+      Boosting        
+          A...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/11/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0_Boosting.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/11/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0_Bagging.html" class="btn-link">
+                        <h2>
+                            集成学习(二)_Bagging
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 11 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+
+
+集成学习(二)–Bagging
+
+上一篇博文我们讲了Boosting,这篇博文我们接着讲Bagging，主要讲解随机森林算法，通过这个...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/11/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0_Bagging.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/02/11/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7-%E4%BA%8C.html" class="btn-link">
+                        <h2>
+                            模型选择与评价，降维
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 11 Feb 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录    
+      模型指标
+    
+  
+  评价分类器性能指标之AUC、ROC    
+      引子
+      ROC
+    ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/02/11/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7-%E4%BA%8C.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5.html" class="btn-link">
+                        <h2>
+                            机器学习基础概念
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 19 Jan 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  机器学习基础概念    
+      过拟合和欠拟合
+      偏差/方差权衡
+      模型复杂程度和偏差/方差权衡
+      ...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+		
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="/machine%20learning/2017/01/18/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7-%E4%B8%80.html" class="btn-link">
+                        <h2>
+                            数据处理，特征工程
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>Evan</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 18 Jan 2017</span>
+                    </div>
+                    <p>
+                    	目录
+欢迎在文章下方评论，建议用电脑看
+
+
+  目录
+  特征工程，模型评价与选择（一）    
+      获取数据
+      数据清洗（Data Cleaning）
+      特征工程（...
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::http://localhost:4000/machine%20learning/2017/01/18/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7-%E4%B8%80.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        
+        </ul>
+        
+    <div class="col-lg-6 col-lg-offset-6">
+		<div class="pag-holder"></div>
+	</div>
+
+
+
+
+    </div>
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

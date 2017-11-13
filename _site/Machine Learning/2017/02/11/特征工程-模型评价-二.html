@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="我的博客" name="description">
+  
+  
+    <meta name="keywords" content="blog,Machine Learning,AI">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|模型选择与评价，降维
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 11 Feb 2017</span>
+                        <h1>
+                            模型选择与评价，降维
+                        </h1>
+                    </div>
+                    	<h2 id="目录">目录</h2>
+<p><strong>欢迎在文章下方评论，建议用电脑看</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#目录" id="markdown-toc-目录">目录</a>    <ul>
+      <li><a href="#模型指标" id="markdown-toc-模型指标">模型指标</a></li>
+    </ul>
+  </li>
+  <li><a href="#评价分类器性能指标之aucroc" id="markdown-toc-评价分类器性能指标之aucroc">评价分类器性能指标之AUC、ROC</a>    <ul>
+      <li><a href="#引子" id="markdown-toc-引子">引子</a></li>
+      <li><a href="#roc" id="markdown-toc-roc">ROC</a></li>
+      <li><a href="#如何画roc曲线" id="markdown-toc-如何画roc曲线">如何画ROC曲线</a></li>
+    </ul>
+  </li>
+  <li><a href="#auc值的计算" id="markdown-toc-auc值的计算">AUC值的计算</a>    <ul>
+      <li><a href="#为什么使用roc" id="markdown-toc-为什么使用roc">为什么使用ROC</a></li>
+      <li><a href="#降维技术" id="markdown-toc-降维技术">降维技术</a>        <ul>
+          <li><a href="#pca" id="markdown-toc-pca">PCA</a>            <ul>
+              <li><a href="#pca预处理" id="markdown-toc-pca预处理">PCA预处理</a></li>
+            </ul>
+          </li>
+          <li><a href="#pca算法" id="markdown-toc-pca算法">PCA算法</a></li>
+          <li><a href="#所以-pca-的一般步骤是" id="markdown-toc-所以-pca-的一般步骤是">所以 PCA 的一般步骤是:</a></li>
+          <li><a href="#svd奇异值分解" id="markdown-toc-svd奇异值分解">SVD（奇异值分解）</a></li>
+          <li><a href="#举例" id="markdown-toc-举例">举例：</a></li>
+        </ul>
+      </li>
+      <li><a href="#factor-analysis因子分析" id="markdown-toc-factor-analysis因子分析">Factor Analysis（因子分析）</a></li>
+      <li><a href="#ica独立成分分析" id="markdown-toc-ica独立成分分析">ICA（独立成分分析）</a>        <ul>
+          <li><a href="#鸡尾酒宴会问题" id="markdown-toc-鸡尾酒宴会问题">鸡尾酒宴会问题</a></li>
+          <li><a href="#ica算法的前处理步骤" id="markdown-toc-ica算法的前处理步骤">ICA算法的前处理步骤</a></li>
+          <li><a href="#ica算法" id="markdown-toc-ica算法">ICA算法</a></li>
+          <li><a href="#iac应用" id="markdown-toc-iac应用">IAC应用</a></li>
+          <li><a href="#小结" id="markdown-toc-小结">小结</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="模型指标">模型指标</h3>
+
+<ol>
+  <li>正确率 = 提取出的正确信息条数 /  提取出的信息条数</li>
+  <li>召回率 = 提取出的正确信息条数 /  样本中的信息条数</li>
+</ol>
+
+<blockquote>
+  <p>两者取值在0和1之间，数值越接近1，查准率或查全率就越高。</p>
+</blockquote>
+
+<ol>
+  <li>F值  = 正确率 * 召回率 * 2 / (正确率 + 召回率) （F 值即为正确率和召回率的调和平均值）</li>
+</ol>
+
+<p>不妨举这样一个例子：某池塘有1400条鲤鱼，300只虾，300只鳖。现在以捕鲤鱼为目的。撒一大网，逮着了700条鲤鱼，200只虾，100只鳖。那么，这些指标分别如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>正确率 = 700 / (700 + 200 + 100) = 70%
+召回率 = 700 / 1400 = 50%
+F值 = 70% * 50% * 2 / (70% + 50%) = 58.3%
+</code></pre></div></div>
+
+<p>不妨看看如果把池子里的所有的鲤鱼、虾和鳖都一网打尽，这些指标又有何变化：<br /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>正确率 = 1400 / (1400 + 300 + 300) = 70%
+-召回率 = 1400 / 1400 = 100%
+F值 = 70% * 100% * 2 / (70% + 100%) = 82.35%
+</code></pre></div></div>
+
+<p>　　由此可见，正确率是评估捕获的成果中目标成果所占得比例；召回率，顾名思义，就是从关注领域中，召回目标类别的比例；而F值，则是综合这二者指标的评估指标，用于综合反映整体的指标。<br /></p>
+
+<h2 id="评价分类器性能指标之aucroc">评价分类器性能指标之AUC、ROC</h2>
+
+<h3 id="引子">引子</h3>
+
+<p>假设有下面两个分类器，哪个好？（样本中有A类样本90个，B 类样本10个。）</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/roc_auc3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>分类器C1把所有的测试样本都分成了A类，分类器C2把A类的90个样本分对了70个，B类的10个样本分对了5个。</p>
+
+<p>则C1的分类精度为 90%，C2的分类精度为75%，但直觉上，我们感觉C2更有用些。但是依照正确率来衡量的话，那么肯定C1的效果好一点。那么这和我们认为的是不一致的。也就是说，有些时候，仅仅依靠正确率是不妥当的。</p>
+
+<p>我们还需要一个评价指标，<strong>能客观反映对正样本、负样本综合预测的能力，还要考虑消除样本倾斜的影响（其实就是归一化之类的思想，实际中很重要，比如pv总是远远大于click），这就是auc指标能解决的问题。</strong></p>
+
+<h3 id="roc">ROC</h3>
+
+<p>为了理解auc，我们需要先来弄懂ROC。
+先来看一个普遍的二分类问题的结果，预测值和实际值有4种组合情况，看下面的表格：
+<img src="http://7xkmkg.com1.z0.glb.clouddn.com/svm005.jpg" alt="" /></p>
+
+<blockquote>
+  <p><strong>注意这里就只有两个分类，所以FN就表示的是分错的pos类，同理FP就表示的是分错的neg类</strong></p>
+</blockquote>
+
+<p>我们定义一个变量：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/roc_auc1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>看图也就可以知道：</p>
+
+<ol>
+  <li>TPR表示的就是预测正确且实际分类为正的数量 与 所有正样本的数量的比例。–实际的正样本中，正确预测的比例是多少？</li>
+  <li>FPR表示的是预测错误且实际分类为负的数量 与所有负样本数量的比例。 –实际的负样本当中，错误预测的比例是多少？</li>
+</ol>
+
+<p>下面来看一则对话来理解recell，accuracy和precison：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>What percent of your predictions were correct?
+You answer: the "accuracy" was (TP+TN)/ALL
+What percent of the positive cases did you catch?
+You answer: the "recall" TP/(TP+FN)
+What percent of positive predictions were correct?
+You answer: the "precision" was TP/(TP+FP)
+</code></pre></div></div>
+
+<p>可以代入到上面的两个分类器当中，可以得到下面的表格（分类器C1）：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/roc_auc4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>TPR = FPR = 1.0</p>
+
+<p>分类器C2：</p>
+
+<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/roc_auc2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+
+<p>TPR = 0.78， FPR = 0.5</p>
+
+<p>那么，以TPR为纵坐标，FPR为横坐标画图，可以得到：</p>
+
+<p><img src="http://7xkmkg.com1.z0.glb.clouddn.com/svm006.jpg" alt="" /></p>
+
+<p>上图中蓝色表示C1分类器，绿色表示C2分类器。可以知道，这个时候绿色的点比较靠近左上角，可以看做是分类效果较好。所以评估标准改为离左上角近的是好的分类器（考虑了正负样本的综合分类能力）。</p>
+
+<p>一连串这样的点构成了一条曲线，该曲线就是ROC曲线。而ROC曲线下的面积就是AUC（Area under the curve of ROC）。这就是AUC指标的由来。</p>
+
+<h3 id="如何画roc曲线">如何画ROC曲线</h3>
+
+<p>对于一个特定的分类器和测试数据集，显然只能得到一个分类结果，即一组FPR和TPR结果，而要得到一个曲线，我们实际上需要一系列FPR和TPR的值才能得到这样的曲线，这又是如何得到的呢？</p>
+
+<p>可以通过分类器的一个重要功能“概率输出”，即表示分类器认为某个样本具有多大的概率属于正样本（或负样本），来动态调整一个样本是否属于正负样本（还记得当时阿里比赛的时候有一个表示被判定为正样本的概率的列么？）</p>
+
+<p>假如我们已经得到了所有样本的概率输出（属于正样本的概率），现在的问题是如何改变这个阈值（概率输出）？我们根据每个测试样本属于正样本的概率值从大到小排序。下图是一个示例，图中共有20个测试样本，“Class”一栏表示每个测试样本真正的标签（p表示正样本，n表示负样本），“Score”表示每个测试样本属于正样本的概率。</p>
+
+<p><img src="http://static.oschina.net/uploads/img/201411/03210218_wDRH.png" alt="" /></p>
+
+<p>接下来，我们从高到低，依次将“Score”值作为阈值，当测试样本属于正样本的概率大于或等于这个阈值时，我们认为它为正样本，否则为负样本。举例来说，对于图中的第4个样本，其“Score”值为0.6，那么样本1，2，3，4都被认为是正样本，因为它们的“Score”值都大于等于0.6，而其他样本则都认为是负样本。每次选取一个不同的阈值，我们就可以得到一组FPR和TPR，即ROC曲线上的一点。这样一来，我们一共得到了20组FPR和TPR的值，将它们画在ROC曲线的结果如下图：</p>
+
+<p><img src="http://static.oschina.net/uploads/img/201411/03210223_awZE.png" alt="" /></p>
+
+<p>当我们将阈值设置为1和0时，分别可以得到ROC曲线上的(0,0)和(1,1)两个点。将这些(FPR,TPR)对连接起来，就得到了ROC曲线。当阈值取值越多，ROC曲线越平滑。</p>
+
+<p>–在阿里比赛的时候还以为ROC是没用的！！！真的是有眼无珠啊！！！还是有疑惑的是：如何根据ROC来判定结果的好换呢？看哪个分类器更加接近左上角吧。同时，可以根据ROC来确定划定正样本的概率边界选择在哪里比较合适！！！原来是这样！！！</p>
+
+<h1 id="auc值的计算">AUC值的计算</h1>
+<p>AUC（Area Under Curve）被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。又由于ROC曲线一般都处于y=x这条直线的上方，所以AUC的取值范围在0.5和1之间。使用AUC值作为评价标准是因为很多时候ROC曲线并不能清晰的说明哪个分类器的效果更好，而作为一个数值，对应AUC更大的分类器效果更好。</p>
+
+<h3 id="为什么使用roc">为什么使用ROC</h3>
+
+<p>既然已经这么多评价标准，为什么还要使用ROC和AUC呢？因为ROC曲线有个很好的特性：当测试集中的正负样本的分布变化的时候，ROC曲线能够保持不变。在实际的数据集中经常会出现类不平衡（class imbalance）现象，即负样本比正样本多很多（或者相反），而且测试数据中的正负样本的分布也可能随着时间变化。下图是ROC曲线和Precision-Recall曲线的对比：</p>
+
+<p><img src="http://static.oschina.net/uploads/img/201411/03210228_yobH.png" alt="" /></p>
+
+<p>在上图中，(a)和(c)为ROC曲线，(b)和(d)为Precision-Recall曲线。(a)和(b)展示的是分类其在原始测试集（正负样本分布平衡）的结果，(c)和(d)是将测试集中负样本的数量增加到原来的10倍后，分类器的结果。可以明显的看出，ROC曲线基本保持原貌，而Precision-Recall曲线则变化较大。</p>
+
+<h2 id="降维技术">降维技术</h2>
+
+<ul>
+  <li>在我们解决机器学习的问题时,常常要从维度上做文章。有时候我们需要增维, 比如 kernel methods 就可以在高纬度上重构样本从而解决样本在低维上不的线性不可分问题(高斯 kernel 甚至可以把样本在无穷维上展开)。有时候我们又需要降维,因为我们是三维生物,我们最多只能理解三维世界, 所以想要看看手头的数据, 就必须把它们降到三维以内; 另外,往往很多特征没什么用处, 我们可以可以通过降维或者特征工程的手段来把它们剔除,降低计算复杂度。</li>
+  <li>在这篇文章中，我主要讲解PCA，Factor Analysis，和Independent Component Analysis。</li>
+</ul>
+
+<h3 id="pca">PCA</h3>
+
+<h4 id="pca预处理">PCA预处理</h4>
+<ul>
+  <li>PCA算法，不过通常在PCA算法运行前，我们需要对数据进行预处理——对数据的期望及方差进行标准化</li>
+</ul>
+
+<ol>
+  <li>整体的数据的期望设为0</li>
+  <li>各个分量用统一的标准定义，（如一个人的身高，体重…）</li>
+</ol>
+
+<blockquote>
+  <p>注意，这PCA将白了就是线代中特征分解的应用，所以特征分解要懂，了解可以看下这篇博文<a href="">特征分解</a></p>
+</blockquote>
+
+<h3 id="pca算法">PCA算法</h3>
+<ul>
+  <li>PCA 希望可以找到那 些最重要的维度(假设 k 个重要维度,<code class="highlighter-rouge">k&lt;m</code>),然后把 X 映射到这些重要维度上,用这 k 个映射系数作为新的 feature 于是样本们就被降低到了 k 维上。</li>
+  <li>假设我们有 N 个样本,每个为 m 维,即 ,怎样定义重要维度呢?假设 u(一个 m 维向量)是一个重要维度,令 u 把 X 射成 这样的 N 个点,u 之所以重要,因为新生成的 N 个点的方差是最大的,于是样本间的差异性就被保存了下来, 我们还是可以在新的样本空间里做聚类,分类等操作。所以 PCA 背后的优化问题其实是,</li>
+  <li><img src="https://pic4.zhimg.com/v2-bdea8aa03480ba7a0dbd983fe0a19983_b.png" alt="" /></li>
+</ul>
+
+<h3 id="所以-pca-的一般步骤是">所以 PCA 的一般步骤是:</h3>
+<ol>
+  <li>将数据正规化为零期望以及单位化方差；</li>
+  <li>对样本数据的协方差矩阵(covariance matrix)做计算，得到特征值</li>
+  <li>特征值 (eigen values) 排序</li>
+  <li>top­k 特征值对应的特征向量 (eigen vectors) 找出来</li>
+  <li>把 X 映射到这 k 个特征向量上</li>
+</ol>
+
+<h3 id="svd奇异值分解">SVD（奇异值分解）</h3>
+<ul>
+  <li>他是另一种实现PCA的另一种说法</li>
+  <li>可以将数据映射到低维空间，常用于从有噪声数据中抽取相关特征。</li>
+  <li>详细讲解可以看另一个博文：<a href="">奇异值分解</a></li>
+  <li>特征分解和奇异值分解：不是所有的矩阵都能对角化（对称矩阵总是可以），而所有矩阵总是可以做奇异值分解的。所以因为这个，导致的是在PCA中，他们两者的是一样的（在这里就是同一个东西），因为协方差矩阵是对称的，然后再其他方面，SVD有更加广泛的应用，比如：在推荐算法方面，可以使得数据集更易使用，简单计算，这个详见《机器学习实战》中SVD分解那一章</li>
+</ul>
+
+<h3 id="举例">举例：</h3>
+
+<p>注意一开始的数据是三维的：
+<img src="https://pic1.zhimg.com/v2-2c913935c3acc821664ee54b26b857bc_b.png" alt="" /></p>
+
+<p>经过PCA之后的图：
+<img src="https://pic3.zhimg.com/v2-8da1c89de80399a83370d4dc292fe9fa_b.png" alt="" /></p>
+
+<h2 id="factor-analysis因子分析">Factor Analysis（因子分析）</h2>
+
+<p>Factor Analysis: FA 的思想与 PCA 其实很相似,假设高维度上的观测结果 X 其实是由低维 度上的 factors 来支配的。打个比方,笔者身边有一大群妹子,每个妹子都有很多的参数,例 如,身高,体重,肺活量,皮肤,眼睛大小,脸蛋形状,发型,性格等 8 个参数… 笔者经过大 量的调查研究把每个妹子在每个 feature 上都打了从 1­到10 的分数(10 分最高),然后就在纠 结,到底要对哪个下手呢?于是就想把妹子们做个 ranking,但是只能 rank 一维的数据呀,于 是就在想能不能把妹子的 8 个 feature 抽象成一个终极打分 ­­ 美貌。于是做了如下的假设:
+<img src="https://pic3.zhimg.com/v2-fc4f334fe9df83dc27ff9dad99fd7f92_b.png" alt="" /></p>
+
+<p>假设每个妹子都有一个终极打分 z(一维),这个分数将会通过一个固定的映射到八个维度 上,然后加上 bias 修正,再加上一些误差(误差保证尽管俩妹子得分一样,也可以春兰秋菊 各有千秋),于是就得到了八维打分 X。这个过程的原理可以让下面这俩图来解释一下: 首先强行把一维的数据搬到二维平面的一条直线上,再加上噪声,bias,于是就 得到了红圈里的一个二维的数据,把二维想象成八维就重构了妹子们的参数。</p>
+
+<p><img src="https://pic4.zhimg.com/v2-8b717c199cb9cb0614f511f6c1a600a7_b.png" alt="" /></p>
+
+<p>有了这个模型,我们就可以就用 EM(expectation­maxminization) 来估算 , 估算过程比较复杂,一句话讲就是通过调整这些参数,令 P(X) 出现的概率最大。 模型确定下来,就可以算出妹子们的最终得分 z, 排个序, 就可以从容地选择了! 继续看下蛋卷图</p>
+
+<p><img src="https://pic2.zhimg.com/v2-a19fd559890c5df2842539ff2db05b65_b.png" alt="" /></p>
+
+<p>上面比较简略的讲述了一下因子分析，下面再通过一个简单例子，来表述因子分析背后的思想。</p>
+
+<p>假设我们有m=5个2维的样本点x(i)（两个特征），如下：
+<img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557474219.png" alt="" /></p>
+
+<p>那么按照因子分析的理解，样本点的生成过程如下：</p>
+
+<p>1、 我们首先认为在1维空间（这里k=1），存在着按正态分布生成的m个点z(i)，如下</p>
+
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557499070.png" alt="" /></p>
+
+<p>均值为0，方差为1。</p>
+
+<p>2、 然后使用某个<img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/20110511155749989.png" alt="" />将一维的z映射到2维，图形表示如下：</p>
+
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/20110511155750367.png" alt="" /></p>
+
+<p>3、 之后加上<img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557505874.png" alt="" />，即将所有点的横坐标移动u1，纵坐标移动u2，将直线移到一个位置，使得直线过点u，原始左边轴的原点现在为u（红色点）。</p>
+
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557566675.png" alt="" /></p>
+
+<p>然而，样本点不可能这么规则，在模型上会有一定偏差，因此我们需要将上步生成的点做一些扰动（误差），扰动<img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557598820.png" alt="" />。</p>
+
+<p>4、 加入扰动后，我们得到黑色样本x(i)如下：</p>
+
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558042959.png" alt="" /></p>
+
+<p>5、 其中由于z和<img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558052860.png" alt="" />的均值都为0，因此u也是原始样本点（黑色点）的均值。</p>
+
+<p>由以上的直观分析，我们知道了因子分析其实就是认为高维样本点实际上是由低维样本点经过高斯分布、线性变换、误差扰动生成的，因此高维数据可以使用低维来表示。</p>
+
+<blockquote>
+  <p>在我们这篇博文中，我们只讲了降维方面，其实因子分析也是一个模型，但在这里不讲了，推荐一篇博文，有兴趣可以看下：<a href="http://blog.csdn.net/littleqqqqq/article/details/50899717">因子分析 </a></p>
+</blockquote>
+
+<h2 id="ica独立成分分析">ICA（独立成分分析）</h2>
+
+<p>PCA是一种数据降维的方法，但是只对符合高斯分布的样本点比较有效，那么对于其他分布的样本，有没有主元分解的方法呢？来，下面我们来讲一个叫做独自成分分析的降维方式！</p>
+
+<h3 id="鸡尾酒宴会问题">鸡尾酒宴会问题</h3>
+<ul>
+  <li>n个人，n个麦克风。从n个麦克风得到一组数据：<img src="https://danieljyc.github.io/img/1402665034566.png" alt="" />。其中：i 表示采样的时间顺序，也就是说共得到了 m 组采样，每一组采样都是 n 维的。</li>
+  <li>我们的目标是单单从这 m 组采样数据中分辨出每个人说话的信号s。有 n 个信号源 ，<img src="https://danieljyc.github.io/img/1402665183196.png" alt="" />,s<strong>相互独立。</strong></li>
+  <li>A 是一个未知的混合矩阵（mixing matrix），用来组合叠加信号 s。</li>
+</ul>
+
+<ol>
+  <li>我们可以得到：
+<img src="https://danieljyc.github.io/img/1402665269996.png" alt="" />
+    <blockquote>
+      <p>其中， x 不是一个向量，是一个矩阵</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>其中每个列向量
+<img src="https://danieljyc.github.io/img/1402665319894.png" alt="" />
+<img src="https://danieljyc.github.io/img/1402665355695.png" alt="" /></p>
+  </li>
+  <li>
+    <p>A 和 s 都是未知的，x 是已知的，我们要想办法根据 x 来推出 s。这个过程也称作为盲信号分离。
+<img src="https://danieljyc.github.io/img/1402665589103.png" alt="" />
+<img src="https://danieljyc.github.io/img/1402665596364.png" alt="" /></p>
+  </li>
+  <li>最终得到：
+<img src="https://danieljyc.github.io/img/1402665627938.png" alt="" /></li>
+</ol>
+
+<p>$s_{(i)}^{j}$：表示speaker j 在时刻i发出的信号。
+对于此，我们需要知道两个量才能求出另外一个，下面我们进一步分析。</p>
+
+<h3 id="ica算法的前处理步骤">ICA算法的前处理步骤</h3>
+<ol>
+  <li>中心化：也就是求 x 均值，然后让所有 x 减去均值，这一步与 PCA 一致。</li>
+  <li>漂白：目的是为了让x相互独立。将 x 乘以一个矩阵变成 (其协方差矩阵是$I$)。
+<img src="https://danieljyc.github.io/img/1402667667616.png" alt="" />
+其中，<img src="https://danieljyc.github.io/img/1402667709919.png" alt="" />
+其中使用特征值分解来得到 E（特征向量矩阵）和 D（特征值对角矩阵） ，计算公式为
+<img src="https://danieljyc.github.io/img/1402667761686.png" alt="" /></li>
+</ol>
+
+<h3 id="ica算法">ICA算法</h3>
+<ol>
+  <li>我们假定每$s_i$有概率密度$p_s$，那么给定时刻原信号的联合分布就是
+<img src="https://danieljyc.github.io/img/1402666306377.png" alt="" />
+    <blockquote>
+      <p>注：每个人发出的声音信号s各自独立。</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>然后，我们就可以求得p(x)</p>
+  </li>
+  <li>现在，我们需要知道p(s)和w，才能求得p(x)。
+首先，我们假设s 的累积分布函数符合 sigmoid 函数
+<img src="https://danieljyc.github.io/img/1402666520656.png" alt="" /></li>
+</ol>
+
+<p>这就是 s 的密度函数。这里 s 是实数。</p>
+
+<ol>
+  <li>然后，我们就剩下W了。我们用最大似然估计的方法求解。
+使用前面得到的 x 的概率密度函数，得
+<img src="https://danieljyc.github.io/img/1402666734641.png" alt="" /></li>
+</ol>
+
+<p><img src="https://danieljyc.github.io/img/1402666874964.png" alt="" />
+最终，我们求得：
+<img src="https://danieljyc.github.io/img/1402666911972.png" alt="" /></p>
+<blockquote>
+  <p>其中α是梯度上升速率，人为指定。</p>
+</blockquote>
+
+<ol>
+  <li>迭代求出 W 后，我们也可以还原出原始信号：</li>
+</ol>
+
+<h3 id="iac应用">IAC应用</h3>
+<p>如果把麦克风x换成采集脑电波的电极，信号源s就代表大脑独立进程：心跳、眨眼等。通过将信号x减去心跳、眨眼等无用信号，我们就可以得到大脑内部信号。</p>
+
+<h3 id="小结">小结</h3>
+<ul>
+  <li>ICA 的盲信号分析领域的一个强有力方法，也是求非高斯分布数据隐含因子的方法。</li>
+  <li>ICA和PCA对比：</li>
+</ul>
+
+<blockquote>
+  <p>ICA: 从之前我们熟悉的样本-特征角度看，我们使用 ICA 的前提条件是，认为样本数据由独立非高斯分布的隐含因子产生，隐含因子个数等于特征数。更适合用来还原信号（因为信号比较有规律，经常不是高斯分布的）。
+PCA : 认为特征是由 k 个正交的特征（也可看作是隐含因子）生成的。更适合用来降维（用那么多特征干嘛，k 个正交的即可）
+有时候也需要组合两者一起使用。</p>
+</blockquote>
+
+<p>最后：在这篇博文笔记中，我们学习了一些特征工程的方法，AOC和AUC，还有一些具体的降维技术，这些都是比较基础的，还有很多没有讲到的，现在先不讲了把，以后有机会再说（逃）</p>
+
+<p>参考资料：</p>
+
+<p>《统计学习方法》-李航<br />
+《机器学习》-周志华<br />
+《机器学习实战》-Peter Harrington<br />
+斯坦福大学公开课-机器学习<br />
+网上的各位大牛的博文<br /></p>
+
+<p><!-- 多说评论框 start --></p>
+<div class="ds-thread" data-thread-key="20170211011" data-title="feature_engen" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+<!-- 多说公共JS代码 end -->
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">Machine Learning</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">AI</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/machine%20learning/2017/02/11/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7-%E4%BA%8C.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2017-1-18-特征工程，模型评价（二）.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>

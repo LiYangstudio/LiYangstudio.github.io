@@ -1,0 +1,23 @@
+- name: Blog
+  href: '/blog/'
+
+- name: Python
+  href: '/python/'
+
+- name: tools
+  href: '/tools/'
+
+- name: java
+  href: '/java/'
+
+- name: Reading
+  href: '/Reading/'
+
+- name: Machine Learning
+  href: '/Machine Learning/'
+
+- name: Life
+  href: '/life/'
+
+- name: database
+  href: '/database/'

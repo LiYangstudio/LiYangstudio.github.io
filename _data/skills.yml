@@ -1,0 +1,17 @@
+- name: java
+  percentage: 55
+
+- name: java framework
+  percentage: 40
+
+- name: git
+  percentage: 60
+
+- name: Machine Learning
+  percentage: 50
+
+- name: python
+  percentage: 60
+
+- name: Front end
+  percentage: 45

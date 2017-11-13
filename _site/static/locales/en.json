@@ -1,0 +1,53 @@
+{
+  "website":{
+    "title": "Evan's blog"
+  },
+  "nav":{
+    "home": "Home",
+    "about_me": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "career": "Life",
+    "blog": "Blog",
+    "link": "Link"
+  },
+  "about_me":{
+    "about_me": "About Me",
+    "des": "i am a student come from GDUT,I am convincing that Where there is a will there is a way. "
+  },
+  "skills":{
+    "my_skills": "My Skills"
+  },
+  "projects":{
+    "my_projects": "My Projects",
+    "python": "This is a python crawler  I  developed in the second year of my university.This crawler is crawling the information of the user and the problem from ZhiHu. There is also a  demo that it can invoke the page JS.",
+    "library": "In older to  enter into TopView studio,I develop this project."
+   },
+  "career":{
+    "my_career": "My Life",
+    "nextcode": "experience",
+    "nextcode_des": "Now I am in TopView Studio and I am a Machine Learning Learner.Welcome to join me and learning together",
+    "nextcode_date": "2016-",
+    "nextcode_job": "Machine Learning Learner",
+    "netease": "Game",
+    "netease_des": "In the boring time, or when the mood is not good, I will play football game whose name is ShiKuang.Recently,I also play a mobile game whose name is king glory.",
+    "netease_date": "hobby",
+    "netease_job": "my Game",
+    "ucloud": "Future",
+    "ucloud_des": "In the future, I hope to become a  Machine Learning engineer and can travel around the world.I hope that I can meet more friend.",
+    "ucloud_date": "In The Future",
+    "ucloud_job": "me",
+    "college": "College",
+    "college_des": "I am now a computer specialized student and will graduate in 2019.Study well and make progress every day.",
+    "college_date": "2016-2019",
+    "college_job": "Student"
+  },
+  "blog":{
+    "my_blog": "My Blog"
+  },
+  "link":{
+    "link": "Link",
+    "view": "views"
+  }
+
+}

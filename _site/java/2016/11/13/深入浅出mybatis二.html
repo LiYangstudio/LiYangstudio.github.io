@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+
+	
+	    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta content="mybatis2" name="description">
+  
+  
+    <meta name="keywords" content="blog,java">
+  
+  <meta name="author" content="Evan">
+
+  <title>
+    
+        YZH.home|深入浅出mybatis（二）操作数据库
+    
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+
+  <!-- Third-party CSS -->
+  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
+  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+
+  <!-- cb-search -->
+  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- Peity -->
+  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+
+  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+
+
+  <!-- jPages -->
+  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
+  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>
+
+	
+
+
+<body id="page-top" class="landing-page">
+
+	
+	    <div class="search-tool"
+      style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog">
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;">
+        <img src="/search/img/cb-close.png" id="close-btn"/>
+    </div>
+</div>
+
+<div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;">
+    <img src="/search/img/cb-search.png"  id="search-btn"  title="Double click Ctrl"/>
+</div>
+
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="/blog/"></a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/blog/">Blog</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/python/">Python</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/tools/">tools</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/java/">java</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Reading/">Reading</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/Machine Learning/">Machine Learning</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/life/">Life</a></li>
+                        
+                            
+                            <li>
+                            
+                            <a class="page-scroll" href="/database/">database</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="margin-top: 50px;">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" >
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two" ">
+                <img src="https://yzhihao.github.io/static/img/landing/header_one.jpg" alt="header" style="height:100%;width:100%;"/>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+	
+
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	
+                        	<button class="btn btn-white btn-xs" type="button">java</button>
+                        
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> 13 Nov 2016</span>
+                        <h1>
+                            深入浅出mybatis（二）操作数据库
+                        </h1>
+                    </div>
+                    	<h1 id="深入浅出mybatis二操作数据库">深入浅出mybatis（二）操作数据库</h1>
+
+<h2 id="目录">目录</h2>
+<p><strong>欢迎在文章下方评论</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#深入浅出mybatis二操作数据库" id="markdown-toc-深入浅出mybatis二操作数据库">深入浅出mybatis（二）操作数据库</a>    <ul>
+      <li><a href="#目录" id="markdown-toc-目录">目录</a></li>
+      <li><a href="#mybatis与jdbc" id="markdown-toc-mybatis与jdbc">mybatis与JDBC</a></li>
+      <li><a href="#mybatis之sqlsession" id="markdown-toc-mybatis之sqlsession">Mybatis之SqlSession</a>        <ul>
+          <li><a href="#过程的讲解" id="markdown-toc-过程的讲解">过程的讲解</a>            <ul>
+              <li><a href="#跟踪mybatis操作数据库" id="markdown-toc-跟踪mybatis操作数据库">跟踪mybatis操作数据库</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#mybatis之sqlsession-template" id="markdown-toc-mybatis之sqlsession-template">Mybatis之SqlSession template</a></li>
+      <li><a href="#mybatis接口式编程" id="markdown-toc-mybatis接口式编程">mybatis接口式编程</a>        <ul>
+          <li><a href="#首先先看下接口式编程的要求" id="markdown-toc-首先先看下接口式编程的要求">首先先看下接口式编程的要求</a></li>
+          <li><a href="#接口式编程原理" id="markdown-toc-接口式编程原理">接口式编程原理</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="mybatis与jdbc">mybatis与JDBC</h2>
+<p>我们知道mybatis可以看成是对jdbc的一种封装。二为什么要封装和封装什么呢？如下</p>
+
+<ol>
+  <li>使用数据库连接池对连接进行管理</li>
+  <li>SQL语句统一存放到配置文件</li>
+  <li>SQL语句变量和传入参数的映射以及动态SQL</li>
+  <li>动态SQL语句的处理</li>
+  <li>对数据库操作结果的映射和结果缓存</li>
+  <li>SQL语句的重复</li>
+</ol>
+
+<blockquote>
+  <p>在之后我们会一一来聊聊这些封装的具体细节！</p>
+</blockquote>
+
+<h2 id="mybatis之sqlsession">Mybatis之SqlSession</h2>
+<p>谈到mybatis，一开始我们接触的应该就是SqlSession吧。当然，现在我们项目用的比较多的是SqlSessionTemplate（对SqlSession等做了封装）。</p>
+
+<ul>
+  <li>首先：SqlSession的作用：<br />
+    <ol>
+      <li>向SQL语句传入参数</li>
+      <li>执行SQL语句</li>
+      <li>获取执行SQL语句的结果</li>
+      <li>事物的控制</li>
+    </ol>
+  </li>
+  <li>如何得到SqlSession：<br /></li>
+</ul>
+
+<p>分三步：
+    1. 通过配置文件获取数据库连接相关信息:<br /><code class="highlighter-rouge">Reader reader = Resources.getResourceAsReader("com/yezhihao/www/config/Configuration.xml")</code>;<br />
+    2. 通过配置信息构建SqlSessionFactory<br />
+    <code class="highlighter-rouge">SqlSessionFactory sqlSessionFactory = new SqlSessioFactoryBuilder.build(reader)</code><br />
+    3. 通过SqlSessionFactory打开数据库会话<br />
+    <code class="highlighter-rouge">SqlSession sqlSession = sqlSeesionFactory.openSession()</code><br /></p>
+
+<blockquote>
+  <p>在很多mybatis的初级教程中，上面的都是mybatis入门级代码，但对于我们来说，不能单单限于入门级。所以下面说下其原理。</p>
+</blockquote>
+
+<h3 id="过程的讲解">过程的讲解</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">Reader reader = Resources.getResourceAsReader("com/yezhihao/www/config/Configuration.xml")</code>这句话中就是配置文件的读入，任何框架的初始化，无非是加载自己运行时所需要的配置信息，源码没有聊的。</li>
+  <li><code class="highlighter-rouge">SqlSessionFactory sqlSessionFactory = new SqlSessioFactoryBuilder.build(reader)</code>这句话中，建立了sqlSessionFactory，首先这是一种Builder模式应用，会根据情况提供不同的参数，创建不同的sqlSessionFactory。由于构造时参数不定，可以为其创建一个构造器Builder，将SqlSessionFactory的构建过程和表示分开。</li>
+</ul>
+
+<blockquote>
+  <p>关于Builder模式，推荐大家看《设计模式之禅》</p>
+</blockquote>
+
+<ul>
+  <li><code class="highlighter-rouge">SqlSession sqlSession = sqlSeesionFactory.openSession()</code>在这里，我们就跟下源码，看看mybatis是操作数据库是一个怎么样的过程。</li>
+</ul>
+
+<h4 id="跟踪mybatis操作数据库">跟踪mybatis操作数据库</h4>
+<ol>
+  <li>首先</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> @Override
+public SqlSession openSession() {
+return openSessionFromDataSource(configuration.getDefaultExecutorType(), null, false);
+}
+</code></pre></div></div>
+
+<blockquote>
+  <p>我们看到是调用openSessionFromDataSource（）</p>
+</blockquote>
+
+<ol>
+  <li>然后，我们来看看openSessionFromDataSource（）</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private SqlSession openSessionFromDataSource(ExecutorType execType, TransactionIsolationLevel level, boolean autoCommit) {
+    Transaction tx = null;
+    try {
+      final Environment environment = configuration.getEnvironment();
+      final TransactionFactory transactionFactory = getTransactionFactoryFromEnvironment(environment);
+      tx = transactionFactory.newTransaction(environment.getDataSource(), level, autoCommit);
+      final Executor executor = configuration.newExecutor(tx, execType);
+      return new DefaultSqlSession(configuration, executor, autoCommit);
+    } catch (Exception e) {
+      closeTransaction(tx); // may have fetched a connection so lets call close()
+      throw ExceptionFactory.wrapException("Error opening session.  Cause: " + e, e);
+    } finally {
+      ErrorContext.instance().reset();
+    }
+  }
+</code></pre></div></div>
+
+<blockquote>
+  <p>（1）获取前面我们加载配置文件的环境信息，并且获取环境信息中配置的数据源。
+（2）通过数据源获取一个连接，对连接进行包装代理（通过JDK的代理来实现日志功能）。
+（3）设置连接的事务信息（是否自动提交、事务级别），从配置环境中获取事务工厂，事务工厂获取一个新的事务。
+（4）传入事务对象获取一个新的执行器，并传入执行器、配置信息等获取一个执行会话对象。</p>
+</blockquote>
+
+<blockquote>
+  <p>说白了就是加载对应数据源，创建执行器。</p>
+</blockquote>
+
+<ol>
+  <li>我们继续跟踪sqlsession执行sql，以<code class="highlighter-rouge">UserInfo user = (UserInfo) session.selectOne("User.selectUser", "1");  </code> 为例。</li>
+</ol>
+
+<p>进入源码，我们发现在sqlsession这个接口有三个实现类分别是DefaultSqlSession，SqlSessionManager，SqlSessionTemplate（之后会讲）。这里，我们能看到DefaultSqlSession里面有各种各样的SQL执行方法，主要用于SQL操作的对外接口，它会的调用执行器来执行实际的SQL语句。</p>
+
+<p>进入源码，我们发现</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> @Override
+  public &lt;T&gt; T selectOne(String statement, Object parameter) {
+    // Popular vote was to return null on 0 results and throw exception on too many.
+    List&lt;T&gt; list = this.&lt;T&gt;selectList(statement, parameter);
+    if (list.size() == 1) {
+      return list.get(0);
+    } else if (list.size() &gt; 1) {
+      throw new TooManyResultsException("Expected one result (or null) to be returned by selectOne(), but found: " + list.size());
+    } else {
+      return null;
+    }
+  }
+</code></pre></div></div>
+
+<blockquote>
+  <p>调用的是本类的selectList（）方法
+看看：</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> @Override
+  public &lt;E&gt; List&lt;E&gt; selectList(String statement, Object parameter, RowBounds rowBounds) {
+    try {
+      MappedStatement ms = configuration.getMappedStatement(statement);
+      return executor.query(ms, wrapCollection(parameter), rowBounds, Executor.NO_RESULT_HANDLER);
+    } catch (Exception e) {
+      throw ExceptionFactory.wrapException("Error querying database.  Cause: " + e, e);
+    } finally {
+      ErrorContext.instance().reset();
+    }
+  }
+</code></pre></div></div>
+
+<blockquote>
+  <p>根据SQL的ID到配置信息中找对应的MappedStatement，在之前配置被加载初始化的时候我们看到了系统会把配置文件中的SQL块解析并放到一个MappedStatement里面，并将MappedStatement对象放到一个Map里面进行存放，Map的key值是该SQL块的ID。
+调用执行器的query方法，传入MappedStatement对象、SQL参数对象、范围对象（此处为空）和结果处理方式。</p>
+</blockquote>
+
+<ol>
+  <li>再然后，我们看看query（）方法的执行
+    <blockquote>
+      <p>对我来说，mybatis的源码不是一般的复杂（哭。。。）找了好久，</p>
+    </blockquote>
+  </li>
+</ol>
+
+<p>首先在BaseExecutor，找到相应query（）方法，</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@SuppressWarnings("unchecked")
+  @Override
+  public &lt;E&gt; List&lt;E&gt; query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql) throws SQLException {
+    ErrorContext.instance().resource(ms.getResource()).activity("executing a query").object(ms.getId());
+    if (closed) {
+      throw new ExecutorException("Executor was closed.");
+    }
+    if (queryStack == 0 &amp;&amp; ms.isFlushCacheRequired()) {
+      clearLocalCache();
+    }
+    List&lt;E&gt; list;
+    try {
+      queryStack++;
+      list = resultHandler == null ? (List&lt;E&gt;) localCache.getObject(key) : null;
+      if (list != null) {
+        handleLocallyCachedOutputParameters(ms, key, parameter, boundSql);
+      } else {
+        list = queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSql);
+      }
+    } finally {
+      queryStack--;
+    }
+    if (queryStack == 0) {
+      for (DeferredLoad deferredLoad : deferredLoads) {
+        deferredLoad.load();
+      }
+      // issue #601
+      deferredLoads.clear();
+      if (configuration.getLocalCacheScope() == LocalCacheScope.STATEMENT) {
+        // issue #482
+        clearLocalCache();
+      }
+    }
+    return list;
+  }
+</code></pre></div></div>
+
+<blockquote>
+  <p>在这里，mybatis先会看看在其缓存中有没有相应的数据，如果有就返回，没有的话，通过调用queryFromDatabase（），很明显，命名上就是从数据库查找。进去看下，发现是通过调用doQuery（）来最终执行sql看下doquery()</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  @Override
+  public &lt;E&gt; List&lt;E&gt; doQuery(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
+    Statement stmt = null;
+    try {
+      Configuration configuration = ms.getConfiguration();
+      StatementHandler handler = configuration.newStatementHandler(wrapper, ms, parameter, rowBounds, resultHandler, boundSql);
+      stmt = prepareStatement(handler, ms.getStatementLog());
+      return handler.&lt;E&gt;query(stmt, resultHandler);
+    } finally {
+      closeStatement(stmt);
+    }
+  }
+</code></pre></div></div>
+
+<p>最后，在PreparedStatementHandler（）中找到了query</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> @Override
+  public &lt;E&gt; List&lt;E&gt; query(Statement statement, ResultHandler resultHandler) throws SQLException {
+    PreparedStatement ps = (PreparedStatement) statement;
+    ps.execute();
+    return resultSetHandler.&lt;E&gt; handleResultSets(ps);
+  }
+</code></pre></div></div>
+
+<blockquote>
+  <p>终于，我们发现了在jdbc中熟悉的代码,在这里，执行了直接操作数据库的语句。</p>
+</blockquote>
+
+<p>在跟源码的时候发现，mybatis真的封装的很好，看看能不能出个mybatis的整体架构的博文，努力。</p>
+
+<h2 id="mybatis之sqlsession-template">Mybatis之SqlSession template</h2>
+<p>　　SqlSessionTemplate是MyBatis-Spring的核心。这个类负责管理MyBatis的SqlSession,调用MyBatis的SQL方法。SqlSessionTemplate是线程安全的，可以被多个DAO所共享使用。
+　　我们在结合spring的时候，我们会发现SqlSessionTemplate是单例的。通过源码我们何以看到 SqlSessionTemplate 实现了SqlSession接口，也就是说我们可以使用SqlSessionTemplate 来代理以往的DefailtSqlSession完成对数据库的操作，但是DefailtSqlSession这个类不是线程安全的，所以这个类不可以被设置成单例模式的。在我们就疑惑了，怎么判断一个类是否为线程安全的。可以移到我的博客<a href="">线程安全基础</a></p>
+
+<h2 id="mybatis接口式编程">mybatis接口式编程</h2>
+
+<h3 id="首先先看下接口式编程的要求">首先先看下接口式编程的要求</h3>
+
+<ol>
+  <li>类的映射：使用接口类的全限定名(包括包名)作为配置文件的namespace，完成类与配置文件的对应关系。</li>
+  <li>方法名：接口方法名与配置文件中将要执行的sql语句的id一样，这样就完成了方法调用的映射。</li>
+  <li>参数类型：接口方法的输入参数类型和配置文件中sql的parameterType的类型相同</li>
+  <li>返回值类型：接口方法的返回值类型和配置文件的resultMap的类型相同</li>
+</ol>
+
+<p>这样就可以对操作数据库了，是不是很神奇呢？我想你一定会想知道它是怎么实现的吧!不急，在下面我们就好好说说它的原理。</p>
+
+<blockquote>
+  <p>接口式编程的要求和规范说完之后，我们就来说下它的原理吧。</p>
+</blockquote>
+
+<h3 id="接口式编程原理">接口式编程原理</h3>
+<p>下面，我们就以下面的代码（没有spring结合）作为入口，讲下源码。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User user = sqlSession.getMapper(User.class);
+userList = user.queryUserList();
+</code></pre></div></div>
+<ol>
+  <li>首先是getMapper（）方法，经过系列的中间类，我们终于在MapperRegistry类中找到真正的getMapper的类。代码如下：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@SuppressWarnings("unchecked")
+  public &lt;T&gt; T getMapper(Class&lt;T&gt; type, SqlSession sqlSession) {
+    final MapperProxyFactory&lt;T&gt; mapperProxyFactory = (MapperProxyFactory&lt;T&gt;) knownMappers.get(type);
+    if (mapperProxyFactory == null) {
+      throw new BindingException("Type " + type + " is not known to the MapperRegistry.");
+    }
+    try {
+      return mapperProxyFactory.newInstance(sqlSession);
+    } catch (Exception e) {
+      throw new BindingException("Error getting mapper instance. Cause: " + e, e);
+    }
+  }
+</code></pre></div></div>
+<blockquote>
+  <p>很明显，首先是根据配置和传入接口产生代理工厂，其中mapperProxy是处理类，然后生成一个代理类，然后返回。为什么sqlSession.getMapper(.class)可以根据传入的参数，返回一个对应的类型，因为泛型，mybatis已经为我们完成了强转。</p>
+</blockquote>
+
+<ol>
+  <li>在mapperProxy处理类中是怎么进行一系列操作的。先看下源码：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  @Override
+  public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    if (Object.class.equals(method.getDeclaringClass())) {
+      try {
+        return method.invoke(this, args);
+      } catch (Throwable t) {
+        throw ExceptionUtil.unwrapThrowable(t);
+      }
+    }
+    final MapperMethod mapperMethod = cachedMapperMethod(method);
+    return mapperMethod.execute(sqlSession, args);
+  }
+
+</code></pre></div></div>
+<blockquote>
+  <p>上面代码中，首先是无法进入if的，因为没有实现类。然后是调用<code class="highlighter-rouge"> final MapperMethod mapperMethod = cachedMapperMethod(method);</code>在这里得到queryUserList（）方法的代理并在下一行<code class="highlighter-rouge">mapperMethod.execute(sqlSession, args);</code>被调用。</p>
+</blockquote>
+
+<p>最后：Mybatis加载文件时，利用namespace加载了一个class,然后把这个class与代码中传入接口的class进行匹配，方法执行所需要的信息就是来自于已经匹配成功的配置文件中，当结果与配置文件对应上后，调用接口的方法执行sql语句。在这里没什么好学，都是一些简单业务，就不一一演示了。自己跟下源码吧。<code class="highlighter-rouge">MapperMethod-&gt;SqlCommand-&gt;...</code>更下去自然会发现。</p>
+
+<p><!-- 多说评论框 start --></p>
+<div class="ds-thread" data-thread-key="201611132" data-title="mybatis2" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+<!-- 多说公共JS代码 end -->
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5 style="display: inline;">Tags:</h5>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">java</button>
+                                
+                                    <button class="btn btn-white btn-xs" type="button">web</button>
+                                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::/java/2016/11/13/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAmybatis%E4%BA%8C.html" class = "cy_cmt_count" ></span> comments
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+    Donate
+</button>
+<div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Donate Me</h4>
+                <small class="font-bold">Thanks for your support!</small>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable" id="tabs-960227">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-405278" data-toggle="tab">Alipay</a>
+                        </li>
+                        <li>
+                            <a href="#panel-874705" data-toggle="tab">Wechat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-405278">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                            </div>    
+                        </div>
+                        <div class="tab-pane" id="panel-874705">
+                            <div class="text-center">
+                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            
+                            <br>
+                            <!-- share -->
+                            
+                                <h2>Share:</h2>
+
+<div class="bshare-custom">
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到QQ空间" class="bshare-qzone"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+</div>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/buttonLite.js#style=-1&amp;uuid=513f778e-a8f7-4c20-9ec2-d29cc2328d75&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="https://yzhihao.github.io/static/bshareC0.js"></script>
+                            
+                            <br>
+                            <!-- comment -->
+                            <!-- 
+<h2>Comments:</h2>
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfY7ULn',
+        conf: 'prod_861928934cecb7a18e15bedaed9dae29'
+    });
+</script>
+
+
+ -->
+
+<!-- 
+
+  There are no comments on this post.
+
+
+<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
+<div id="commentit"></div>
+<script type="text/javascript">
+  /** CONFIGURATION VARIABLES **/
+  var commentitUsername = 'yzhihao';
+  var commentitRepo = 'yzhihao/yzhihao.github.io';
+  var commentitPath = '_posts/2016-11-13-深入浅出mybatis二.md';
+
+  /** DON'T EDIT FOLLOWING LINES **/
+  (function() {
+      var commentit = document.createElement('script');
+      commentit.type = 'text/javascript';
+      commentit.async = true;
+      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
+  })();
+</script> -->
+
+<!-- 多说评论框 start 
+  <div class="ds-thread" data-thread-key="" data-title="" data-url="https://yzhihao.github.io/"></div>
+多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) 
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yzhhome"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+	
+	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+
+<!-- Baidu analytics -->
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?071a17bdc10e87d669ad01b11eb29636";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+
+<!-- Google analytics -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73784599-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+  <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
+
+
+<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+
+	
+
+</body>
+</html>
