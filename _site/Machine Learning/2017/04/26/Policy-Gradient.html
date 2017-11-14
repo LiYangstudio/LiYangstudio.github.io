@@ -12,62 +12,62 @@
   
     <meta name="keywords" content="blog,Machine Learning,AI">
   
-  <meta name="author" content="Evan">
+  <meta name="author" content="liyang">
 
   <title>
     
-        YZH.home|Policy Gradient
+        Liyang.home|Policy Gradient
     
   </title>
   <!-- favicon -->
-  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+  <link rel="shortcut icon" href="/static/img/favicon.ico">
 
   <!-- Third-party CSS -->
-  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
-  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
-  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+  <link href="/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="/search/css/cb-search.css">
 
   <!-- Custom styles for this template -->
-  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+  <link href="/static/css/style.min.css" rel="stylesheet">
+  <link href="/static/css/pygments.css" rel="stylesheet">
 
   <!-- Scripts -->
-  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/search/js/bootstrap3-typeahead.min.js"></script>
 
   <!-- cb-search -->
-  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script src="/search/js/cb-search.js"></script>
   <script>
     $(function(){
         $("pre").css('display','block');
     });
   </script>
   <!-- Mainly scripts -->
-  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
   <!-- Peity -->
-  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+  <script src="/bower_components/peity/jquery.peity.min.js"></script>
 
-  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <script src="/bower_components/PACE/pace.min.js"></script>
+  <script src="/bower_components/wow/dist/wow.min.js"></script>
   <!-- Custom and plugin javascript -->
-  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+  <script src="/static/js/inspinia.js"></script>
 
   <!-- Rickshaw -->
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+  <script src="/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="/bower_components/rickshaw/rickshaw.min.js"></script>
 
 
   <!-- jPages -->
-  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
-  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script src="/static/js/jPages.js"></script>
+  <script src="/static/js/js.js"></script>
   <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
   <script type="text/javascript">
         $(function(){
@@ -113,7 +113,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                    <a class="navbar-brand" href="/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -250,15 +250,15 @@
 
 <p>什么是策略网络Policy Network？就是一个神经网络，<strong>输入是状态，输出直接就是估计动作（不是Q值）。这里的label就是真实动作,loss就是:<code class="highlighter-rouge">所选概率的-log值*（本reward + 衰减的未来reward）</code></strong></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Policy_Network.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Policy_Network.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>要更新策略网络，或者说要使用梯度下降的方法来更新网络，我们需要有一个目标函数。对于策略网络，目标函数其实是比较容易给定的，就是很直接的，最后的结果！也就是</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Policy_Network1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />所有带衰减reward的累加期望</p>
+<p><img src="h/Machine Learning/Policy_Network1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />所有带衰减reward的累加期望</p>
 
 <p>那么问题就在于如何利用这个目标来更新参数\theta呢？咋一看这个损失函数和策略网络简直没有什么直接联系，reward是环境给出的，如何才能更新参数？换个说法就是如何能够计算出损失函数关于参数的梯度（也就是策略梯度）：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Policy_Network2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Policy_Network2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>Policy gradient 是 RL 中另外一个大家族, 他不像 Value-based 方法 (Q learning, Sarsa), 但他也要接受环境信息 (observation), 不同的是他要输出不是 action 的 value, 而是具体的那一个 action, 这样 policy gradient 就跳过了 value 这个阶段. 而且个人认为 Policy gradient 最大的一个优势是:<strong>输出的这个 action 可以是一个连续的值, 之前我们说到的 value-based 方法输出的都是不连续的值, 然后再选择值最大的 action,如果动作很多的话，这样贪婪策略来选择变得很不现实. 而 policy gradient 可以在一个连续分布上选取 action.这样对于动作众多或者连续动作的是很可行的</strong></p>
 
@@ -271,7 +271,7 @@
 当然，也显然的，用reward来评判动作的好坏是不准确的，甚至用result来评判也是不准确的。<strong>毕竟任何一个reward，result都依赖于大量的动作才导致的。</strong>但是这并不妨碍我们做这样的思考：</p>
 
 <p>如果能够构造一个好的动作评判指标，来判断一个动作的好与坏，那么我们就可以通过改变动作的出现概率来优化策略！
-假设这个评价指标是f(s,a),那么我们的Policy Network输出的是概率。一般情况下，更常使用log likelihood <img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Policy_Network3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />。原因的话看这里<a href="http://link.zhihu.com/?target=http%3A//math.stackexchange.com/questions/892832/why-we-consider-log-likelihood-instead-of-likelihood-in-gaussian-distribution">Why we consider log likelihood instead of Likelihood in Gaussian Distribution</a>。</p>
+假设这个评价指标是f(s,a),那么我们的Policy Network输出的是概率。一般情况下，更常使用log likelihood <img src="h/Machine Learning/Policy_Network3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />。原因的话看这里<a href="http://link.zhihu.com/?target=http%3A//math.stackexchange.com/questions/892832/why-we-consider-log-likelihood-instead-of-likelihood-in-gaussian-distribution">Why we consider log likelihood instead of Likelihood in Gaussian Distribution</a>。</p>
 
 <blockquote>
   <p>简单说明：其实要用log的主要原因就是我们之后要用到极大似然的方式来求，一个是比较好算，第二是这样才不会造成计算的溢出。</p>
@@ -279,7 +279,7 @@
 
 <p>因此，我们就可以构造一个损失函数如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Policy_Network4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Policy_Network4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>怎么理解呢？举个简单的AlphaGo的例子吧。对于AlphaGo而言，<strong>f(s,a)就是最后的结果。</strong>也就是一盘棋中，如果这盘棋赢了，那么这盘棋下的每一步都是认为是好的，如果输了，那么都认为是不好的。好的f(s,a)就是1，不好的就-1。所以在这里，如果a被认为是好的，那么目标就是最大化这个好的动作的概率，反之亦然。</p>
 
@@ -287,7 +287,7 @@
 
 <p>f(s,a)不仅仅可以作为动作的评价指标，还可以作为目标函数。就如同AlphaGo，评价指标就是赢或者输，而目标就是结果赢。这和之前分析的目标完全没有冲突。因此，我们可以利用评价指标f(s,a)来优化Policy，同时也是在优化的同时优化了f(s,a).那么问题就变成对f(s,a)求关于参数的梯度。下面的公式直接摘自Andrej Karpathy的blog，f(x)即是f(s,a)</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Policy_Network5.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Policy_Network5.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>从公式得到的结论可以看到正好和上一小结分析得到的目标函数一致。</p>
 
@@ -295,13 +295,13 @@
   <p>最后，来自<a href="https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/5-1-policy-gradient-softmax1/">莫烦python</a>的一张图,那里的例子比较好懂，值得一看。下面也是基本的Policy Gradient的算法。</p>
 </blockquote>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/policy_gradient_agr.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/policy_gradient_agr.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>其实，这个也就是那个课程上的<a href="https://yzhihao.github.io/machine%20learning/2017/04/21/Policy-Gradient.html">Monte-Carlo Policy Gradient</a></p>
 
 <h2 id="从一般policy-gradient引申到actor-critic">从一般Policy Gradient引申到Actor Critic</h2>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Policy_Gradient_actor.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Policy_Gradient_actor.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 
                     <hr>
@@ -355,12 +355,12 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="panel-405278">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                                <img src="/static/img/pay/alipay.png"" height="250" width="250">
                             </div>    
                         </div>
                         <div class="tab-pane" id="panel-874705">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                                <img src="/static/img/pay/wechat.png"" height="250" width="250">
                             </div>
                         </div>
                     </div>
@@ -455,7 +455,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
 
 
 	
-	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+	    <script src="/static/js/scroll.js"></script>
 
 <!-- Baidu analytics -->
 
@@ -490,7 +490,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
   <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
 
 
-<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+<script async src="/static/js/count_page.js"></script>
 
 	
 

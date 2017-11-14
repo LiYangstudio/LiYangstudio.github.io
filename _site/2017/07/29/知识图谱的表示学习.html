@@ -9,11 +9,11 @@
 <h2 id="transe">TransE</h2>
 
 <p>TransE的算法使用了一个简单的线性运算构建目标函数，但是实验效果表明，TransE比之前一些涉及大量矩阵运算、非线性函数的方法效果更好。
-假设网络图中的边表示为三元组(h,r,t)，其中h、r、t分别是起始节点、关系、末尾节点的向量表示。TransE的学习目标是使得，<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Representation_Learning_kg.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />。使用<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Representation_Learning_kg1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />,这里p可以取1或者2,也就是使用L1范数或者L2范数来表示损失。</p>
+假设网络图中的边表示为三元组(h,r,t)，其中h、r、t分别是起始节点、关系、末尾节点的向量表示。TransE的学习目标是使得，<img src="h/Machine Learning/Representation_Learning_kg.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />。使用<img src="h/Machine Learning/Representation_Learning_kg1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />,这里p可以取1或者2,也就是使用L1范数或者L2范数来表示损失。</p>
 
 <p>TransE目标函数为：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Representation_Learning_kg2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Representation_Learning_kg2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>S’是通过对原来的三元组随机替换h或者t得到的噪声三元组。优化过程中采用了NCE(Noise Contrastive Estimation)思想，尽量使得噪声三元组的损失大于正确三元组的损失加上一个margin \gamma。</p>
 
@@ -23,7 +23,7 @@
 
 <p>TransE使用同一个向量来表示同一种关系，难以体现1对多、多对多、多对1的关系中的多样性。因此TransH将关系表示为超平面(hyperplane，比整体空间少一个维度的子空间，例如三维空间中的二维平面）上的一个向量。也就是，弥补TransE上的不能一对多的缺陷。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Representation_Learning_kg3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Representation_Learning_kg3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>具体的做法就是</p>
 
@@ -31,7 +31,7 @@
 
 <p>TransE和TransH将实体和关系都用同一个空间中的向量进行表示，<strong>TransR中实体和关系的表示位于两个空间</strong>。在计算损失函数的时候，先使用一个线性变化将实体的表示映射到关系表示空间，在计算损失函数。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Representation_Learning_kg4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Representation_Learning_kg4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>论文中还提出了一个<strong>CTransR。每个关系r对应于多个向量和映射矩阵，从而保证表示多样化的关系</strong>。先对关系r所连接的实体对进行聚类，每个类别c对应于一个向量表示。也就是说，这里是在适应两个实体间多种不同关系的情况。</p>
 
@@ -39,7 +39,7 @@
 
 <p>这个是在TransR的基础上做了一个扩展。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Representation_Learning_kg4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Representation_Learning_kg4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>与其他方法的比较：TransR方法中每个关系都对应一个投影矩阵，而TransD方法中投影向量是两个实体对应的向量与关系对应的向量组成，<strong>复杂度更低</strong>。TransH中每个关系对应一个投影向量，投影向量完全取决于关系，而TransD中，投影矩阵由实体与关系共同决定，具有<strong>更好的建模能力</strong>。</p>
 

@@ -6,7 +6,7 @@
 
 <h2 id="网络结构原理">网络结构原理</h2>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/End_Network_Dialogue.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/End_Network_Dialogue.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>1、Intent Network</p>
 
@@ -23,7 +23,7 @@
   <li>易扩展新的组件。</li>
 </ul>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/End_Network_Dialogue1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/End_Network_Dialogue1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>这个组件的输入时用户的input，<strong>输出是一个informable slot和requestable slot的概率分布</strong>，这里的informable slot是指food，price range和area（以订餐为例），用来约束数据库中的查询，requestable slot是指address，phone，postcode等一些可以被询问的值。这里会定义一个针对具体task的知识图谱，来表示这些slot之间的关系，每个slot都会定义一个tracker，tracker的模型如上图所示，包括一个CNN<strong>特征提取模块</strong>和一个Jordan型的RNN模块，<strong>CNN不仅仅对当前的input进行处理，还对上一轮的user input进行处理，综合起来作为RNN的输入。</strong></p>
 
@@ -49,11 +49,11 @@
 训练分为两个阶段，第一阶段是训练belief trackers，得到模型之后，更新参数，对生成网络中的语言模型进行训练，得到full model，batch size取1。
 bot模型自动评价这块是一个非常难的事情，本文选择了BLEU score、entity matching rate和objective task success rate，本文模型均取得了不错的结果。另外，通过人工评价对本文模型和rule-based进行了对比，结果看下图：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/End_Network_Dialogue2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/End_Network_Dialogue2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>最后paper给出了一种生成的句子向量的二维图，如下图：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/End_Network_Dialogue3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/End_Network_Dialogue3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>几乎同一类话都被聚集到了相似的位置上，验证了模型的有效性。</p>
 

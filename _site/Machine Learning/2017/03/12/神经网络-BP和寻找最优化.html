@@ -12,62 +12,62 @@
   
     <meta name="keywords" content="blog,Machine Learning,AI">
   
-  <meta name="author" content="Evan">
+  <meta name="author" content="liyang">
 
   <title>
     
-        YZH.home|神经网络-BP，更新参数策略
+        Liyang.home|神经网络-BP，更新参数策略
     
   </title>
   <!-- favicon -->
-  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+  <link rel="shortcut icon" href="/static/img/favicon.ico">
 
   <!-- Third-party CSS -->
-  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
-  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
-  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+  <link href="/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="/search/css/cb-search.css">
 
   <!-- Custom styles for this template -->
-  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+  <link href="/static/css/style.min.css" rel="stylesheet">
+  <link href="/static/css/pygments.css" rel="stylesheet">
 
   <!-- Scripts -->
-  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/search/js/bootstrap3-typeahead.min.js"></script>
 
   <!-- cb-search -->
-  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script src="/search/js/cb-search.js"></script>
   <script>
     $(function(){
         $("pre").css('display','block');
     });
   </script>
   <!-- Mainly scripts -->
-  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
   <!-- Peity -->
-  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+  <script src="/bower_components/peity/jquery.peity.min.js"></script>
 
-  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <script src="/bower_components/PACE/pace.min.js"></script>
+  <script src="/bower_components/wow/dist/wow.min.js"></script>
   <!-- Custom and plugin javascript -->
-  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+  <script src="/static/js/inspinia.js"></script>
 
   <!-- Rickshaw -->
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+  <script src="/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="/bower_components/rickshaw/rickshaw.min.js"></script>
 
 
   <!-- jPages -->
-  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
-  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script src="/static/js/jPages.js"></script>
+  <script src="/static/js/js.js"></script>
   <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
   <script type="text/javascript">
         $(function(){
@@ -113,7 +113,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                    <a class="navbar-brand" href="/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -271,22 +271,22 @@
 
 <p>它的复合关系画出图可以表示如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bp_neural_network1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/bp_neural_network1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>在图中，引入了中间变量c,d。在图中，引入了中间变量c,d。为了求出a=2, b=1时，e的梯度，我们可以先利用偏导数的定义求出不同层之间相邻节点的偏导关系，如下图所示。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bp_neural_network2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/bp_neural_network2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>利用链式法则我们知道：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bp_neural_network3.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/bp_neural_network3.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>以及</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bp_neural_network4.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/bp_neural_network4.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>链式法则在上图中的意义是什么呢？其实不难发现，
-<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bp_neural_network5.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />
+<img src="h/Machine Learning/bp_neural_network5.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />
 的值等于从a到e的路径上的偏导值的乘积，而<img src="https://www.zhihu.com/equation?tex=%5Cfrac%7B%5Cpartial+e%7D%7B%5Cpartial+b%7D" alt="" />的值等于从b到e的路径1(b-c-e)上的偏导值的乘积加上路径2(b-d-e)上的偏导值的乘积。也就是说，对于上层节点p和下层节点q，要求得<img src="https://www.zhihu.com/equation?tex=%5Cfrac%7B%5Cpartial+p%7D%7B%5Cpartial+q%7D" alt="" />，需要找到从q节点到p节点的所有路径，并且对每条路径，求得该路径上的所有偏导数之乘积，然后将所有路径的 “乘积” 累加起来才能得到<img src="https://www.zhihu.com/equation?tex=%5Cfrac%7B%5Cpartial+p%7D%7B%5Cpartial+q%7D" alt="" />的值。</p>
 
 <p>大家也许已经注意到，这样做是十分冗余的，因为很多<strong>路径被重复访问</strong>了。比如上图中，a-c-e和b-c-e就都走了路径c-e。对于权值动则数万的深度模型中的神经网络，这样的冗余所导致的计算量是相当大的。</p>
@@ -307,7 +307,7 @@
 
 <p>——————————————————————————————————————————</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bp_neural_network6.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/bp_neural_network6.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>一个展示反向传播的例子。加法操作将梯度相等地分发给它的输入。取最大操作将梯度路由给更大的输入。乘法门拿取输入激活数据，对它们进行交换，然后乘以梯度。</p>
 
@@ -374,11 +374,11 @@ x += -mu * v_prev + (1 + mu) * v # 位置更新变了形式
 
 <p>和上面的动量（Momentum）更新差不多，但是，不同的在于，当参数向量位于某个位置x时，观察上面的动量更新公式可以发现，动量部分（忽视带梯度的第二个部分）会通过<code class="highlighter-rouge">mu * v</code>稍微改变参数向量。因此，如果要计算梯度，那么<strong>可以将未来的近似位置<code class="highlighter-rouge">x + mu * v</code>看做是“向前看”，这个点在我们一会儿要停止的位置附近。因此，计算<code class="highlighter-rouge">x + mu * v</code>的梯度而不是“旧”位置x的梯度就有意义了。</strong></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bp_neural_network7.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/bp_neural_network7.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>Nesterov动量。既然我们知道动量将会把我们带到绿色箭头指向的点，我们就不要在原点（红色点）那里计算梯度了。使用Nesterov动量，我们就在这个“向前看”的地方计算梯度。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bp_neural_network8.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/bp_neural_network8.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="学习率退火">学习率退火</h2>
 
@@ -494,12 +494,12 @@ x += - learning_rate * m / (np.sqrt(v) + eps)
                     <div class="tab-content">
                         <div class="tab-pane active" id="panel-405278">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                                <img src="/static/img/pay/alipay.png"" height="250" width="250">
                             </div>    
                         </div>
                         <div class="tab-pane" id="panel-874705">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                                <img src="/static/img/pay/wechat.png"" height="250" width="250">
                             </div>
                         </div>
                     </div>
@@ -594,7 +594,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
 
 
 	
-	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+	    <script src="/static/js/scroll.js"></script>
 
 <!-- Baidu analytics -->
 
@@ -629,7 +629,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
   <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
 
 
-<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+<script async src="/static/js/count_page.js"></script>
 
 	
 

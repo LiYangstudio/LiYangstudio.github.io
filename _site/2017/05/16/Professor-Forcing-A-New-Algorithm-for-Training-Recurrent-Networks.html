@@ -14,7 +14,7 @@
 
 <p>这个网络收GAN的启发，</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Professor_Forcing.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Professor_Forcing.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>首先G网路has single hidden layer of gated recurrent units (GRU),</p>
 
@@ -26,19 +26,19 @@
 
 <p>对于D网络来说，它的loss函数是</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Professor_Forcing1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Professor_Forcing1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>对于maximize the likelihood网络，它的loss函数就是negative log-likelihood objective，如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Professor_Forcing2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Professor_Forcing2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>对于free-running model 它的loss函数是：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Professor_Forcing3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Professor_Forcing3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>free-running model的loss函数或者就是这样的</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Professor_Forcing4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Professor_Forcing4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>In our experiments we either perform stochastic gradient steps on NLL+Cf or on NLL+Cf+Ct
 to update the generative RNN parameters, while we always do gradient steps on C d to update the discriminator parameters.</p>

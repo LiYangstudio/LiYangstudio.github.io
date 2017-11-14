@@ -24,7 +24,7 @@
 
 <h2 id="算法流程和讲解">算法流程和讲解</h2>
 
-<p>定义一个函数：<img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Beam_Search.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />代表在t-1的hidden-state和input representation x的得分。在实验中 ，是除去了final softmax transforation (which transforms nnormalized scores into robabilities)。然后直接输出unnormalized scores，这样就解决了label bias problem。</p>
+<p>定义一个函数：<img src="h/Machine Learning/Beam_Search.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" />代表在t-1的hidden-state和input representation x的得分。在实验中 ，是除去了final softmax transforation (which transforms nnormalized scores into robabilities)。然后直接输出unnormalized scores，这样就解决了label bias problem。</p>
 
 <p>模型将会选择整体cores最高的序列。这里的方法借鉴了<a href="">LaSO-like</a>，这个方法就叫做beam search optimization (BSO)</p>
 
@@ -32,11 +32,11 @@
 
 <p>在实验中，首先是计算候选句子集合S中的得分。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Beam_Search1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Beam_Search1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>然后定义了全局的loss函数</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Beam_Search2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Beam_Search2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>为了优化这个loss函数。这个算法分为两个部分，首先是Forward: Find Violations，找到候选句子集合S.然后是Backward: Merge Sequences。用反向传播的方式更新权重中</p>
 
@@ -44,13 +44,13 @@
 
 <p>下面的图解解释了在第一步是怎么找到候选句子s的。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Beam_Search3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Beam_Search3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p><strong>Backward: Merge Sequences</strong></p>
 
 <p>下面就是这个算法的整体：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Beam_Search4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Beam_Search4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="实验过程和结果">实验过程和结果（）</h2>
 

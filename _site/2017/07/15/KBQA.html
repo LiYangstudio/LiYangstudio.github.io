@@ -4,7 +4,7 @@
 
 <p>知识库问答（knowledge base question answering,KB-QA）即给定自然语言问题，通过对问题进行语义理解和解析，进而利用知识库进行查询、推理得出答案。如下图所示</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/KBQA1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/KBQA1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>（注：该图片来自中科院刘康老师在知识图谱与问答系统前沿技术研讨会中的报告）</p>
 
@@ -28,7 +28,7 @@
 
 <p>现在比较常用的是使用<strong>记忆网络（Memory Networks），注意力机制（Attention Mechanism）</strong>进行KB-QA。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/KBQA2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/KBQA2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>（注：该图片来自中科院刘康老师在知识图谱与问答系统前沿技术研讨会中的报告）</p>
 
@@ -40,7 +40,7 @@
 
 <p>作者首先使用Google Suggest API获取以wh-word（what，who，why，where，whose…）为开头且只包含一个实体的问题，以“where was Barack Obama born?”作为问题图谱的起始节点，以Google Suggest API给出的建议作为新的问题，通过宽度优先搜索获取问题。具体来讲，对于每一个队列中的问题，通过对它删去实体，删去实体之前的短语，删去实体之后的短语形成3个新的query，将这三个新query放到google suggest中，每个query将生成5个候选问题，加入搜索队列，直到1M个问题被访问完。如下图所示</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/KBQA.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/KBQA.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>（注：该图片来自Google Suggest）</p>
 
@@ -72,7 +72,7 @@
 
 <p>因此我们可以将问题的特征表示拆解开，用三个向量分别表示答案的三个特征，即答案路径（Answer Path），答案上下文信息（Answer Context），答案类型（Answer Type），对于每一个答案特征向量，都用一个卷积网络去对问题进行特征提取，将提取出的分布式表达和该答案对应特征向量的分布式表达进行点乘，这样我们就可以得到一个包含三部分的得分函数：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/KBQA4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/KBQA4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>其中q代表问题，a代表答案，f<sub>i</sub>(q)代表问题经过卷积神经网络输出的分布式表达，g<sub>i</sub>(a)表示答案在对应特征下的分布式表达。</p>
 

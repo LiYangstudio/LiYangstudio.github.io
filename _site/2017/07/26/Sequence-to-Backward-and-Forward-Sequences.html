@@ -8,15 +8,15 @@
 
 <p>本文旨在提出一种叫做content introducing的方法来生成短文本reply，一共分为两个step，如下图：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Sequence_Backward_chatbot.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Sequence_Backward_chatbot.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>step 1 给定query之后，预测一个keyword作为reply的topic，这个topic词性是名词，这里的keyword并不能捕捉复杂的语义和语法，而只是根据query的每个词来预估出一个PMI（Pointwise Mutual Information）最高的名词作为keyword，两个单词之间的PMI由下式计算：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Sequence_Backward_chatbot1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Sequence_Backward_chatbot1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>每个单词与query之间的PMI由下式计算：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Sequence_Backward_chatbot2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Sequence_Backward_chatbot2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>虽然数学上不太严谨，但后面的实验表明用这个来计算结果还是不错的。</p>
 

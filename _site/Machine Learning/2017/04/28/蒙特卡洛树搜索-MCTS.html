@@ -12,62 +12,62 @@
   
     <meta name="keywords" content="blog,Machine Learning,AI">
   
-  <meta name="author" content="Evan">
+  <meta name="author" content="liyang">
 
   <title>
     
-        YZH.home|蒙特卡洛树搜索 MCTS
+        Liyang.home|蒙特卡洛树搜索 MCTS
     
   </title>
   <!-- favicon -->
-  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+  <link rel="shortcut icon" href="/static/img/favicon.ico">
 
   <!-- Third-party CSS -->
-  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
-  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
-  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+  <link href="/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="/search/css/cb-search.css">
 
   <!-- Custom styles for this template -->
-  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+  <link href="/static/css/style.min.css" rel="stylesheet">
+  <link href="/static/css/pygments.css" rel="stylesheet">
 
   <!-- Scripts -->
-  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/search/js/bootstrap3-typeahead.min.js"></script>
 
   <!-- cb-search -->
-  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script src="/search/js/cb-search.js"></script>
   <script>
     $(function(){
         $("pre").css('display','block');
     });
   </script>
   <!-- Mainly scripts -->
-  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
   <!-- Peity -->
-  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+  <script src="/bower_components/peity/jquery.peity.min.js"></script>
 
-  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <script src="/bower_components/PACE/pace.min.js"></script>
+  <script src="/bower_components/wow/dist/wow.min.js"></script>
   <!-- Custom and plugin javascript -->
-  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+  <script src="/static/js/inspinia.js"></script>
 
   <!-- Rickshaw -->
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+  <script src="/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="/bower_components/rickshaw/rickshaw.min.js"></script>
 
 
   <!-- jPages -->
-  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
-  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script src="/static/js/jPages.js"></script>
+  <script src="/static/js/js.js"></script>
   <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
   <script type="text/javascript">
         $(function(){
@@ -113,7 +113,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                    <a class="navbar-brand" href="/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -263,7 +263,7 @@
 
 <p>基本的 MCTS 算法非常简单：根据模拟的输出结果，按照节点构造搜索树。其过程可以分为下面的若干步：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/MCTS1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/MCTS1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>1.选择 Selection：从根节点 R 开始，递归选择最优的子节点（后面会解释）直到达到叶子节点 L。</p>
 
@@ -283,7 +283,7 @@
 
 <p>在树向下遍历时的节点选择通过选择最大化某个量来实现，这其实类似于 Multiarmed bandit problem，其中的参与者必须选择一个 slot machine（bandit）来最大化每一轮的估计的收益。我们可以使用 Upper Confidence Bounds（UCB）公式常常被用来计算这个：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/MCTS2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/MCTS2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>其中 v_i 是节点估计的值，n_i 是节点被访问的次数，而 N 则是其父节点已经被访问的总次数。C 是可调整参数。</p>
 
@@ -309,7 +309,7 @@
 
 <p>MCTS 执行一种非对称的树的适应搜索空间拓扑结构的增长。这个算法会更频繁地访问更加有趣的节点，并聚焦其搜索时间在更加相关的树的部分。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/MCTS3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/MCTS3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>这使得 MCTS 更加适合那些有着更大的分支因子的博弈游戏，比如说 19X19 的围棋。这么大的组合空间会给标准的基于深度或者宽度的搜索方法带来问题，所以 MCTS 的适应性说明它（最终）可以找到那些更加优化的行动，并将搜索的工作聚焦在这些部分。</p>
 
@@ -393,12 +393,12 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="panel-405278">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                                <img src="/static/img/pay/alipay.png"" height="250" width="250">
                             </div>    
                         </div>
                         <div class="tab-pane" id="panel-874705">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                                <img src="/static/img/pay/wechat.png"" height="250" width="250">
                             </div>
                         </div>
                     </div>
@@ -493,7 +493,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
 
 
 	
-	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+	    <script src="/static/js/scroll.js"></script>
 
 <!-- Baidu analytics -->
 
@@ -528,7 +528,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
   <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
 
 
-<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+<script async src="/static/js/count_page.js"></script>
 
 	
 

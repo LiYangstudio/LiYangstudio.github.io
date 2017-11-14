@@ -16,7 +16,7 @@
 
 <p>具体来说这个机制的公式如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/An_Actor_Critic_Algorithm3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/An_Actor_Critic_Algorithm3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="related-work加上discussion">RELATED WORK加上discussion</h2>
 
@@ -36,7 +36,7 @@
 
 <p>结构如图：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/An_Actor_Critic_Algorithm.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/An_Actor_Critic_Algorithm.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>从神经网络结构看：actor和critic都是encoder和decoder的结构。actor中中encoder输入的是X（若在机器翻译中就是原始序列），decoder输出生成的序列（在机器翻译中就是输出序列），然后生成的每一词都输入到critic对这些序列进行评价。其中critic的encoder输入的是Y（若在机器翻译中就是翻译后的序列），decoder输入的就是attention机制生成的input summary加上actor的当下生成词，输出的就是对当下生成词的一个评价！具体的看下面的算法流程图。</p>
 
@@ -48,9 +48,9 @@
 
 <p>具体的算法流程如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/An_Actor_Critic_Algorithm1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/An_Actor_Critic_Algorithm1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/An_Actor_Critic_Algorithm2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/An_Actor_Critic_Algorithm2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>Note that we use the probability rather than the log probability in this formula (which is more typical in RL applications) as we are summing over actions rather than taking an expectation. Intuitively, this equality corresponds to increasing the probability of actions that give high values, and decreasing the probability of actions that give low values</p>
 
@@ -64,7 +64,7 @@
 
 <p>(3)然后是trick是Dealing with large action spaces，This can be alleviated by putting constraints on the critic values for actions that are rarely sampled. We found experimentally that shrinking the values of these rare actions is necessary for the algorithm to converge。也就是在跟新critic的时候加上一个类似正则化的项，这个的作用就是缩小那些几乎不出现的动作的价值，降低critic的output的方差。这个trick在<a href="https://arxiv.org/abs/1511.07275">Learning simple algorithms from examples</a>也有用到。这个trick具体如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/An_Actor_Critic_Algorithm5.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/An_Actor_Critic_Algorithm5.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>（4）最后的trick是Reward shaping</p>
 

@@ -12,62 +12,62 @@
   
     <meta name="keywords" content="blog,Machine Learning,AI">
   
-  <meta name="author" content="Evan">
+  <meta name="author" content="liyang">
 
   <title>
     
-        YZH.home|Wasserstein GAN
+        Liyang.home|Wasserstein GAN
     
   </title>
   <!-- favicon -->
-  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+  <link rel="shortcut icon" href="/static/img/favicon.ico">
 
   <!-- Third-party CSS -->
-  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
-  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
-  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+  <link href="/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="/search/css/cb-search.css">
 
   <!-- Custom styles for this template -->
-  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+  <link href="/static/css/style.min.css" rel="stylesheet">
+  <link href="/static/css/pygments.css" rel="stylesheet">
 
   <!-- Scripts -->
-  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/search/js/bootstrap3-typeahead.min.js"></script>
 
   <!-- cb-search -->
-  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script src="/search/js/cb-search.js"></script>
   <script>
     $(function(){
         $("pre").css('display','block');
     });
   </script>
   <!-- Mainly scripts -->
-  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
   <!-- Peity -->
-  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+  <script src="/bower_components/peity/jquery.peity.min.js"></script>
 
-  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <script src="/bower_components/PACE/pace.min.js"></script>
+  <script src="/bower_components/wow/dist/wow.min.js"></script>
   <!-- Custom and plugin javascript -->
-  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+  <script src="/static/js/inspinia.js"></script>
 
   <!-- Rickshaw -->
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+  <script src="/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="/bower_components/rickshaw/rickshaw.min.js"></script>
 
 
   <!-- jPages -->
-  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
-  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script src="/static/js/jPages.js"></script>
+  <script src="/static/js/js.js"></script>
   <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
   <script type="text/javascript">
         $(function(){
@@ -113,7 +113,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                    <a class="navbar-brand" href="/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -286,15 +286,15 @@
 
 <h2 id="原始gan形式的问题">原始GAN形式的问题</h2>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/26Wasserstein_GAN0.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/26Wasserstein_GAN0.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="第一种原始gan形式的问题">第一种原始GAN形式的问题</h2>
 
 <p>一句话概括：判别器越好，生成器梯度消失越严重</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/26Wasserstein_GAN.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/26Wasserstein_GAN.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/26Wasserstein_GAN1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/26Wasserstein_GAN1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>根据原始GAN定义的判别器loss，我们可以得到最优判别器的形式；而在<strong>最优判别器的下，我们可以把原始GAN定义的生成器loss等价变换为最小化真实分布P_r与生成分布P_g之间的JS散度。我们越训练判别器，它就越接近最优，最小化生成器的loss也就会越近似于最小化P_r和P_g之间的JS散度。</strong></p>
 
@@ -320,7 +320,7 @@
 
 <p>最小化第二种生成器loss函数，会<strong>等价于最小化一个不合理的距离衡量，导致两个问题，一是梯度不稳定，二是collapse mode即多样性不足。</strong></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Wesserstein_gan2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Wesserstein_gan2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <table>
   <tbody>
@@ -341,19 +341,19 @@
 
 <h2 id="wasserstein距离">Wasserstein距离</h2>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/26Wasserstein_GAN3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/26Wasserstein_GAN3.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/26Wasserstein_GAN2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/26Wasserstein_GAN2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="从wasserstein距离到wgan">从Wasserstein距离到WGAN</h2>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/26Wasserstein_GAN4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/26Wasserstein_GAN4.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/26Wasserstein_GAN5.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/26Wasserstein_GAN5.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>Wesserstein GAN的算法如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Wesserstein_gan.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Wesserstein_gan.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>前三点都是从理论分析中得到的，已经介绍完毕；第四点却是作者从实验中发现的，属于trick，相对比较“玄”。作者发现如果使用Adam，判别器的loss有时候会崩掉，当它崩掉时，Adam给出的更新方向与梯度方向夹角的cos值就变成负数，更新方向与梯度方向南辕北辙，这意味着判别器的loss梯度是不稳定的，所以不适合用Adam这类基于动量的优化算法。作者改用RMSProp之后，问题就解决了，因为RMSProp适合梯度不稳定的情况。</p>
 
@@ -413,12 +413,12 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="panel-405278">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                                <img src="/static/img/pay/alipay.png"" height="250" width="250">
                             </div>    
                         </div>
                         <div class="tab-pane" id="panel-874705">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                                <img src="/static/img/pay/wechat.png"" height="250" width="250">
                             </div>
                         </div>
                     </div>
@@ -513,7 +513,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
 
 
 	
-	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+	    <script src="/static/js/scroll.js"></script>
 
 <!-- Baidu analytics -->
 
@@ -548,7 +548,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
   <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
 
 
-<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+<script async src="/static/js/count_page.js"></script>
 
 	
 

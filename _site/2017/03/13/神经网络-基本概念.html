@@ -19,9 +19,9 @@
 
 <h2 id="why-deep-neural-network-not-fat-neural-network">why deep neural network not fat neural network??</h2>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/why_deep_neural_network.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/why_deep_neural_network.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/why_deep_neural_network1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/why_deep_neural_network1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>A shallow network has less number of hidden layers. <strong>While there are studies that a shallow network can fit any function, it will need to be really fat. That causes the number of parameters to increase a lot.</strong></p>
 
@@ -38,13 +38,13 @@
 
 <h2 id="机器学习的模型中为什么加入bias">机器学习的模型中为什么加入bias?</h2>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bais1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/bais1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/bais2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/bais2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="正则化-regularization">正则化 Regularization:</h2>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/regulazation1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/regulazation1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <blockquote>
   <p>注意：<strong>L1正则化会让权重向量在最优化的过程中变得稀疏（即非常接近0）;L2正则化可以直观理解为它对于大数值的权重向量进行严厉惩罚，倾向于更加分散的权重向量。</strong></p>
@@ -52,7 +52,7 @@
 
 <p><strong>l1,l2正则化的图像化：</strong></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/27regulaztion.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/27regulaztion.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>随机失活（Dropout）：<strong>Dropout可以看作是Bagging的极限形式，每个模型都在当一情况中训练，同时模型的每个参数都经过与其他模型共享参数，从而高度正则化。</strong>在训练过程中，随机失活也可以被认为是对完整的神经网络抽样出一些子集，每次基于输入数据只更新子网络的参数（然而，数量巨大的子网络们并不是相互独立的，因为它们都共享参数）。在<strong>测试过程中不使用随机失活，可以理解为是对数量巨大的子网络们做了模型集成（model ensemble），以此来计算出一个平均的预测。</strong>关于这个，可以看下<a href="https://yzhihao.github.io/machine%20learning/2017/03/29/Batch-Normalization-and-dropout.html">Batch-Normalization and dropout</a>中的dropout部分</p>
 
@@ -66,7 +66,7 @@
 
 <p>简单的从二维来理解，首先，图像数据是高度相关的，假设其分布如下图a所示(简化为2维)。由于初始化的时候，我们的参数一般都是0均值的，因此开始的拟合y=Wx+b，基本过原点附近(因为b接近于零)，如图b红色虚线。因此，网络需要经过多次学习才能逐步达到如紫色实线的拟合，即收敛的比较慢。如果我们对输入数据先作减均值操作，如图c，显然可以加快学习。更进一步的，我们对数据再进行去相关操作，使得数据更加容易区分，这样又会加快训练，如图d。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/neural_network_base1.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/neural_network_base1.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h3 id="基础预处理方法">基础预处理方法</h3>
 
@@ -79,7 +79,7 @@
   </li>
 </ul>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_neural_network_s1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/base_neural_network_s1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p><strong>左边：</strong>原始的2维输入数据。<strong>中间：</strong>在每个维度上都减去平均值后得到零中心化数据，现在数据云是以原点为中心的。<strong>右边：</strong>每个维度都除以其标准差来调整其数值范围。红色的线指出了数据各维度的数值范围，在中间的零中心化数据的数值范围不同，但在右边归一化数据中数值范围相同。</p>
 
@@ -94,7 +94,7 @@
   </li>
 </ul>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/base_neural_network_s2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/base_neural_network_s2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>(中间是pca，右边是白化),</p>
 
@@ -110,7 +110,7 @@
 
 <p><strong>Batch Normalization就是在每一层的wx+b和f(wx+b)之间加一个归一化（将wx+b归一化成：均值为0，方差为1；</strong>但在原论文中，作者为了计算的稳定性，加了两个参数将数据又还原回去了，这两个参数也是需要训练的。）层，说白了，就是对每一层的数据都预处理一次。方便直观感受，上张图：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/neural_network_base2.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/neural_network_base2.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>这个方法可以进一步加速收敛，因此学习率可以适当增大，加快训练速度；过拟合现象可以得倒一定程度的缓解，所以可以不用Dropout或用较低的Dropout，而且可以减小L2正则化系数，训练速度又再一次得到了提升。即Batch Normalization可以降低我们对正则化的依赖程度。</p>
 
@@ -159,7 +159,7 @@
   </li>
 </ul>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/neural_network_base3.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/neural_network_base3.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h3 id="tanh非线性函数">Tanh非线性函数</h3>
 <ul>
@@ -175,7 +175,7 @@
   </li>
 </ul>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/neural_network_base4.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/neural_network_base4.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h3 id="relu">ReLU</h3>
 
@@ -194,7 +194,7 @@
   </li>
 </ul>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/neural_network_base5.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/neural_network_base5.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h3 id="leaky-relu">Leaky ReLU</h3>
 <ul>
@@ -215,18 +215,18 @@
   <p>Kaiming He等人在2015年发布的论文Delving Deep into Rectifiers中介绍了一种新方法PReLU，把负区间上的斜率当做每个神经元中的一个参数。然而该激活函数在在不同任务中均有益处的一致性并没有特别清晰。</p>
 </blockquote>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/neural_network_base6.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/neural_network_base6.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h3 id="elu">ELU</h3>
 <p>指数线性单元（Exponential Linear Units, ELU）
 ELU的公式为：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/neural_network_base7.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/neural_network_base7.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>ELU.png
 函数曲线如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/neural_network_base8.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/neural_network_base8.jpg" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h3 id="maxout">Maxout</h3>
 <ul>
@@ -249,7 +249,7 @@ ELU的公式为：</p>
 <h2 id="交叉熵">交叉熵</h2>
 <p>一个非常常见的，非常漂亮的成本函数是“交叉熵”（cross-entropy）。交叉熵产生于信息论里面的信息压缩编码技术，但是它后来演变成为从博弈论到机器学习等其他领域里的重要技术手段。它的定义如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/neural_network_base9.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/neural_network_base9.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>y 是我们预测的概率分布, y’ 是实际的分布（我们输入的one-hot vector)</p>
 

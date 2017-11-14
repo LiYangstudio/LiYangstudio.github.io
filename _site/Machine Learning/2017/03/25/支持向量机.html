@@ -12,62 +12,62 @@
   
     <meta name="keywords" content="blog,Machine Learning,AI">
   
-  <meta name="author" content="Evan">
+  <meta name="author" content="liyang">
 
   <title>
     
-        YZH.home|支持向量机（SVM）
+        Liyang.home|支持向量机（SVM）
     
   </title>
   <!-- favicon -->
-  <link rel="shortcut icon" href="https://yzhihao.github.io/static/img/favicon.ico">
+  <link rel="shortcut icon" href="/static/img/favicon.ico">
 
   <!-- Third-party CSS -->
-  <link href="https://yzhihao.github.io/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/animate.css/animate.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/font-mfizz/font-mfizz.css" rel="stylesheet">
-  <!-- <link href="https://yzhihao.github.io/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
-  <link href="https://yzhihao.github.io/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://yzhihao.github.io/search/css/cb-search.css">
+  <link href="/bower_components/normalize-css/normalize.min.css" rel="stylesheet">
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/static/font-mfizz/font-mfizz.css" rel="stylesheet">
+  <!-- <link href="/bower_components/toastr/toastr.min.css" rel="stylesheet"> -->
+  <link href="/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+  <link rel="stylesheet" href="/search/css/cb-search.css">
 
   <!-- Custom styles for this template -->
-  <link href="https://yzhihao.github.io/static/css/style.min.css" rel="stylesheet">
-  <link href="https://yzhihao.github.io/static/css/pygments.css" rel="stylesheet">
+  <link href="/static/css/style.min.css" rel="stylesheet">
+  <link href="/static/css/pygments.css" rel="stylesheet">
 
   <!-- Scripts -->
-  <script src="https://yzhihao.github.io/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="https://yzhihao.github.io/search/js/bootstrap3-typeahead.min.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/search/js/bootstrap3-typeahead.min.js"></script>
 
   <!-- cb-search -->
-  <script src="https://yzhihao.github.io/search/js/cb-search.js"></script>
+  <script src="/search/js/cb-search.js"></script>
   <script>
     $(function(){
         $("pre").css('display','block');
     });
   </script>
   <!-- Mainly scripts -->
-  <script src="https://yzhihao.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+  <script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
   <!-- Peity -->
-  <script src="https://yzhihao.github.io/bower_components/peity/jquery.peity.min.js"></script>
+  <script src="/bower_components/peity/jquery.peity.min.js"></script>
 
-  <script src="https://yzhihao.github.io/bower_components/PACE/pace.min.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/wow/dist/wow.min.js"></script>
+  <script src="/bower_components/PACE/pace.min.js"></script>
+  <script src="/bower_components/wow/dist/wow.min.js"></script>
   <!-- Custom and plugin javascript -->
-  <script src="https://yzhihao.github.io/static/js/inspinia.js"></script>
+  <script src="/static/js/inspinia.js"></script>
 
   <!-- Rickshaw -->
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/vendor/d3.v3.js"></script>
-  <script src="https://yzhihao.github.io/bower_components/rickshaw/rickshaw.min.js"></script>
+  <script src="/bower_components/rickshaw/vendor/d3.v3.js"></script>
+  <script src="/bower_components/rickshaw/rickshaw.min.js"></script>
 
 
   <!-- jPages -->
-  <script src="https://yzhihao.github.io/static/js/jPages.js"></script>
-  <script src="https://yzhihao.github.io/static/js/js.js"></script>
+  <script src="/static/js/jPages.js"></script>
+  <script src="/static/js/js.js"></script>
   <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
   <script type="text/javascript">
         $(function(){
@@ -113,7 +113,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://yzhihao.github.io/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
+                    <a class="navbar-brand" href="/#page-top" id="i18_title"><img alt="Brand" height="40px" src="https://yzhihao.github.io/static/img/landing/home.png"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -417,15 +417,15 @@
   <p>也就是这样的情形，下面我们通过间隔最大化得到SVM的分隔超平面，然后进行分类</p>
 </blockquote>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/svm_a1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/svm_a1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/svm_a2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/svm_a2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/lagelangrei1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/lagelangrei1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/svm_qiu1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/svm_qiu1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/svm_qiu2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/svm_qiu2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="线性支持向量机">线性支持向量机</h2>
 
@@ -435,9 +435,9 @@
   <p>也就是这样的情形，下面我们对目标函数着损失函数进行稍加的修改。</p>
 </blockquote>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/svm_b1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/svm_b1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/svm_b2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/svm_b2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="非线性支持向量机">非线性支持向量机</h2>
 
@@ -447,7 +447,7 @@
   <p>核方法的主要思想是基于这样一个假设：<strong>“在低维空间中不能线性分割的点集，通过转化为高维空间中的点集时，很有可能变为线性可分的”</strong></p>
 </blockquote>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/kernel1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/kernel1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="mercer-定理">Mercer 定理：</h2>
 <p>任何半正定的函数都可以作为核函数。所谓半正定的函数f(xi,xj)，是指拥有训练数据集合（x1,x2,…xn)，我们定义一个矩阵的元素aij = f(xi,xj)，这个矩阵式n*n的，如果这个矩阵是半正定的，那么f(xi,xj)就称为半正定的函数。（这个mercer定理不是核函数必要条件，只是一个充分条件，即还有不满足mercer定理的函数也可以是核函数。）–这个有待确定。常见的核函数有高斯核，多项式核等等，在这些常见核的基础上，通过核函数的性质（如对称性等）可以进一步构造出新的核函数。</p>
@@ -461,7 +461,7 @@
 <h2 id="核方法的直观理解">核方法的直观理解</h2>
 <p>能够直观（这种直观印象并非严格成立）的看出，如果向量ϕ(x)与ϕ(z)方向靠的比较近，那么根据K(x,z)=ϕ(x)Tϕ(z)可知这个值会比较大；反正，如果两个向量近乎正交（方向离的比较远），则K(x,z)=ϕ(x)Tϕ(z)将会很小。如此，我们就可以用K(x,z)度量ϕ(x)与ϕ(z)的相似度，或者x与z的相似度。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/kernel2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/kernel2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="how-to-select-svm-kernels">How to select SVM kernels?</h2>
 <ul>
@@ -473,7 +473,7 @@
 
 <p>最后，给出在非线性的情况下的svm解法！</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/nonliner1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/nonliner1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <h2 id="坐标法求最优解">坐标法求最优解</h2>
 
@@ -515,11 +515,11 @@
   <li>SMO（sequential minimal optimization）算法起源于SVM, John Platt起初了一个高效解决对偶问题的方法.</li>
 </ul>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/mysom2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/mysom2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>然后，它的具体算法步骤如下：</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/my_som.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/my_som.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <blockquote>
   <p>最后推荐博文时间：<a href="http://blog.csdn.net/v_july_v/article/details/7624837">SVM较好的博文</a></p>
@@ -595,12 +595,12 @@ var duoshuoQuery = {short_name:"yzhhome"};
                     <div class="tab-content">
                         <div class="tab-pane active" id="panel-405278">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/alipay.png"" height="250" width="250">
+                                <img src="/static/img/pay/alipay.png"" height="250" width="250">
                             </div>    
                         </div>
                         <div class="tab-pane" id="panel-874705">
                             <div class="text-center">
-                                <img src="https://yzhihao.github.io/static/img/pay/wechat.png"" height="250" width="250">
+                                <img src="/static/img/pay/wechat.png"" height="250" width="250">
                             </div>
                         </div>
                     </div>
@@ -695,7 +695,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
 
 
 	
-	    <script src="https://yzhihao.github.io/static/js/scroll.js"></script>
+	    <script src="/static/js/scroll.js"></script>
 
 <!-- Baidu analytics -->
 
@@ -730,7 +730,7 @@ var duoshuoQuery = {short_name:"yzhhome"};
   <script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfY7ULn"></script>
 
 
-<script async src="https://yzhihao.github.io/static/js/count_page.js"></script>
+<script async src="/static/js/count_page.js"></script>
 
 	
 

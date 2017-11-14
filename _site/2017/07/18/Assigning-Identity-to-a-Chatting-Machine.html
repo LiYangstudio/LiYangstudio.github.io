@@ -25,7 +25,7 @@
 
 <p>首先，此文为闲聊机器人设定了固定的属性，包括但不限于姓名、性别、爱好等。这些属性被整理为 &lt;Key, Value&gt; 的形式，当机器人被问及与自身属性相关的问题时，应生成与自身属性相一致的回复。如下图所示：此文为 chatbot 设定为一个名叫汪仔的三岁男孩，他热爱动漫，特长是弹钢琴。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Identity_chatbot.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Identity_chatbot.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>那么，研究面临的挑战是什么呢？实际上是主要来<strong>源于数据属性的不一致性，一方面是训练数据相互之间不一致，另一方面是训练数据与机器人不一致。</strong>例如，考虑训练数据中针 对“爱好”的回答，有喜欢篮球的，有喜欢足球的，还有喜欢羽毛球的，这些回答本身就不具有一致性；然而我们机器人的爱好可能是游泳，这与训练数据也不一致。如何使用这些不一致的数据训练模型，成为了此研究最大的挑战。</p>
 
@@ -33,13 +33,13 @@
 
 <p><strong>方法思路介绍：</strong>如下图所示，本文模型包含三个重要的子模块。首先，为了判断给定的 Post 是否涉及机器人自身的属性，以及涉及了哪一条属性，属性检测器（Profile Detector）将对给定的 Post 进行分类。训练 Profile Detector 的过程中使用了带有噪音的监督数据。若分类结果不涉及机器人属性，则使用传统方法 seq2seq 解码。若分类结果涉及机器人属性，则使用双向解码器（Bidirectional Decoder）以属性值为中心进行双向解码。Bidirectional Decoder 是通过与属性相关的 &lt;Post, Response&gt; 数据训练的。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Identity_chatbot1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Identity_chatbot1.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>▲ 图3：整个过程的生成图解</p>
 
 <p>训练的时候因为很多训练数据里的属性都不是机器人的真实属性，于是使用<strong>机器人属性去做生成的 response 与训练数据的 response 会有不一致</strong>，所以就想到了<strong>用 position detector 替换一下消除这种不一致</strong>。因此，需要使用位置检测器（Position Detector）对训练过程做特殊的预处理，Position Detector 可以在训练数据中定位属性值的位置，从而解决在训练与测试过程中的落差。需要注意的是，Position Detector 在测试的过程中不参与生成（generation）过程。具体情况如下图所示，给定一对 &lt;x，y&gt;，Position Detector 将会预测属性值钢琴（Piano）会被小提琴-4（violin）这一位置所替代，该位置将会被用于训练 Bidirectional Decoder。</p>
 
-<p><img src="https://yzhihao.github.io/static/img/blog/Machine Learning/Identity_chatbot2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
+<p><img src="h/Machine Learning/Identity_chatbot2.png" alt="header1" style="height:auto!important;width:auto%;max-width:1020px;" /></p>
 
 <p>▲ 图4：模型的训练过程</p>
 
