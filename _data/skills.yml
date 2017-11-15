@@ -1,5 +1,5 @@
 - name: java
-  percentage: 55
+  percentage: 70
 
 - name: java framework
   percentage: 40
@@ -7,11 +7,11 @@
 - name: git
   percentage: 60
 
-- name: Machine Learning
+- name: Android
   percentage: 50
 
-- name: python
+- name: Android  framework
   percentage: 60
 
-- name: Front end
+- name: computer net
   percentage: 45

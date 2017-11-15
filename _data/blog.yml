@@ -1,13 +1,13 @@
 - name: Blog
   href: '/blog/'
 
-- name: Python
-  href: '/python/'
+- name: C
+  href: '/C/'
 
 - name: tools
   href: '/tools/'
 
-- name: java
+- name: Java
   href: '/java/'
 
 - name: Reading

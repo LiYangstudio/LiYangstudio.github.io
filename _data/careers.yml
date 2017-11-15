@@ -1,42 +1,42 @@
 - name:
-    detail: experience 
+    detail: Hobby
     i18n: nextcode
   desc:
-    detail: Now I am in TopView Studio and I am a back-end Learner.
+    detail: I like to swim，pingpang.
     i18n: nextcode_des
   date:
     detail: 2016-
     i18n: nextcode_date
   job:
-    detail: back-end Learner
+    detail: Hobby
     i18n: nextcode_job
   icon: fa-child
 
 - name:
-    detail: Game
+    detail: Android
     i18n: netease
   desc:
-    detail: In the boring time, or when the mood is not good, I will play football game whose name is ShiKuang.
+    detail: This year, I started the Android learning trip
     i18n: netease_des
   date:
-    detail: hobby
+    detail: 2016-
     i18n: nextcode_date
   job:
-    detail: my Game
+    detail: Android
     i18n: netease_job
   icon: fa-gamepad
 
 - name:
-    detail: Future
+    detail: TopView
     i18n: ucloud
   desc:
-    detail: In the future, I hope to become a  network  engineer and can travel around the world.I hope that I can meet more friend.
+    detail: This year, I successfully passed the assessment and joined the Topview Laboratory
     i18n: ucloud_des
   date:
-    detail: In The Future
+    detail: 2016-
     i18n: ucloud_date
   job:
-    detail: me
+    detail: Topview
     i18n: ucloud_job
   icon: fa-cloud
 
@@ -44,12 +44,12 @@
     detail: College
     i18n: college
   desc:
-    detail: I am now a computer specialized student and will graduate in 2019.Study well and make progress every day. 
+    detail: I am now a computer specialized student and will graduate in 2019.Study well and make progress every day.
     i18n: college_des
   date:
-    detail: 2016-2019
+    detail: 2015-2019
     i18n: college_date
   job:
-    detail: Student
+    detail:  University Student
     i18n: college_job
   icon: fa-book
