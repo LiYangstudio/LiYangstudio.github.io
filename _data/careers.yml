@@ -1,55 +1,55 @@
 - name:
-    detail: Hobby
+    detail:  Hobby
     i18n: nextcode
   desc:
-    detail: I like to swim，pingpang.
+    detail:  I like to swim，pingpang.
     i18n: nextcode_des
   date:
-    detail: 2016-
-    i18n: nextcode_date
+    detail:  2016-
+    i18n:  nextcode_date
   job:
-    detail: Hobby
+    detail:  Hobby
     i18n: nextcode_job
   icon: fa-child
 
 - name:
-    detail: Android
+    detail:  Android
     i18n: netease
   desc:
-    detail: This year, I started the Android learning trip
+    detail:  This year, I started the Android learning trip
     i18n: netease_des
   date:
-    detail: 2016-
+    detail:  2016-
     i18n: nextcode_date
   job:
-    detail: Android
+    detail:  Android
     i18n: netease_job
   icon: fa-gamepad
 
 - name:
-    detail: TopView
+    detail:  TopView
     i18n: ucloud
   desc:
-    detail: This year, I successfully passed the assessment and joined the Topview Laboratory
+    detail:  This year, I successfully passed the assessment and joined the Topview Laboratory
     i18n: ucloud_des
   date:
-    detail: 2016-
+    detail:  2016-
     i18n: ucloud_date
   job:
-    detail: Topview
-    i18n: ucloud_job
+    detail:  Topview
+    i18n:   ucloud_job
   icon: fa-cloud
 
 - name:
-    detail: College
-    i18n: college
+    detail:  College
+    i18n:  college
   desc:
-    detail: I am now a computer specialized student and will graduate in 2019.Study well and make progress every day.
+    detail:  I am now a computer specialized student and will graduate in 2019.Study well and make progress every day.
     i18n: college_des
   date:
-    detail: 2015-2019
+    detail:  2015-2019
     i18n: college_date
   job:
-    detail:  University Student
+    detail: University Student
     i18n: college_job
   icon: fa-book
