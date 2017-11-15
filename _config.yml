@@ -27,10 +27,10 @@ sections:
     tpl: 'about.html'
     css: ''
 
-  - id: 'career'
-    i18n: 'nav.career'
-    name: 'Career'
-    tpl: 'career.html'
+  - id: 'careers'
+    i18n: 'nav.careers'
+    name: 'Careers'
+    tpl: 'careers.html'
     css: 'timeline'
 
   - id: 'skills'
