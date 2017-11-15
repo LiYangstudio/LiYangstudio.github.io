@@ -12,7 +12,7 @@ url: ""
 author:
   name: 'liyang'
   first_name: ''
-  last_name: 'Ye'
+  last_name: 'Li'
   email: ''
   github_username: ''
   head_img: ''
@@ -30,7 +30,7 @@ sections:
   - id: 'career'
     i18n: 'nav.career'
     name: 'Career'
-    tpl: 'careers.html'
+    tpl: 'career.html'
     css: 'timeline'
 
   - id: 'skills'

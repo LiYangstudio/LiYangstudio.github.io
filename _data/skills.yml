@@ -1,8 +1,8 @@
 - name: java
-  percentage: 70
+  percentage: 100
 
 - name: java framework
-  percentage: 40
+  percentage: 100
 
 - name: git
   percentage: 60

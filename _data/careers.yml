@@ -24,7 +24,7 @@
   job:
     detail:  Android
     i18n: netease_job
-  icon: fa-gamepad
+  icon: fa-child
 
 - name:
     detail:  TopView
@@ -38,7 +38,7 @@
   job:
     detail:  Topview
     i18n:   ucloud_job
-  icon: fa-cloud
+  icon: fa-child
 
 - name:
     detail:  College
@@ -52,4 +52,4 @@
   job:
     detail: University Student
     i18n: college_job
-  icon: fa-book
+  icon: fa-child
