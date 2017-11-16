@@ -2,21 +2,21 @@
 
 # Website settings
 title: "LiYang"
-description: "yzh's blog,use Jekyll and github pages."
-keywords: "yzh,Jalpc,blog,Jekyll,github,gh-pages"
-baseurl: "/"
-url: ""
+description: "LiYang's blog,use Jekyll and github pages."
+keywords: "LiYang,Jalpc,blog,Jekyll,github,gh-pages"
+baseurl: "https://LiYangstudio.github.io/"
+url: "https://LiYangstudio.github.io/"
 # url: "http://127.0.0.1:4000"
 
 # author
 author:
-  name: 'liyang'
-  first_name: ''
+  name: 'LiYang'
+  first_name: 'Yang'
   last_name: 'Li'
-  email: ''
-  github_username: ''
-  head_img: ''
-  mylove: 'static/mylove/index.html'
+  email: 'LeeYoungweb@gmail.com'
+  github_username: 'LiYangstudio'
+  head_img: 'static/img/landing/yzh.jpg'
+  mylove: ''
   desc: 'i am a student come from GDUT'
 
 # sections

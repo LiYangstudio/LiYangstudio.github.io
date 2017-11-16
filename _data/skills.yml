@@ -1,17 +1,17 @@
-- name: java
-  percentage: 100
+- name: Java
+  percentage: 50
 
-- name: java framework
-  percentage: 100
+- name: Java Framework
+  percentage:  50
 
-- name: git
+- name: Git
   percentage: 60
 
 - name: Android
+  percentage: 80
+
+- name: Android  Framework
+  percentage: 80
+
+- name: C
   percentage: 50
-
-- name: Android  framework
-  percentage: 60
-
-- name: computer net
-  percentage: 45

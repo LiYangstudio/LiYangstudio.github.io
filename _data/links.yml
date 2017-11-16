@@ -1,11 +1,11 @@
-- last_name: stackoverflow
+- last_name: Stackoverflow
   first_name:
   desc: 'solve the it problem'
   website: 'http://stackoverflow.com/'
-  email: '1821311751@qq.com'
+  email: 'LeeYoungweb.com'
 
-- last_name: github
+- last_name: Github
   first_name:
-  desc: 'my github.'
+  desc: 'My Github.'
   website: 'https://github.com/LiYangstudio'
-  email: '1821311751@qq.com'
+  email: 'LeeYoungweb.com'

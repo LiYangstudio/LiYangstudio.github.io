@@ -1,8 +1,8 @@
-- name: 'python spider'
+- name: 'YouXiaoYun (Android)'
   i18n: 'python'
-  url: '/yzhihao/python_spier'
+  url: 'http://www.youxiaoyun.com.cn/downloadApp/'
   img: 'static/img/landing/python.jpg'
-  desc: 'This is a python crawler  I  developed in the second year of my university.This crawler is crawling the information of the user and the problem from ZhiHu. There is also a  demo that it can invoke the page JS.'
+  desc:  'YouXiaoYun is a number of primary school in Guangzhou School of commercial App, the main function of providing home school for the school of communication and other home school plus service, the main operation of Zhixin middle school in Guangzhou city in 15 primary school'
 
 - name: 'library'
   i18n: 'library'
