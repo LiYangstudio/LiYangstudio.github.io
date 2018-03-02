@@ -5,10 +5,10 @@ desc: 我的博客系统介绍
 keywords: 'blog'
 date: 2017-2-29T00:00:00.000Z
 categories:
-- blog
+- life
 tags:
-- blog
-icon: fa-blog
+- life
+icon: fa-life
 ---
 
 [【Android View】（一）View绘制基础](http://www.hanszone.xyz/2016/04/25/%E3%80%90Android%20View%E3%80%91%EF%BC%88%E4%B8%80%EF%BC%89View%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/)
