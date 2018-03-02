@@ -517,4 +517,4 @@ public int getItemViewType(int position) {
 
 
 
-**- Hans 2016.7.25**
+
