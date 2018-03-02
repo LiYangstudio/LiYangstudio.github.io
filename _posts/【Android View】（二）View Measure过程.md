@@ -10,14 +10,7 @@ tags:
 - blog
 icon: fa-blog
 ---
-[【Android View】（一）View绘制基础](http://www.hanszone.xyz/2016/04/25/%E3%80%90Android%20View%E3%80%91%EF%BC%88%E4%B8%80%EF%BC%89View%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/)
-[【Android View】（二）View Measure过程](http://www.hanszone.xyz/2016/04/26/%E3%80%90Android%20View%E3%80%91%EF%BC%88%E4%BA%8C%EF%BC%89View%20Measure%E8%BF%87%E7%A8%8B/)
-[【Android View】（三）获取View的大小](http://www.hanszone.xyz/2016/04/26/%E3%80%90Android%20View%E3%80%91%EF%BC%88%E4%B8%89%EF%BC%89%E8%8E%B7%E5%8F%96View%E7%9A%84%E5%A4%A7%E5%B0%8F/)
-[【Android View】（四）View Layout过程](http://www.hanszone.xyz/2016/05/12/%E3%80%90Android%20View%E3%80%91%EF%BC%88%E5%9B%9B%EF%BC%89View%20Layout%E8%BF%87%E7%A8%8B/)
-[【Android View】（五）View Draw过程](http://www.hanszone.xyz/2016/05/13/%E3%80%90Android%20View%E3%80%91%EF%BC%88%E4%BA%94%EF%BC%89View%20Draw%E8%BF%87%E7%A8%8B/)
-<!-- more -->
 
-****
 # View的measure过程
 前面说了，测量过程是：
 ![measure过程](http://img.blog.csdn.net/20160426125856290)
@@ -335,4 +328,4 @@ start->op1->op2->op3->op4->end
 
 > 参考资料：《Android开发艺术探索》
 
-**-Hans 2016.04.26 20:00**
+## 文章解读和评价
