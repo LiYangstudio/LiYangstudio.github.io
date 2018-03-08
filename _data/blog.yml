@@ -1,23 +1,23 @@
 - name: Blog
   href: '/blog/'
 
-- name: C
+- name:
   href: '/C/'
 
-- name: tools
+- name:
   href: '/tools/'
 
-- name: Java
+- name:
   href: '/java/'
 
-- name: Reading
+- name:
   href: '/Reading/'
 
-- name: Machine Learning
+- name:
   href: '/Machine Learning/'
 
-- name: Life
+- name:
   href: '/life/'
 
-- name: database
+- name:
   href: '/database/'
