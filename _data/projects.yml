@@ -2,10 +2,10 @@
   i18n: 'python'
   url: 'http://www.youxiaoyun.com.cn/downloadApp/'
   img: 'static/img/landing/python.jpg'
-  desc:  'YouXiaoYun is a number of primary school in Guangzhou School of commercial App, the main function of providing home school for the school of communication and other home school plus service, the main operation of Zhixin middle school in Guangzhou city in 15 primary school'
+  desc: 'YouXiaoYun is a number of primary school in Guangzhou School of commercial App, the main function of providing home school for the school of communication and other home school plus service, the main operation of Zhixin middle school in Guangzhou city in 15 primary school'
 
-- name: 'library'
+- name: 'HaiKou_Safe'
   i18n: 'library'
-  url: '/yzhihao/com.topview.library'
+  url: 'http://www.youxiaoyun.com.cn/downloadApp/'
   img: 'static/img/landing/saplatform.png'
   desc: "In older to  enter into TopView studio,I develop this project."
