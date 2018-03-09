@@ -1,17 +1,6 @@
 
 
----
-layout: 【Volley核心类分析】RequestQueue（一）
-title:【IntentService】原理解析
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2016-11-07T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: icon-life
----
+
 <h1>1.前言</h1>
 Volley ， 当我从第一次接触安卓开始就已经听过这个库的存在。 
 

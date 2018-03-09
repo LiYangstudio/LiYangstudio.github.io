@@ -1,17 +1,6 @@
 
 
----
-layout: post
-title: 【Android消息机制】（二）Handler内存泄漏
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2017-5-30T00:00:00.000Z
-categories:
-- blog
-tags:
-- blog
-icon: fa-blog
----
+
 # 问题根源
 在使用Handler发送消息的时候，Message有一个target字段引用了我们发送消息的Handler。 如果队列消息过多，这个Message迟迟得不到处理，若此时Activity被finish()，那么将会造成内存泄漏。 （Message保持有Handler的引用，所以也保持有Activity的引用，导致Activity无法销毁）
 <!-- more -->

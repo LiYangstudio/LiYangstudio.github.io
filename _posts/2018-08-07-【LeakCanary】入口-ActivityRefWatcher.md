@@ -1,15 +1,5 @@
 
----
-layout: post
-title:【LeakCanary】入口-ActivityRefWatcherdesc: 我的博客系统介绍
-keywords: 'blog'
-date: 2016-11-07T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: icon-life
----
+
 ## 前提概念
 
 要弄明白一个前提概念：

@@ -1,16 +1,5 @@
 
----
-layout: post
-title:【LeakCanary】核心-RefWatcher.md
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2016-11-07T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: icon-life
----
+
 ## 概述
 
 从前面的文章了解到，LeakCanary的核心就是`RefWather`的`watch`方法。所以接下来我们来分析一下`RefWatcher`类

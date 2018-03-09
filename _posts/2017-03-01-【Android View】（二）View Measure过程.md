@@ -1,15 +1,4 @@
----
-layout: post
-title: 【Android View】（二）View Measure过程
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2017-1-20T00:00:00.000Z
-categories:
-- blog
-tags:
-- blog
-icon: fa-blog
----
+
 
 # View的measure过程
 前面说了，测量过程是：

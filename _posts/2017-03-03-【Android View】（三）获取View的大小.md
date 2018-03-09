@@ -1,15 +1,4 @@
----
-layout: post
-title: 【Android View】（三）获取View的大小
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2017-1-28T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: fa-life
----
+
 <!-- more -->
 [【Android View】（一）View绘制基础](http://www.hanszone.xyz/2016/04/25/%E3%80%90Android%20View%E3%80%91%EF%BC%88%E4%B8%80%EF%BC%89View%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/)
 [【Android View】（二）View Measure过程](http://www.hanszone.xyz/2016/04/26/%E3%80%90Android%20View%E3%80%91%EF%BC%88%E4%BA%8C%EF%BC%89View%20Measure%E8%BF%87%E7%A8%8B/)
@@ -69,4 +58,4 @@ observer.addOnGlobalLayoutListener(new OnGloballLayoutListener() {
 
 > 参考资料：《Android开发艺术探索》
 
-**-Hans 2016.04.26 20:00**
+

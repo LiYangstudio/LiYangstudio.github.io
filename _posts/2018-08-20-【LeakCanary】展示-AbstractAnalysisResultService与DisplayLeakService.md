@@ -1,15 +1,5 @@
 
----
-layout: post
-title:【LeakCanary】展示-AbstractAnalysisResultService与DisplayLeakService.md
-keywords: 'blog'
-date: 2016-11-07T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: icon-life
----
+
 ## AbstractAnalysisResultService
 
 * 继承自`IntentService`

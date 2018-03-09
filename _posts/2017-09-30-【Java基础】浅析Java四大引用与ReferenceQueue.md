@@ -1,16 +1,5 @@
 
----
-layout: post
-title: 【Java基础】浅析Java四大引用与ReferenceQueue.md
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2017-1-28T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: fa-life
----
+
 ## Java四大引用
 
 * 强引用：对象绝对不会被回收，直到程序退出为止（包含OOM）

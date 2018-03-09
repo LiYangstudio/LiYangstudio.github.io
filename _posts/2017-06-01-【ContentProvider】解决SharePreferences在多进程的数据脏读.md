@@ -1,16 +1,5 @@
 
----
-layout: post
-title: 【ContentProvider】解决SharePreferences在多进程的数据脏读
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2017-6-02T00:00:00.000Z
-categories:
-- blog
-tags:
-- blog
-icon: fa-blog
----
+
 ## 问题描述
 
 由于WebView内存泄露的原因，在工程中一般都会是用多进程。
@@ -64,5 +53,5 @@ context.getContentResolver().call(sUri, PreferencesProvider.METHOD_PUT_BOOLEAN, 
 
 源代码分析可以看我的另外一篇笔记：[【SharePreferences】源码分析](http://www.hanszone.xyz/2016/10/27/%E3%80%90SharePreferences%E3%80%91%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)
 
-**-Hans 2016.10.27**
+
 

@@ -1,16 +1,5 @@
 
----
-layout: post
-title: 【Android View】（五）View Draw过程
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2017-5-22T00:00:00.000Z
-categories:
-- blog
-tags:
-- blog
-icon: fa-blog
----
+
 
 
 ****
@@ -202,4 +191,4 @@ public static int getChildMeasureSpec(int spec, int padding, int childDimension)
 
 > 参考资料：《Android开发艺术探索》
 
-**-Hans 2016.04.25 13:00**
+

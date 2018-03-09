@@ -1,15 +1,4 @@
----
-layout: post
-title: 【RecyclerView】为RecyclerView设置监听的设计过程
-desc: 我的博客系统介绍
-keywords: 'blog,Machine Learning,AI'
-date: 2017-1-18T00:00:00.000Z
-categories:
-- blog
-tags:
-- blog
-icon: fa-blog
----
+
 # 概述
 
 RecyclerView由于天生没有像ListView那样具有setOnItemClickListener或者setOnItemLongClickListener能够很简单对Item进行监听的方法。

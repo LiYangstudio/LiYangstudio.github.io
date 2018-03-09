@@ -1,16 +1,5 @@
 
----
-layout: post
-title:【JVM】ClassLoader.md
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2016-11-07T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: icon-life
----
+
 
 <!-- more -->
 ## 参考资料
@@ -102,4 +91,4 @@ Java中有三种类加载器：
 [Java类加载器之线程上下文类加载器(ContextClassLoader)](http://blog.leanote.com/post/medusar/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6)
 
 
-**-Hans**
+

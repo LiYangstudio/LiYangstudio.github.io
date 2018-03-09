@@ -1,16 +1,5 @@
 
----
-layout: post
-title:【IntentService】原理解析
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2016-11-07T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: icon-life
----
+
 
 <h1>为何要用IntentService</h1>
 IntentService主要是用来处理耗时的任务。 那么可能有的人会说，为何我不使用开一个线程或者其他来方式来实现呢？
@@ -118,4 +107,4 @@ OK，那我们现在来走一遍他的工作流程。
 
 所以它的工作流程就很清晰地呈现出来了！
 
--Hans 2016.2.26 23:10
+

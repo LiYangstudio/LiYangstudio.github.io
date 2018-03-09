@@ -1,16 +1,5 @@
 
----
-layout: post
-title: 【Android消息机制】（一）Handler、Looper和Message简要分析
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2017-1-28T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: fa-life
----
+
 <h1>主要组成概述：Hanlder、MessageQueue以及Looper</h1>
 1.Handler：线程切换
 

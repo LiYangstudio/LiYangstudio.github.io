@@ -1,17 +1,6 @@
 
 
----
-layout: 【Volley核心类分析】RequestQueue（一）
-title:【IntentService】原理解析
-desc: 我的博客系统介绍
-keywords: 'blog'
-date: 2016-11-07T00:00:00.000Z
-categories:
-- life
-tags:
-- life
-icon: icon-life
----
+
 
 <h1>1.前言</h1>
 上一篇文章按照自己的思路来写，对于他人来说可以能不是那么容易读懂，想要改一下却不知道如何下手。
