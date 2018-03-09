@@ -3,9 +3,9 @@
 # Website settings
 title: "LiYang"
 description: "LiYang's blog,use Jekyll and github pages."
-keywords: "LiYang,Jalpc,blog,Jekyll,github,gh-pages"
+keywords: "LiYang,Jalpc,blog,Jekyll,gh-pages"
 baseurl: "https://LiYangstudio.github.io/"
-url: ""
+url: "https://LiYangstudio.github.io/"
 # url: "http://127.0.0.1:4000"
 
 # author
