@@ -4,8 +4,8 @@
   website: 'http://stackoverflow.com/'
   email: 'LeeYoungweb.com'
 
-- last_name: Github
+- last_name: GitLab
   first_name:
-  desc: 'My Github.'
+  desc: 'My GitLab.'
   website: 'https://github.com/LiYangstudio'
   email: 'LeeYoungweb.com'
