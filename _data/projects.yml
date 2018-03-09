@@ -1,11 +1,11 @@
 - name: 'YouXiaoYun (Android)'
-  i18n: 'python'
+  i18n: 'youxiaoyun'
   url: 'http://www.youxiaoyun.com.cn/downloadApp/'
   img: 'static/img/landing/python.jpg'
   desc: 'YouXiaoYun is a number of primary school in Guangzhou School of commercial App, the main function of providing home school for the school of communication and other home school plus service, the main operation of Zhixin middle school in Guangzhou city in 15 primary school.'
 
 - name: 'HaiKou_Safe'
-  i18n: 'library'
+  i18n: 'haikousafe'
   url: 'http://www.youxiaoyun.com.cn/downloadApp/'
   img: 'static/img/landing/saplatform.png'
   desc: 'I develop this project.'
