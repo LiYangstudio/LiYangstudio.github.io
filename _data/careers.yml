@@ -2,7 +2,7 @@
     detail:  Hobby
     i18n: nextcode
   desc:
-    detail:  I like to swim，pingpang.
+    detail:  I like to swim，pingpang，football,laset but not  least , I  like  coding .
     i18n: nextcode_des
   date:
     detail:  2016-
@@ -19,7 +19,7 @@
     detail:  This year, I started the Android learning trip
     i18n: netease_des
   date:
-    detail:  2017-
+    detail:  2016-
     i18n: nextcode_date
   job:
     detail:  Android

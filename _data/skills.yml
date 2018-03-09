@@ -1,11 +1,11 @@
 - name: Java
-  percentage: 50
+  percentage: 80
 
 - name: Computer Net
   percentage:  50
 
 - name: Git
-  percentage: 60
+  percentage: 50
 
 - name: Android
   percentage: 80
