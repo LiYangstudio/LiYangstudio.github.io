@@ -7,10 +7,10 @@
 - name: Git
   percentage: 50
 
-- name: Android
+- name: Coding
   percentage: 80
 
-- name: Android  Framework
+- name: Experiecce
   percentage: 80
 
 - name: C
