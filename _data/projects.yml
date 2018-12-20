@@ -1,11 +1,10 @@
-  - name: 'Alipay(Alibaba)'
+- name: 'Alipay(Alibaba)'
   i18n: '2018.10'
   url: 'http://www.youxiaoyun.com.cn/downloadApp/'
   img: 'static/img/landing/saplatform.png'
   desc: 'After October 2018, between Alibaba and Tencent, I chose to come to Alibaba Alipay, hoping to become an excellent developer. This is also the first time I have been away from Guangdong for so long. Come on, cheer up.'
 
-
-  - name: 'Wechat(Tencent)'
+- name: 'Wechat(Tencent)'
   i18n: '2018.06'
   url: 'http://www.youxiaoyun.com.cn/downloadApp/'
   img: 'static/img/landing/python.jpg'
