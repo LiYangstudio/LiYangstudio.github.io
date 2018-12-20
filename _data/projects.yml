@@ -1,4 +1,4 @@
-- name: 'Alipay(Alibaba)'
+  - name: 'Alipay(Alibaba)'
   i18n: '2018.10'
   url: 'http://www.youxiaoyun.com.cn/downloadApp/'
   img: 'static/img/landing/saplatform.png'
