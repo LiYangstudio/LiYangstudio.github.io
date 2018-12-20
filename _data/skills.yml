@@ -1,13 +1,13 @@
 - name: Java
   percentage: 80
 
-- name: Computer Net
+- name: Machine Learning
   percentage:  50
 
 - name: Git
   percentage: 50
 
-- name: Coding
+- name: NLP
   percentage: 80
 
 - name: Experiecce
