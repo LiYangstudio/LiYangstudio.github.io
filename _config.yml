@@ -4,8 +4,11 @@
 title: "Lee Young"
 description: "LiYang's blog,use Jekyll and github pages."
 keywords: "LiYang,Jalpc,blog,Jekyll,gh-pages"
-baseurl: "https://LiYangstudio.github.io/"
-url: "https://LiYangstudio.github.io/"
+baseurl: "https://yanglidev.com"
+url: "https://yanglidev.com"
+# baseurl: "https://LiYangstudio.github.io/"
+# url: "https://LiYangstudio.github.io/"
+
 # url: "http://127.0.0.1:4000"
 
 # author
