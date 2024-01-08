@@ -1,7 +1,7 @@
 # Welcome to Jekyll!
 
 # Website settings
-title: "Lee Young"
+title: "Yang Li"
 description: "LiYang's blog,use Jekyll and github pages."
 keywords: "LiYang,Jalpc,blog,Jekyll,gh-pages"
 baseurl: "https://LiYangstudio.github.io/"
@@ -11,9 +11,9 @@ url: "https://LiYangstudio.github.io/"
 
 # author
 author:
-  name: 'Lee Young'
-  first_name: 'Young'
-  last_name: 'Lee'
+  name: 'Yang Li'
+  first_name: 'Yang'
+  last_name: 'Li'
   email: 'LeeYoungweb@gmail.com'
   github_username: ''
   head_img: 'static/img/landing/yzh.jpg'
