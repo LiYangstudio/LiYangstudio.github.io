@@ -2,10 +2,11 @@
     detail:  Tencent Music (NYSE /:TME)
     i18n: nextcode
   desc:
-    detail:  Fortunately, in my senior year, I have already had experience in the development of two top Internet companies, Tencent and Alibaba.
+    detail:  As a senior full-stack software engineer with five years at NYSE-listed Tencent Music, I contributed to the development of 'WeSing' and 'QQMusic,' apps with over 100 million daily active users. I hold international patents, including WO2023011050 and 113596516.
+
     i18n: nextcode_des
   date:
-    detail:  2019-
+    detail:  2019.7 - Present
     i18n:  nextcode_date
   job:
     detail:  Staff Senior Software Engineer
@@ -13,13 +14,13 @@
   icon: fa-child
 
 - name:
-    detail:  Developer
+    detail:  Alibaba Group(NYSE:: BABA)
     i18n: netease
   desc:
     detail:  This year, I started to be a Developer
     i18n: netease_des
   date:
-    detail:  2016-
+    detail:  2018.7 - 2019.6
     i18n: nextcode_date
   job:
     detail:  Developer
