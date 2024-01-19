@@ -1,14 +1,14 @@
-- name:
-    detail: HGHJGJHGJHGJHGJ
+- name:  Tencent Music
+    detail:  Tencent Music (NYSE /:TME)
     i18n: nextcode
   desc:
     detail:  Fortunately, in my senior year, I have already had experience in the development of two top Internet companies, Tencent and Alibaba.
     i18n: nextcode_des
   date:
-    detail:  2018-
+    detail:  2019-
     i18n:  nextcode_date
   job:
-    detail:  Experience
+    detail:  Staff Senior Software Engineer
     i18n: nextcode_job
   icon: fa-child
 
