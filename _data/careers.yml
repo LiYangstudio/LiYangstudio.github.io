@@ -4,6 +4,8 @@
   desc:
     detail:  As a senior full-stack software engineer with five years at NYSE-listed Tencent Music, I contributed to the development of 'WeSing' and 'QQMusic,' apps with over 100 million daily active users. I hold international patents, including WO2023011050 and 113596516.
 
+    My five-year work experience in Computer Science. At Tencent Music, a NYSE-listed internet company renowned for its applications such as 'WeSing' and 'QQMusic' with over 100 million daily active users, my role as a staff senior full-stack software engineer over the past five years has not only given me hands-on experience in Computer Science, but also involved tackling challenges like optimizing audio and video transmission structures and algorithms to overcome app latency issues. As the lead of our development team, I spearheaded the design and development of an efficient audio-video processing framework for online choral singing, based on optimizing audio-video compression structures and algorithms, as evidenced by my co-authored patent (WO2023011050). This framework, successfully deployed in apps for years and supporting millions globally in daily online choral singing, not only reduced bandwidth for live streaming but also enabled real-time musical collaborations at long distances with minimal audio delays, even in less-than-ideal network conditions.  Furthermore, my work involved research on machine learning algorithms for image feature extraction within apps. A notable achievement (patent 113596516) was the development of a novel approach for constructing Random-Forest-Models, which improves data efficiency by building decision trees from diverse sample subsets and then systematically integrating these to enhance the model. Through these efforts, I have gained substantial experience in optimizing machine learning algorithms for commercial projects
+
     i18n: nextcode_des
   date:
     detail:  2019.7 - Present
@@ -14,41 +16,41 @@
   icon: fa-child
 
 - name:
-    detail:  Alibaba Group(NYSE BABA)
+    detail:  Alibaba Group (NYSE BABA)
     i18n: netease
   desc:
-    detail:  This year, I started to be a Developer
+    detail:  This year,in my senior year internship at Alibaba Group, I collaborated with Prof Wu Lei and processed over 20TB of multilingual RDF data using Python and C++ to build a knowledge graph, and then focused on enhancing a question generation algorithm to create a multilingual question-answering system from this graph. This experience aligns seamlessly Artificial Intelligence
     i18n: netease_des
   date:
     detail:  2018.7 - 2019.6
     i18n: nextcode_date
   job:
-    detail:  Developer
+    detail:  Software Engineer
     i18n: netease_job
   icon: fa-child
 
 - name:
-    detail:  TopView
+    detail:  iOS Club Summer Camp
     i18n: ucloud
   desc:
     detail:  This year, I successfully passed the assessment and joined the Topview Laboratory
     i18n: ucloud_des
   date:
-    detail:  2016-
+    detail:  2017.12 - 2018.03
     i18n: ucloud_date
   job:
-    detail:  Topview
+    detail:  My junior year involvement in Prof Liao Zhaohui's research group, where I focused on using machine learning models to train sentiment classification in Chinese text, optimizing classification methods and enhancing feature extraction through Bi-LSTM networks for an app. This project also led to the app winning at the Apple's official Summer Camp in 2017, representing my university. This project not only enhanced my skills in algorithm optimization but also deepened my understanding of complex functional programming.
     i18n:   ucloud_job
   icon: fa-child
 
 - name:
-    detail:  College
+    detail:  My University
     i18n:  college
   desc:
-    detail:  I am now a computer specialized student and will graduate in 2019.Study well and make progress every day.
+    detail:  Reflecting on my undergraduate studies, my burgeoning interest in Computer Science was fueled by engaging in numerous specialized courses such as ‘Data Structures’, ‘Computer Networks’ and others. These foundational courses equipped me with a solid theoretical base.
     i18n: college_des
   date:
-    detail:  2015-2019
+    detail:  2015.09 - 2019.06
     i18n: college_date
   job:
     detail: University Student
