@@ -1,6 +1,6 @@
-- name: 'Alipay(Alibaba)'
-  i18n: '2018.10'
-  url: 'http://www.youxiaoyun.com.cn/downloadApp/'
+- name: 'WeSing App'
+  i18n: '2019.07 -- Present'
+  url: 'https://www.wesingapp.com/?g_f='
   img: 'static/img/landing/saplatform.png'
   desc: 'After October 2018, between Alibaba and Tencent, I chose to come to Alibaba Alipay, hoping to become an excellent developer. This is also the first time I have been away from Guangdong for so long. Come on, cheer up.'
 
