@@ -1,4 +1,20 @@
 - name:
+    detail:  University of Washington
+    i18n: nextcode
+  desc:
+    detail:  Master of Science in Computer Engineering
+
+    i18n: nextcode_des
+  date:
+    detail:  2024.9 - Present
+    i18n:  nextcode_date
+  job:
+    detail:  Graduate Student
+    i18n: nextcode_job
+  icon: fa-child
+
+
+  - name:
     detail:  Tencent Music (NYSE  TME)
     i18n: nextcode
   desc:
@@ -6,10 +22,10 @@
 
     i18n: nextcode_des
   date:
-    detail:  2019.7 - Present
+    detail:  2022/05 - 2023/11
     i18n:  nextcode_date
   job:
-    detail:  Staff Senior Software Engineer
+    detail:  Software Engineer
     i18n: nextcode_job
   icon: fa-child
 
@@ -20,10 +36,10 @@
     detail:  This year,in my senior year internship at Alibaba Group, I collaborated with Prof Wu Lei and processed over 20TB of multilingual RDF data using Python and C++ to build a knowledge graph, and then focused on enhancing a question generation algorithm to create a multilingual question-answering system from this graph. This experience aligns seamlessly Artificial Intelligence
     i18n: netease_des
   date:
-    detail:  2018.7 - 2019.6
+    detail:  2021/02 - 2022/02
     i18n: nextcode_date
   job:
-    detail:  Software Engineer
+    detail:  Software Engineer Internship
     i18n: netease_job
   icon: fa-child
 
