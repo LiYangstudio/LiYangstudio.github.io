@@ -6,7 +6,7 @@
 
     i18n: nextcode_des
   date:
-    detail:  2024.9 - Present
+    detail:  2024.09 - Present
     i18n:  nextcode_date
   job:
     detail:  Graduate Student
@@ -22,7 +22,7 @@
 
     i18n: nextcode_des
   date:
-    detail:  2022/05 - 2023/11
+    detail:  2022.05 - 2023.11
     i18n:  nextcode_date
   job:
     detail:  Software Engineer
@@ -36,7 +36,7 @@
     detail:  This year,in my senior year internship at Alibaba Group, I collaborated with Prof Wu Lei and processed over 20TB of multilingual RDF data using Python and C++ to build a knowledge graph, and then focused on enhancing a question generation algorithm to create a multilingual question-answering system from this graph. This experience aligns seamlessly Artificial Intelligence
     i18n: netease_des
   date:
-    detail:  2021/02 - 2022/02
+    detail:  2021.02 - 2022.02
     i18n: nextcode_date
   job:
     detail:  Software Engineer Internship
