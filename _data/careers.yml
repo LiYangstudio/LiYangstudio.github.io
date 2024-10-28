@@ -1,8 +1,8 @@
 - name:
-    detail:  University of Washington
+    detail:  University of Washington, Seattle
     i18n: nextcode
   desc:
-    detail:  Master of Science in Computer Engineering
+    detail:  Master of Science in Computer Engineering, Enrollment in 2024/09, expected to graduate in 2026 spring. Attended Paul G. Allen School of Computer Science & Engineering
 
     i18n: nextcode_des
   date:
@@ -15,10 +15,10 @@
 
 
 - name:
-    detail:  Tencent Music (NYSE  TME)
+    detail:  Tencent Music (Listed in NYSE  TME)
     i18n: nextcode
   desc:
-    detail:  My five-year work experience in Computer Science. At Tencent Music, a NYSE-listed internet company renowned for its applications such as 'WeSing' and 'QQMusic' with over 100 million daily active users, my role as a staff senior full-stack software engineer over the past five years has not only given me hands-on experience in Computer Science, but also involved tackling challenges like optimizing audio and video transmission structures and algorithms to overcome app latency issues. As the lead of our development team, I spearheaded the design and development of an efficient audio-video processing framework for online choral singing, based on optimizing audio-video compression structures and algorithms, as evidenced by my co-authored patent (WO2023011050). This framework, successfully deployed in apps for years and supporting millions globally in daily online choral singing, not only reduced bandwidth for live streaming but also enabled real-time musical collaborations at long distances with minimal audio delays, even in less-than-ideal network conditions.  Furthermore, my work involved research on machine learning algorithms for image feature extraction within apps. A notable achievement (patent 113596516) was the development of a novel approach for constructing Random-Forest-Models, which improves data efficiency by building decision trees from diverse sample subsets and then systematically integrating these to enhance the model. Through these efforts, I have gained substantial experience in optimizing machine learning algorithms for commercial projects
+    detail:  At Tencent Music, This is a New York Stock Exchange listed company renowned for its applications such as 'WeSing' and 'QQMusic' with over 100 million daily active users, my role as a staff senior full-stack software engineer over the past five years has not only given me hands-on experience in Computer Science, but also involved tackling challenges like optimizing audio and video transmission structures and algorithms to overcome app latency issues. As the lead of our development team, I spearheaded the design and development of an efficient audio-video processing framework for online choral singing, based on optimizing audio-video compression structures and algorithms, as evidenced by my co-authored patent (WO2023011050). This framework, successfully deployed in apps for years and supporting millions globally in daily online choral singing, not only reduced bandwidth for live streaming but also enabled real-time musical collaborations at long distances with minimal audio delays, even in less-than-ideal network conditions.  Furthermore, my work involved research on machine learning algorithms for image feature extraction within apps. A notable achievement (patent 113596516) was the development of a novel approach for constructing Random-Forest-Models, which improves data efficiency by building decision trees from diverse sample subsets and then systematically integrating these to enhance the model. Through these efforts, I have gained substantial experience in optimizing machine learning algorithms for commercial projects
 
     i18n: nextcode_des
   date:
@@ -30,10 +30,10 @@
   icon: fa-child
 
 - name:
-    detail:  Alibaba Group (NYSE BABA)
+    detail:  Alibaba Group (Listed in NYSE BABA)
     i18n: netease
   desc:
-    detail:  This year,in my senior year internship at Alibaba Group, I collaborated with Prof Wu Lei and processed over 20TB of multilingual RDF data using Python and C++ to build a knowledge graph, and then focused on enhancing a question generation algorithm to create a multilingual question-answering system from this graph. This experience aligns seamlessly Artificial Intelligence
+    detail:  This year,in my senior year internship at Alibaba Group, This is a New York Stock Exchange listed company. I collaborated with Prof Wu Lei and processed over 20TB of multilingual RDF data using Python and C++ to build a knowledge graph, and then focused on enhancing a question generation algorithm to create a multilingual question-answering system from this graph. This experience aligns seamlessly Artificial Intelligence
     i18n: netease_des
   date:
     detail:  2021.02 - 2022.02

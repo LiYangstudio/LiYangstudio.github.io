@@ -12,13 +12,13 @@ url: "https://LiYangstudio.github.io/"
 # author
 author:
   name: 'Liam Li'
-  first_name: 'Liam'
-  last_name: 'Li'
+  first_name: 'Li'
+  last_name: 'Liam'
   email: 'LiamLiApply@outlook.com'
   github_username: ''
   head_img: 'static/img/landing/yzh.jpg'
   mylove: ''
-  desc: "As a senior full-stack software engineer with five years at NYSE-listed Tencent Music, I contributed to the development of 'WeSing' and 'QQMusic,' apps with over 100 million daily active users, I hold international patents, including WO2023011050 and 113596516."
+  desc: "I am a graduate student at the University of Washington, Seattle campus, expected to graduate in Spring 2026, actively seeking a Software Engineering internship for Summer 2025. I previously interned at NYSE-listed companies Tencent Music and Alibaba, where I contributed to the development of WeSing and QQMusic, applications with over 100 million daily active users. I also hold international patents, including WO2023011050 and 113596516."
 
 # sections
 sections:
